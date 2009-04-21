@@ -5,9 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.directwebremoting.org/schema/spring-dwr
-    http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd
-    http://cxf.apache.org/jaxws
-     http://cxf.apache.org/schemas/jaxws.xsd"
+    http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd"
 	default-lazy-init="true" default-autowire="byName">
 
 	<bean name="helloWorldAction" class="org.jerrymouse.example.HelloWorldAction"></bean>
@@ -19,9 +17,6 @@
 
 	<dwr:configuration>
 	</dwr:configuration>
-	
+
 	<dwr:controller id="dwrController" debug="true" />
-	
-	<jaxws:endpoint id="timeServiceCXF" implementor="org.jerrymouse.example.TimeServiceImpl"
-		 address="/timeService" />
 </beans>
