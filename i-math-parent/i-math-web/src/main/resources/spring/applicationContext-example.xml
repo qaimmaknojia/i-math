@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.directwebremoting.org/schema/spring-dwr
+    http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd
+    http://cxf.apache.org/jaxws
+     http://cxf.apache.org/schemas/jaxws.xsd"
+	default-lazy-init="true" default-autowire="byName">
+
+	<bean name="helloWorldAction" class="org.jerrymouse.example.HelloWorldAction"></bean>
+
+	<bean name="timeService" class="org.jerrymouse.example.TimeServiceImpl">
+		<dwr:remote javascript="timeService">
+		</dwr:remote>
+	</bean>
+
+	<dwr:configuration>
+	</dwr:configuration>
+	
+	<dwr:controller id="dwrController" debug="true" />
+	
+	<jaxws:endpoint id="timeServiceCXF" implementor="org.jerrymouse.example.TimeServiceImpl"
+		 address="/timeService" />
+</beans>
