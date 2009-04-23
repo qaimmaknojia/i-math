@@ -12,7 +12,6 @@
         	    classpath*:/applicationContext.xml
 		</param-value>
 	</context-param>
-
 	<servlet>
 		<servlet-name>dwr</servlet-name>
 		<servlet-class>org.directwebremoting.spring.DwrSpringServlet</servlet-class>
@@ -21,11 +20,14 @@
 			<param-value>true</param-value>
 		</init-param>
 	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>dwr</servlet-name>
 		<url-pattern>/dwr/*</url-pattern>
 	</servlet-mapping>
-	
+
+	<!-- Render a Gadget -->
+
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>
@@ -44,10 +46,8 @@
 	<listener>
 		<listener-class>org.jerrymouse.google.GoogleSecurityContextListener</listener-class>
 	</listener>
-
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
 
 </web-app>
