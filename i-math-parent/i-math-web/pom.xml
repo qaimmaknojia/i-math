@@ -28,10 +28,12 @@
 				<version>2.5.1</version>
 				<configuration>
 					<additionalProjectnatures>
-						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+						<projectnature>org.springframework.ide.eclipse.core.springnature
+						</projectnature>
 					</additionalProjectnatures>
 					<additionalBuildcommands>
-						<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+						<buildcommand>org.springframework.ide.eclipse.core.springbuilder
+						</buildcommand>
 					</additionalBuildcommands>
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>true</downloadJavadocs>
@@ -43,7 +45,9 @@
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>6.1.15</version>
 			</plugin>
+			
 		</plugins>
+		
 	</build>
 
 	<dependencies>
@@ -109,7 +113,8 @@
 		<!--  apache.geronimo -->
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-servlet_2.5_spec</artifactId>
+			<artifactId>geronimo-servlet_2.5_spec
+			</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
