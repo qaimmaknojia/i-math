@@ -7,8 +7,8 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>add-gadget</artifactId>
-	<name>add-gadget</name>
-	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
 	<url>http://maven.apache.org</url>
 	<build>
 		<plugins>
@@ -48,7 +48,10 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>
