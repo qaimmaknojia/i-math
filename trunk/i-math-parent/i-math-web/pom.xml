@@ -43,11 +43,30 @@
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
+				<configuration>
+					<webAppSourceDirectory>${basedir}/target/i-math-web-${pom.version}</webAppSourceDirectory>
+					<contextPath>/</contextPath>
+				</configuration>
 				<version>6.1.15</version>
 			</plugin>
-			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webResources>
+						<resource>
+							<!-- this is relative to the pom.xml directory -->
+							<directory>${basedir}/../gadgets/add-gadget/src/main/webapp/</directory>
+							<targetPath>gadgets/add-gadget</targetPath>
+							<includes>
+								<include>**/*.*</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
 		</plugins>
-		
+
 	</build>
 
 	<dependencies>
