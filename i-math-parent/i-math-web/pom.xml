@@ -1,12 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.jerrymouse</groupId>
 		<artifactId>i-math-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<artifactId>i-math-web</artifactId>
 	<packaging>war</packaging>
 
@@ -64,6 +65,8 @@
 			</plugin>
 
 		</plugins>
+
+		
 	</build>
 
 	<dependencies>
@@ -123,7 +126,6 @@
 		<dependency>
 			<groupId>org.directwebremoting</groupId>
 			<artifactId>dwr</artifactId>
-			<version>2.0.3</version>
 		</dependency>
 
 
@@ -131,17 +133,14 @@
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-servlet_2.5_spec</artifactId>
-			<version>RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jta_1.1_spec</artifactId>
-			<version>RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jpa_3.0_spec</artifactId>
-			<version>RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -162,7 +161,11 @@
 			<artifactId>commons-logging</artifactId>
 			<version>1</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.jerrymouse</groupId>
+			<artifactId>add-gadget</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 </project>
