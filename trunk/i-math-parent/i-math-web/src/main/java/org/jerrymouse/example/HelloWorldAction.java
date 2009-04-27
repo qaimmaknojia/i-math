@@ -23,6 +23,8 @@ package org.jerrymouse.example;
 
 import java.util.Calendar;
 
+import org.jerrymouse.gadgets.addGadget.service.AddService;
+
 /**
  * <code>Set welcome message.</code>
  */
@@ -47,7 +49,7 @@ public class HelloWorldAction extends ExampleSupport {
 		minute = calendar.get(Calendar.MINUTE);
 		return SUCCESS;
 	}
-
+	
 	public int getHour() {
 		return hour;
 	}
