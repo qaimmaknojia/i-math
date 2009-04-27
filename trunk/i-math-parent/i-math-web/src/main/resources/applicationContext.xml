@@ -6,4 +6,5 @@
 	default-lazy-init="true" default-autowire="autodetect">
 
 	<import resource="classpath:/spring/applicationContext-add-gadget.xml" />
+
 </beans>
