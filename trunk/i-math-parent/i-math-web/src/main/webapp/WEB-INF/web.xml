@@ -26,7 +26,6 @@
 		<url-pattern>/dwr/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- Render a Gadget -->
 
 	<filter>
 		<filter-name>struts2</filter-name>
@@ -46,6 +45,7 @@
 	<listener>
 		<listener-class>org.jerrymouse.google.GoogleSecurityContextListener</listener-class>
 	</listener>
+	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
