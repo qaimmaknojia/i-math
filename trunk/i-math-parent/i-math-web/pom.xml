@@ -87,6 +87,7 @@
 			<version>${struts.version}</version>
 			<scope>test</scope>
 		</dependency>
+
 		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
