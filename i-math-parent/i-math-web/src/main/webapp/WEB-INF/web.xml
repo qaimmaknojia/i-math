@@ -19,6 +19,10 @@
 			<param-name>debug</param-name>
 			<param-value>true</param-value>
 		</init-param>
+		<init-param>
+			<param-name>config-add-gadget</param-name>
+			<param-value>/gadgets/add-gadget/dwr.xml</param-value>
+		</init-param>
 	</servlet>
 
 	<servlet-mapping>
@@ -49,19 +53,4 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
-	<!--
-		gzip <filter> <filter-name>gzipFilter</filter-name>
-		<filter-class>net.sf.ehcache.constructs.web.filter.GzipFilter</filter-class>
-		</filter> <filter-mapping> <filter-name>gzipFilter</filter-name>
-		<url-pattern>*.css</url-pattern> </filter-mapping> <filter-mapping>
-		<filter-name>gzipFilter</filter-name> <url-pattern>*.js</url-pattern>
-		</filter-mapping> <filter-mapping>
-		<filter-name>gzipFilter</filter-name>
-		<url-pattern>*.action</url-pattern> </filter-mapping> <filter-mapping>
-		<filter-name>gzipFilter</filter-name> <url-pattern>*.htm</url-pattern>
-		</filter-mapping> <filter-mapping>
-		<filter-name>gzipFilter</filter-name>
-		<url-pattern>*.html</url-pattern> </filter-mapping>
-	-->
 </web-app>
