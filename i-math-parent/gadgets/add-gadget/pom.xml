@@ -9,7 +9,6 @@
 	<artifactId>add-gadget</artifactId>
 	<packaging>jar</packaging>
 
-	<url>http://maven.apache.org</url>
 	<build>
 		<plugins>
 			<plugin>
