@@ -15,6 +15,7 @@
 	<modules>
 		<module>add-gadget</module>
 		<module>smartcalculator</module>
+		<module>abprobability</module>
 	</modules>
 
 
