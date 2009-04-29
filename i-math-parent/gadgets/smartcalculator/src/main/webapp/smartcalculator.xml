@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module id="add-gadget">
+	<ModulePrefs title="加法器" />
+	<Content type="html">
+  <![CDATA[ 
+   <div style="text-align: center;" id="smartcalculatordiv"><embed
+	height="290" width="284"
+	src="/gadgets/smartcalculator/smartcalculator_cn.swf"
+	type="application/x-shockwave-flash" allowscriptaccess="always"
+	menu="false" /></div>
+  ]]>
+	</Content>
+</Module>
