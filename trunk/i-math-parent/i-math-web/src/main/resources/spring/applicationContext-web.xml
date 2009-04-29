@@ -6,6 +6,7 @@
 
 	<bean name="indexAction" class="org.jerrymouse.web.action.IndexAction"></bean>
 	<bean name="ifrAction" class="org.jerrymouse.web.action.IfrAction"></bean>
+	<bean name="urlTestAction" class="org.jerrymouse.web.action.URLTestAction"></bean>
 	<bean name="getGadgetAction" class="org.jerrymouse.web.action.getGadgetAction">
 	</bean>
 	<bean name="gadgetRenderService"

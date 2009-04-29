@@ -41,10 +41,8 @@ public class Gadget {
 			SAXBuilder builder = new SAXBuilder();
 			document = builder.build(in);
 		} catch (JDOMException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
