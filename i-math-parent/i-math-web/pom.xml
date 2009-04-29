@@ -55,12 +55,12 @@
 				<configuration>
 					<webResources>
 						<resource>
-							<!-- this is relative to the pom.xml directory -->
 							<directory>${basedir}/../gadgets/add-gadget/src/main/webapp/</directory>
 							<targetPath>gadgets/add-gadget</targetPath>
-							<includes>
-								<include>**/*.*</include>
-							</includes>
+						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/smartcalculator/src/main/webapp/</directory>
+							<targetPath>gadgets/smartcalculator</targetPath>
 						</resource>
 					</webResources>
 				</configuration>
@@ -86,6 +86,17 @@
 			<artifactId>struts2-junit-plugin</artifactId>
 			<version>${struts.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.2.3</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode</groupId>
+			<artifactId>jsonplugin</artifactId>
+			<version>0.33</version>
 		</dependency>
 
 		<!-- spring -->
@@ -129,6 +140,8 @@
 			<artifactId>dwr</artifactId>
 		</dependency>
 
+		<!--  apache -->
+
 
 		<!--  apache.geronimo -->
 		<dependency>
@@ -169,5 +182,16 @@
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
-
+	<repositories>
+		<repository>
+			<id>Maven Plugin Repository</id>
+			<url>http://struts2plugin-maven-repo.googlecode.com/svn/trunk/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
 </project>

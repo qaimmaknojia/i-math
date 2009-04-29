@@ -13,7 +13,6 @@ body {
 	background: #FFFFFF;
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 13px;
-	color: #666666;
 }
 
 h1,h2,h3 {
@@ -140,22 +139,63 @@ a:hover {
 
 .column {
 	float: left;
-	margin: 0 9px;
-	min-height: 100px;
-	padding: 17px 0 0;
 	width: 32%;
+	margin: 0;
+	padding: 17px 0 0 0;
+	margin: 0 9px;
+	_margin: 0 6px;
+	min-height: 100px;
 }
 
-}
-.gadget {
-	background-color: white;
-	border: 3px solid;
-	margin: 0 0 10px;
-	position: relative;
+.middlecolumn {
+	margin: 0;
 }
 
-.gadget IFRAME {
-	border: medium none;
+.gadgets-gadget-chrome {
+	float: left;
+	margin: 4px;
+	border: 1px solid #7aa5d6;
+	width: 100%;
+}
+
+.gadgets-gadget {
+	border: none;
+}
+
+.gadgets-gadget-title-bar {
+	padding: 2px 4px;
+	background-color: #e5ecf9;
+}
+
+.gadgets-gadget-title {
+	font-weight: bold;
+	color: #3366cc;
+}
+
+.gadgets-gadget-title-button-bar {
+	font-size: smaller;
+}
+
+.gadgets-gadget-user-prefs-dialog {
+	background-color: #e5ecf9;
+}
+
+.gadgets-gadget-user-prefs-dialog-action-bar {
+	text-align: center;
+	padding-bottom: 4px;
+}
+
+.gadgets-gadget-title-button {
+	
+}
+
+.gadgets-gadget-content {
+	width: 100%;
+	padding: 4px;
+}
+
+.gadgets-log-entry {
+	
 }
 
 /* Footer */
