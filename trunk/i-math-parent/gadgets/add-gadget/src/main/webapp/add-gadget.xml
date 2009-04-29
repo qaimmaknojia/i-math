@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module id="add-gadget">
-	<ModulePrefs title="加法器" />
+	<ModulePrefs title="add Machine" />
 	<Content type="html">
   <![CDATA[ 
 <script type="text/javascript" src="/dwr/interface/addService.js">
@@ -16,7 +16,7 @@
 =
 <span class="reply" id="d0"></span>
 
-<input type="button" value="计算"
+<input type="button" value="getIt"
 	onclick="addService.add($('p00').value, $('p01').value, reply0);"
 	class="ibutton">
   ]]>
