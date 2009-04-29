@@ -23,6 +23,10 @@
 			<param-name>config-add-gadget</param-name>
 			<param-value>/gadgets/add-gadget/dwr.xml</param-value>
 		</init-param>
+		<init-param>
+			<param-name>config-web</param-name>
+			<param-value>/WEB-INF/dwr.xml</param-value>
+		</init-param>
 	</servlet>
 
 	<servlet-mapping>

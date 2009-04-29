@@ -1,0 +1,9 @@
+<div class="gadgets-gadget-title-bar" id="gadgets-gadget-title-bar-0"><span
+	class="gadgets-gadget-title" id="remote_iframe_0_title">${title?if_exists}</span>
+| <span class="gadgets-gadget-title-button-bar"><a
+	class="gadgets-gadget-title-button"
+	onclick="gadgets.container.getGadget(0).handleOpenUserPrefsDialog();return false;"
+	href="#">settings</a> <a class="gadgets-gadget-title-button"
+	onclick="gadgets.container.getGadget(0).handleToggle();return false;"
+	href="#">toggle</a></span></div>
+<div class="gadgets-gadget-content">${content?if_exists}</div>

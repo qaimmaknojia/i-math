@@ -1,0 +1,37 @@
+<html>
+<head>
+<#include "/head.htm">
+
+<script type="text/javascript">
+
+
+var gadget_url = '${url}';
+
+// This container lays out and renders gadgets itself.
+
+function renderGadgets() {
+  //  createGadgetLayout;
+  var gadget = gadgets.createTestGadget(gadget_url);
+  
+};
+</script>
+</head>
+<body onLoad="renderGadgets();">
+<#include "/header.htm">
+
+<div id="container">
+<div id="tabs"></div>
+<div id="gadgets">
+<div class="column">
+<div id="testGadget" class="gadgets-gadget-chrome"></div>
+</div>
+<div class="column middlecolumn"></div>
+<div class="column" /></div>
+</div>
+
+<div id="footer">
+<p class="legal">©2009 Jerrymouse All Rights Reserved.</p>
+<p class="credits" />
+</div>
+</body>
+</html>

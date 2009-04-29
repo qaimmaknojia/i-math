@@ -4,8 +4,8 @@
 
 <dwr>
 	<allow>
-		<create creator="spring" javascript="addService">
-			<param name="beanName" value="addService" />
+		<create creator="spring" javascript="gadgetRenderService">
+			<param name="beanName" value="gadgetRenderService" />
 		</create>
 	</allow>
 </dwr>

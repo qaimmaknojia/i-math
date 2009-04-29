@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module id="add-gadget">
+	<ModulePrefs title="加法器" />
+	<Content type="html">
+  <![CDATA[ 
+    <div style="text-align:center">
+    <script type="text/javascript"
+	src="/static/js/mootools-1.2.2-core-nc.js"></script>
+<script type="text/javascript" src="/dwr/engine.js">
+  </script>
+<script type='text/javascript' src='/dwr/util.js'></script>
+<script type="text/javascript"
+	src="/gadgets/add-gadget/js/add-gadget.js"></script>
+<script type="text/javascript" src="/dwr/interface/addService.js">
+  </script>
+<input type="text" title="Will be converted to: double" id="p00"
+	value="0.0" size="10" class="itext">
++
+<input type="text" title="Will be converted to: double" id="p01"
+	value="0.0" size="10" class="itext">
+=
+<span class="reply" id="d0"></span>
+
+<input type="button" value="计算"
+	onclick="addService.add($('p00').value, $('p01').value, reply0);"
+	class="ibutton">
+    </div>
+  ]]>
+	</Content>
+</Module>

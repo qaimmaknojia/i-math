@@ -4,9 +4,19 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="web" extends="struts-default">
+	<package name="web" extends="struts-default" namespace="/">
 		<action name="index" class="indexAction">
 			<result name="success" type="freemarker">index.htm</result>
 		</action>
+		<action name="ifr" class="ifrAction">
+			<result name="success" type="freemarker">gadget-test.htm
+			</result>
+		</action>
 	</package>
+	<package name="example" extends="json-default" namespace="/">
+		<action name="getGadget" class="getGadgetAction">
+			<result name="success" type="json" />
+		</action>
+	</package>
+
 </struts>
