@@ -12,14 +12,9 @@
 			<result name="success" type="freemarker">gadget-test.htm
 			</result>
 		</action>
-		<action name="urlTest" class="urlTestAction">
-			<result name="success" type="freemarker">urlTest.htm
+		<action name="debugger" class="debuggerAction">
+			<result name="success" type="freemarker">debugger.htm
 			</result>
-		</action>
-	</package>
-	<package name="example" extends="json-default" namespace="/">
-		<action name="getGadget" class="getGadgetAction">
-			<result name="success" type="json" />
 		</action>
 	</package>
 
