@@ -30,6 +30,7 @@ import freemarker.template.TemplateException;
 public class Gadget extends GadgetInfo {
 	private String html;
 	private List<String> javascripts;
+	private String javascriptSrc;
 	private String title;
 
 	private Document document;
@@ -79,12 +80,26 @@ public class Gadget extends GadgetInfo {
 		Element content = root.element("Content");
 		html = buildHtml(content.getText());
 		javascripts = buildJavascripts(content.getText());
-
+		setJavascriptSrc(buildJavascriptSrc(content.getText()));
 	}
 
-	public List<String> buildJavascripts(String html) {
+	String buildJavascriptSrc(String html) {
+		StringBuilder sb = new StringBuilder();
+		Pattern pattern = Pattern
+				.compile("<script.+?</script>", Pattern.DOTALL);
+		Matcher matcher = pattern.matcher(html);
+		while (matcher.find()) {
+			String jsAll = matcher.group();
+			String innerJS = jsAll.substring(jsAll.indexOf(">") + 1, jsAll
+					.lastIndexOf("<"));
+			sb.append(innerJS);
+		}
+		return sb.toString();
+	}
+
+	List<String> buildJavascripts(String html) {
 		List<String> javascripts = new ArrayList<String>();
-		Pattern pattern = Pattern.compile("<(?i)script.*?>");
+		Pattern pattern = Pattern.compile("<(?i)script.+?>", Pattern.DOTALL);
 		Matcher matcher = pattern.matcher(html);
 		while (matcher.find()) {
 			Pattern innerPattern = Pattern.compile("(?i)src=['\"].*?['\"]");
@@ -136,6 +151,14 @@ public class Gadget extends GadgetInfo {
 
 	public List<String> getJavascripts() {
 		return javascripts;
+	}
+
+	public void setJavascriptSrc(String javascriptSrc) {
+		this.javascriptSrc = javascriptSrc;
+	}
+
+	public String getJavascriptSrc() {
+		return javascriptSrc;
 	}
 
 }

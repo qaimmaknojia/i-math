@@ -8,7 +8,7 @@
 			<param name="beanName" value="gadgetRenderService" />
 		</create>
 		<convert match="org.jerrymouse.web.bean.Gadget" converter="bean">
-			<param name="include" value="name,html,javascripts,title"></param>
+			<param name="include" value="name,html,javascripts,javascriptSrc,title"></param>
 		</convert>
 		<convert match="org.jerrymouse.web.bean.Columns" converter="bean">
 			<param name="include" value="leftGadget,middleGadget,rightGadget"></param>

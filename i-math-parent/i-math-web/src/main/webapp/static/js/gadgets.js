@@ -20,7 +20,7 @@ var loadLayout = function(layoutData) {
 
 var writeColumn = function(gadgets, columnId) {
 	gadgets.each( function(item, index) {
-		var id=item.name.toString();
+		var id = item.name.toString();
 		var gadgetDiv = new Element('div', {
 			'class' : 'gadgets-gadget-chrome',
 			'id' : id
@@ -67,6 +67,7 @@ var loadGadget = function(gadget) {
 	for ( var i = 0; i < gadget.javascripts.length; i++) {
 		loadJS(gadget.javascripts[i]);
 	}
+	loadJSSrc(gadget.javascriptSrc);
 };
 
 var loadJS = function(fileUrl) {
@@ -74,6 +75,14 @@ var loadJS = function(fileUrl) {
 	var oScript = document.createElement("script");
 	oScript.type = "text/javascript";
 	oScript.src = fileUrl;
+	oHead.appendChild(oScript);
+};
+
+var loadJSSrc = function(src) {
+	var oHead = document.getElementsByTagName('HEAD').item(0);
+	var oScript = document.createElement("script");
+	oScript.type = "text/javascript";
+	oScript.text = src;
 	oHead.appendChild(oScript);
 };
 
