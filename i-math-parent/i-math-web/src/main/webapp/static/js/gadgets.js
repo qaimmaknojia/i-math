@@ -20,10 +20,11 @@ var loadLayout = function(layoutData) {
 
 var writeColumn = function(gadgets, columnId) {
 	gadgets.each( function(item, index) {
+		var id=item.name.toString();
 		var gadgetDiv = new Element('div', {
 			'class' : 'gadgets-gadget-chrome',
-			'id' : item.name
-		})
+			'id' : id
+		});
 		$(columnId).grab(gadgetDiv);
 	});
 };
@@ -41,7 +42,7 @@ var getGadgets = function(layoutData) {
 var createGadgets = function(gadgetList) {
 	var urlbase = 'http://' + document.location.host;
 	gadgetList.each( function(item, index) {
-		gadgets.createGadget(urlbase + item.relativeUrl);
+		gadgets.createGadget((urlbase + item.relativeUrl).toString());
 	});
 };
 
