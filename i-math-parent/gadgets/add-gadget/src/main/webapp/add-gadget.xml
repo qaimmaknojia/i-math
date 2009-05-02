@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module id="add-gadget">
-	<ModulePrefs title="add Machine" />
+	<ModulePrefs title="加法器" />
 	<Content type="html">
   <![CDATA[ 
-<script type="text/javascript" src="/dwr/interface/addService.js">
-  </script>
-<script type="text/javascript"
-	src="/gadgets/add-gadget/js/add-gadget.js"></script>
-
-<input type="text" title="Will be converted to: double" id="p00"
-	value="0.0" size="10" class="itext">
+  
+<script type="text/javascript" src="/dwr/interface/addService.js"></script>
+<script type="text/javascript" src="/gadgets/add-gadget/js/add-gadget.js"></script>
+  
+<input type="text" title="Will be converted to: double" id="p00" value="0.0" size="10" class="itext">
 +
-<input type="text" title="Will be converted to: double" id="p01"
-	value="0.0" size="10" class="itext">
+<input type="text" title="Will be converted to: double" id="p01" value="0.0" size="10" class="itext">
 =
 <span class="reply" id="d0"></span>
 
-<input type="button" value="getIt"
-	onclick="addService.add($('p00').value, $('p01').value, reply0);"
-	class="ibutton">
+<input type="button" value="计算" onclick="addService.add($('p00').value, $('p01').value, reply0);" class="ibutton">
   ]]>
 	</Content>
 </Module>

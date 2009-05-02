@@ -52,7 +52,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-  <version>2.0.2</version>
+				<version>2.0.2</version>
 				<configuration>
 					<webResources>
 						<resource>
@@ -142,7 +142,11 @@
 		</dependency>
 
 		<!--  apache -->
-
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
 
 		<!--  apache.geronimo -->
 		<dependency>
@@ -172,6 +176,12 @@
 		</dependency>
 
 		<!-- log -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.jerrymouse</groupId>
 			<artifactId>commons-logging</artifactId>

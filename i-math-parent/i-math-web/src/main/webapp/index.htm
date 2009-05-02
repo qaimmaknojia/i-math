@@ -4,26 +4,10 @@
 
 <#include "/head.htm">
 
-
-<script type="text/javascript">
-
-
-var gadget_id = 'add-gadget';
-var gadget_id2 = 'smartcalculator';
-
-// This container lays out and renders gadgets itself.
-
-function renderGadgets() {
-  //  createGadgetLayout;
-  var gadget = gadgets.createGadget(gadget_id);
-  var gadget = gadgets.createGadget(gadget_id2);
-  
-};
-</script>
 </head>
 
 
-<body onLoad="renderGadgets();">
+<body onload="renderGadgets();">
 
 <#include "/header.htm">
 
@@ -31,17 +15,12 @@ function renderGadgets() {
 <div id="container">
 <div id="tabs"></div>
 <div id="gadgets">
-<div class="column">
-<div class="gadgets-gadget-chrome" id="add-gadget"></div>
-</div>
-<div class="column middlecolumn">
-<div class="gadgets-gadget-chrome" id="smartcalculator"></div>
-</div>
-<div class="column"></div>
+<div id="leftColumn" class="column"></div>
+<div id="middleColumn" class="column middlecolumn"></div>
+<div id="rightColumn" class="column"></div>
 </div>
 </div>
 
 <#include "/foot.htm">
-
 </body>
 </html>
