@@ -5,7 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.jerrymouse.google.Debugger;
-import org.jerrymouse.web.bean.Columns;
+import org.jerrymouse.web.bean.GagetContainer;
 import org.jerrymouse.web.bean.Gadget;
 import org.jerrymouse.web.service.GadgetRenderService;
 
@@ -37,8 +37,8 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 	}
 
 	@Override
-	public Columns getLayout() {
-		return new Columns();
+	public GagetContainer getLayout() {
+		return new GagetContainer();
 	}
 
 }
