@@ -1,8 +1,7 @@
 package org.jerrymouse.web.bean;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import org.jerrymouse.web.dao.MainContainerDao;
 
 public class MainContainer {
 	private List<GagetContainer> tabs;
@@ -15,7 +14,10 @@ public class MainContainer {
 		return tabs;
 	}
 
-	public void addTab() {
-
+	public void addTab(GagetContainer g) {
+		if (tabs == null) {
+			tabs = new ArrayList<GagetContainer>();
+		}
+		tabs.add(g);
 	}
 }
