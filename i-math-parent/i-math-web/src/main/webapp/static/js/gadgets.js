@@ -1,7 +1,10 @@
+//dojo
+
 var test = false;
 var layout;
 
 var renderGadgets = function() {
+	console.log("renderGadgets");
 	createGadgetLayout();
 };
 

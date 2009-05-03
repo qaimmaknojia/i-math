@@ -4,11 +4,17 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
 
-
+	<!-- action -->
 	<bean name="debuggerAction" class="org.jerrymouse.google.Debugger"></bean>
-	
+
 	<bean name="indexAction" class="org.jerrymouse.web.action.IndexAction"></bean>
 	<bean name="ifrAction" class="org.jerrymouse.web.action.IfrAction"></bean>
+
+	<!-- sercice -->
 	<bean name="gadgetRenderService"
 		class="org.jerrymouse.web.service.impl.GadgetRenderServiceImpl"></bean>
+	<bean name="containerService" class="org.jerrymouse.web.service.impl.ContainerServiceImpl"></bean>
+
+	<!-- dao -->
+	<bean name="mainContainerDao" class="org.jerrymouse.web.dao.impl.MainContainerDaoImpl"></bean>
 </beans>
