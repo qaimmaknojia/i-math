@@ -7,5 +7,5 @@ public interface MainContainerDao {
 
 	MainContainer initFromCode();
 
-	void save(MainContainerDao mainContainerDao);
+	void save(MainContainer mainContainer);
 }

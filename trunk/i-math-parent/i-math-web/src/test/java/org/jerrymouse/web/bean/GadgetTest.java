@@ -1,14 +1,7 @@
 package org.jerrymouse.web.bean;
 
-import static org.junit.Assert.*;
-
-import java.io.File;
-import java.io.InputStream;
-import java.util.Collections;
 import java.util.List;
 
-import org.jerrymouse.util.ApplicationContextAwareImpl;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
