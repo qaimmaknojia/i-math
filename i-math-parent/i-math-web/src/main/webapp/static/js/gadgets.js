@@ -1,4 +1,9 @@
 //dojo
+dojo.require("dojox.widget.FisheyeLite");
+
+dojo.addOnLoad( function() {
+	init();
+});
 
 var test = false;
 var mainContainer;
@@ -31,10 +36,11 @@ var createTabs = function() {
 		var tab = new Element('li', {
 			'text' : item.title
 		});
+		tabUL.grab(tab);
 		tab.addEvent('click', function() {
 			createTabContainer(index);
 		});
-		tabUL.grab(tab);
+		new dojox.widget.FisheyeLite( {}, tab);
 	});
 };
 
