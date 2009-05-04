@@ -1,32 +1,65 @@
 //dojo
 
 var test = false;
-var layout;
+var mainContainer;
+
+var init = function() {
+	createGadgetContainer();
+};
 
 var renderGadgets = function() {
-	console.log("renderGadgets");
-	createGadgetLayout();
+	//	console.log("renderGadgets");
+	gadgetRenderService.getLayout(loadContainer);
+};
+
+// container
+
+var createGadgetContainer = function() {
+	gadgetRenderService.getContainer(loadContainer);
+};
+
+var loadContainer = function(data) {
+	mainContainer = data;
+	createTabs();
+	createTabContainer(0);
+};
+
+var createTabs = function() {
+	var tabUL = $("tabs");
+	var tabs = mainContainer.tabs;
+	tabs.each( function(item, index) {
+		var tab = new Element('li', {
+			'text' : item.title
+		});
+		tab.addEvent('click', function() {
+			createTabContainer(index);
+		});
+		tabUL.grab(tab);
+	});
+};
+
+var createTabContainer = function(index) {
+	cleancolumns();
+	writeColumn(mainContainer.tabs[index].leftGadget, "leftColumn");
+	writeColumn(mainContainer.tabs[index].middleGadget, "middleColumn");
+	writeColumn(mainContainer.tabs[index].rightGadget, "rightColumn");
+	var gadgets = getGadgets(mainContainer.tabs[index]);
+	createGadgets(gadgets);
 };
 
 // layout
-var createGadgetLayout = function() {
-	gadgetRenderService.getLayout(loadLayout);
-};
 
-var loadLayout = function(layoutData) {
-	layout = layoutData;
-	writeColumn(layoutData.leftGadget, "leftColumn");
-	writeColumn(layoutData.middleGadget, "middleColumn");
-	writeColumn(layoutData.rightGadget, "rightColumn");
-	createGadgets(getGadgets(layoutData))
+var cleancolumns = function() {
+	var left = $("leftColumn").empty();
+	var mid = $("middleColumn").empty();
+	$("rightColumn").empty();
 };
 
 var writeColumn = function(gadgets, columnId) {
 	gadgets.each( function(item, index) {
-		var id = item.name.toString();
 		var gadgetDiv = new Element('div', {
 			'class' : 'gadgets-gadget-chrome',
-			'id' : id
+			'id' : item.htmlId
 		});
 		$(columnId).grab(gadgetDiv);
 	});
@@ -40,12 +73,26 @@ var getGadgets = function(layoutData) {
 	return gadgetList;
 };
 
+var getAllGadgets = function() {
+	var gadgetList = new Array();
+	mainContainer.tabs.each( function(item, index) {
+		gadgetList.combine(getGadgets(item));
+	});
+	return gadgetList;
+}
+
 // gadget
 
 var createGadgets = function(gadgetList) {
 	var urlbase = 'http://' + document.location.host;
+	// getRemoveGadgetData;
 	gadgetList.each( function(item, index) {
-		gadgets.createGadget((urlbase + item.relativeUrl).toString());
+		if (item.html == null) {
+			gadgets.createGadget(item.htmlId, (urlbase + item.relativeUrl)
+					.toString());
+		} else {
+			loadGadget(item);
+		}
 	});
 };
 
@@ -54,19 +101,29 @@ var Gadgets = new Class( {
 		this.parentUrl = 'http://' + document.location.host;
 	},
 	createTestGadget : function(url) {
-		test = true;
-		gadgetRenderService.renderGadget(url, loadGadget);
+		gadgetRenderService.renderGadget("test-gadget", url, loadGadget);
 	},
-	createGadget : function(url) {
-		gadgetRenderService.renderGadget(url, loadGadget);
+	createGadget : function(id, url) {
+		gadgetRenderService.renderGadget(id, url, saveLoadGadget);
 	}
 });
 
+var saveLoadGadget = function(gadget) {
+	var htmlId = gadget.htmlId;
+	var gadgets = getAllGadgets();
+	gadgets.each( function(item, index) {
+		if (htmlId == item.htmlId) {
+			item.html = gadget.html;
+			item.javascripts = gadget.javascripts;
+			item.javascriptSrc = gadget.javascriptSrc;
+			item.title = gadget.title;
+		}
+	});
+	loadGadget(gadget);
+};
+
 var loadGadget = function(gadget) {
-	if (test) {
-		gadget.name = "testGadget";
-	}
-	$(gadget.name).innerHTML = gadget.html;
+	$(gadget.htmlId).innerHTML = gadget.html;
 	for ( var i = 0; i < gadget.javascripts.length; i++) {
 		loadJS(gadget.javascripts[i]);
 	}

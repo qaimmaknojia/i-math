@@ -4,11 +4,11 @@ import java.net.URL;
 
 import org.jerrymouse.web.bean.GagetContainer;
 import org.jerrymouse.web.bean.Gadget;
+import org.jerrymouse.web.bean.MainContainer;
 
 public interface GadgetRenderService {
-	Gadget renderGadget(URL url);
 
-	Gadget renderGadget(String url);
+	Gadget renderGadget(String htmlId, String url);
 
-	GagetContainer getLayout();
+	MainContainer getContainer();
 }

@@ -7,16 +7,19 @@ import java.net.URL;
 import org.jerrymouse.google.Debugger;
 import org.jerrymouse.web.bean.GagetContainer;
 import org.jerrymouse.web.bean.Gadget;
+import org.jerrymouse.web.bean.MainContainer;
+import org.jerrymouse.web.dao.MainContainerDao;
 import org.jerrymouse.web.service.GadgetRenderService;
 
 public class GadgetRenderServiceImpl implements GadgetRenderService {
+	MainContainerDao mainContainerDao;
 
-	@Override
-	public Gadget renderGadget(URL url) {
+	private Gadget renderGadget(String htmlId, URL url) {
 		// Debugger.log("build:" + url);
 		Gadget gadget = null;
 		try {
 			gadget = new Gadget(url);
+			gadget.setHtmlId(htmlId);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -25,11 +28,11 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 	}
 
 	@Override
-	public Gadget renderGadget(String url) {
+	public Gadget renderGadget(String htmlId, String url) {
 		// Debugger.log("build:" + url);
 		Gadget gadget = null;
 		try {
-			gadget = renderGadget(new URL(url));
+			gadget = renderGadget(htmlId, new URL(url));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -37,8 +40,16 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 	}
 
 	@Override
-	public GagetContainer getLayout() {
-		return new GagetContainer();
+	public MainContainer getContainer() {
+		return mainContainerDao.initFromCode();
+	}
+
+	public MainContainerDao getMainContainerDao() {
+		return mainContainerDao;
+	}
+
+	public void setMainContainerDao(MainContainerDao mainContainerDao) {
+		this.mainContainerDao = mainContainerDao;
 	}
 
 }

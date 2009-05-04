@@ -5,55 +5,27 @@ import java.util.List;
 
 public class GagetContainer {
 	private String title;
-	private List<GadgetInfo> leftGadget = new ArrayList<GadgetInfo>();
-	private List<GadgetInfo> middleGadget = new ArrayList<GadgetInfo>();
-	private List<GadgetInfo> rightGadget = new ArrayList<GadgetInfo>();
+	private List<Gadget> leftGadget = new ArrayList<Gadget>();
+	private List<Gadget> middleGadget = new ArrayList<Gadget>();
+	private List<Gadget> rightGadget = new ArrayList<Gadget>();
 
 	public GagetContainer() {
-		leftGadget.add(new GadgetInfo("smartcalculator",
-				"/gadgets/smartcalculator/smartcalculator.xml"));
-		middleGadget.add(new GadgetInfo("add-gadget",
-				"/gadgets/add-gadget/add-gadget.xml"));
 	}
 
 	public GagetContainer(String string) {
 		title = string;
 	}
 
-	public void addLeft(GadgetInfo info) {
+	public void addLeft(Gadget info) {
 		leftGadget.add(info);
 	}
 
-	public void addMiddle(GadgetInfo info) {
+	public void addMiddle(Gadget info) {
 		middleGadget.add(info);
 	}
 
-	public void addRight(GadgetInfo info) {
+	public void addRight(Gadget info) {
 		rightGadget.add(info);
-	}
-
-	public List<GadgetInfo> getLeftGadget() {
-		return leftGadget;
-	}
-
-	public void setLeftGadget(List<GadgetInfo> leftGadget) {
-		this.leftGadget = leftGadget;
-	}
-
-	public List<GadgetInfo> getMiddleGadget() {
-		return middleGadget;
-	}
-
-	public void setMiddleGadget(List<GadgetInfo> middleGadget) {
-		this.middleGadget = middleGadget;
-	}
-
-	public List<GadgetInfo> getRightGadget() {
-		return rightGadget;
-	}
-
-	public void setRightGadget(List<GadgetInfo> rightGadget) {
-		this.rightGadget = rightGadget;
 	}
 
 	public String getTitle() {
@@ -62,6 +34,30 @@ public class GagetContainer {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public List<Gadget> getLeftGadget() {
+		return leftGadget;
+	}
+
+	public void setLeftGadget(List<Gadget> leftGadget) {
+		this.leftGadget = leftGadget;
+	}
+
+	public List<Gadget> getMiddleGadget() {
+		return middleGadget;
+	}
+
+	public void setMiddleGadget(List<Gadget> middleGadget) {
+		this.middleGadget = middleGadget;
+	}
+
+	public List<Gadget> getRightGadget() {
+		return rightGadget;
+	}
+
+	public void setRightGadget(List<Gadget> rightGadget) {
+		this.rightGadget = rightGadget;
 	}
 
 }
