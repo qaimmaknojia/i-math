@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -49,6 +48,10 @@ public class Gadget extends GadgetInfo {
 		httpURLConnection.setUseCaches(true);
 		loadFromInputStream(httpURLConnection.getInputStream());
 		init();
+	}
+
+	public Gadget(String name, String relativeUrl) {
+		super(name, relativeUrl);
 	}
 
 	private void loadFromInputStream(InputStream in) {

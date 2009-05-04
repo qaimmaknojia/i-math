@@ -1,11 +1,11 @@
 package org.jerrymouse.web.bean;
 
 public class GadgetInfo {
+	private String htmlId;
 	protected String name;
 	private String relativeUrl;
 
 	public GadgetInfo(String name, String relativeUrl) {
-		super();
 		this.name = name;
 		this.relativeUrl = relativeUrl;
 	}
@@ -28,4 +28,17 @@ public class GadgetInfo {
 	public void setRelativeUrl(String relativeUrl) {
 		this.relativeUrl = relativeUrl;
 	}
+
+	public String getHtmlId() {
+		if (htmlId == null) {
+			htmlId = name
+					+ new Integer((int) (Math.random() * 1000)).toString();
+		}
+		return htmlId;
+	}
+
+	public void setHtmlId(String htmlId) {
+		this.htmlId = htmlId;
+	}
+
 }

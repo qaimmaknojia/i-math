@@ -8,13 +8,16 @@
 			<param name="beanName" value="gadgetRenderService" />
 		</create>
 		<convert match="org.jerrymouse.web.bean.Gadget" converter="bean">
-			<param name="include" value="name,html,javascripts,javascriptSrc,title"></param>
+			<param name="include"
+				value="name,html,javascripts,javascriptSrc,title,,relativeUrl,htmlId"></param>
 		</convert>
-		<convert match="org.jerrymouse.web.bean.GagetContainer" converter="bean">
-			<param name="include" value="leftGadget,middleGadget,rightGadget"></param>
+		<convert match="org.jerrymouse.web.bean.GagetContainer"
+			converter="bean">
+			<param name="include" value="leftGadget,middleGadget,rightGadget,title"></param>
 		</convert>
-		<convert match="org.jerrymouse.web.bean.GadgetInfo" converter="bean">
-			<param name="include" value="name,relativeUrl"></param>
+		<convert match="org.jerrymouse.web.bean.MainContainer"
+			converter="bean">
+			<param name="include" value="tabs"></param>
 		</convert>
 	</allow>
 </dwr>
