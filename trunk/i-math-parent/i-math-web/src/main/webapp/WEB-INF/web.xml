@@ -45,7 +45,10 @@
 		<filter-name>struts2</filter-name>
 		<url-pattern>*.action</url-pattern>
 	</filter-mapping>
-
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.htm</url-pattern>
+	</filter-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
@@ -73,6 +76,10 @@
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*.htm</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
