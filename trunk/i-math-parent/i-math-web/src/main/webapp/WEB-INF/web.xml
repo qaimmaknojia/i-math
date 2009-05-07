@@ -93,4 +93,5 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/dwr/*</url-pattern>
 	</filter-mapping>
+	
 </web-app>
