@@ -12,7 +12,7 @@ class TestEnvironment implements ApiProxy.Environment {
 	 * @return app id
 	 */
 	public String getAppId() {
-		return "ssg";
+		return "i-math";
 	}
 
 	/**
@@ -21,7 +21,7 @@ class TestEnvironment implements ApiProxy.Environment {
 	 * @return version
 	 */
 	public String getVersionId() {
-		return "1.0-SNAPSHOT";
+		return "1";
 	}
 
 	public void setDefaultNamespace(String s) {

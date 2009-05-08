@@ -1,10 +1,9 @@
 package org.jerrymouse.web.test;
 
+import java.io.File;
+
 import com.google.appengine.tools.development.ApiProxyLocalImpl;
 import com.google.apphosting.api.ApiProxy;
-import junit.framework.TestCase;
-
-import java.io.File;
 
 /**
  * local service test
@@ -19,7 +18,8 @@ public class BaseTest extends SpringContextTests {
 	 */
 
 	@Override
-	public void onSetUp() throws Exception {
+	protected void setUp() throws Exception {
+		super.setUp();
 		ApiProxy.setEnvironmentForCurrentThread(new TestEnvironment());
 		ApiProxy.setDelegate(new ApiProxyLocalImpl(new File(".")) {
 		});
@@ -32,9 +32,11 @@ public class BaseTest extends SpringContextTests {
 	 *             exception
 	 */
 	@Override
-	public void onTearDown() throws Exception {
+	protected void tearDown() throws Exception {
 		ApiProxy.setDelegate(null);
 		ApiProxy.setEnvironmentForCurrentThread(null);
+		super.tearDown();
+
 	}
 
 }
