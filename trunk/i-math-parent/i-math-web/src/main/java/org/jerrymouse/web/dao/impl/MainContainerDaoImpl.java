@@ -6,7 +6,6 @@ import org.jerrymouse.web.bean.MainContainer;
 import org.jerrymouse.web.dao.MainContainerDao;
 
 public class MainContainerDaoImpl implements MainContainerDao {
-	XMLDataSource xmlDataSource;
 	private String fileName = "mainContainer.xml";
 
 	@Override
@@ -35,12 +34,5 @@ public class MainContainerDaoImpl implements MainContainerDao {
 	public void save(MainContainer mainContainer) {
 	}
 
-	public XMLDataSource getXmlDataSource() {
-		return xmlDataSource;
-	}
-
-	public void setXmlDataSource(XMLDataSource xmlDataSource) {
-		this.xmlDataSource = xmlDataSource;
-	}
 
 }

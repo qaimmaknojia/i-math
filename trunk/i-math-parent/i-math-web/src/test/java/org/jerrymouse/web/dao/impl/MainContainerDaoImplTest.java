@@ -1,9 +1,8 @@
 package org.jerrymouse.web.dao.impl;
 
+import org.jerrymouse.web.bean.Gadget;
 import org.jerrymouse.web.dao.MainContainerDao;
 import org.jerrymouse.web.test.SpringContextTests;
-import org.junit.Before;
-import org.junit.Test;
 
 public class MainContainerDaoImplTest extends SpringContextTests {
 	MainContainerDao mainContainerDao;
@@ -15,7 +14,6 @@ public class MainContainerDaoImplTest extends SpringContextTests {
 	}
 
 	public void testSave() throws Exception {
-		// mainContainerDao.save(null);
 	}
 
 }
