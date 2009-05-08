@@ -5,7 +5,7 @@ import javax.servlet.ServletContextListener;
 
 import ognl.OgnlRuntime;
 
-public class GoogleSecurityContextListener implements ServletContextListener {
+public class GaeStruts2Listener implements ServletContextListener {
 	
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {

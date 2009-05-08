@@ -11,6 +11,5 @@ public class SpringContextTests extends
 				"classpath:/spring/applicationContext-web.xml");
 		setPopulateProtectedVariables(true);
 		setAutowireMode(AUTOWIRE_BY_NAME);
-
 	}
 }

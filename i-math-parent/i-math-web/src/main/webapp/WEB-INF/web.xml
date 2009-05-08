@@ -54,7 +54,7 @@
 	</welcome-file-list>
 
 	<listener>
-		<listener-class>org.jerrymouse.google.GoogleSecurityContextListener</listener-class>
+		<listener-class>org.jerrymouse.google.GaeStruts2Listener</listener-class>
 	</listener>
 
 	<listener>
@@ -93,5 +93,4 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/dwr/*</url-pattern>
 	</filter-mapping>
-	
 </web-app>

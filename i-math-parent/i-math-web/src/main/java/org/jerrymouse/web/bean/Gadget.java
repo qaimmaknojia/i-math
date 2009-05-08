@@ -15,6 +15,11 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import org.apache.commons.io.IOUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -26,7 +31,12 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
+@Entity
 public class Gadget extends GadgetInfo {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	private String html;
 	private List<String> javascripts;
 	private String javascriptSrc;
@@ -162,6 +172,26 @@ public class Gadget extends GadgetInfo {
 
 	public String getJavascriptSrc() {
 		return javascriptSrc;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setHtml(String html) {
+		this.html = html;
+	}
+
+	public void setJavascripts(List<String> javascripts) {
+		this.javascripts = javascripts;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 }

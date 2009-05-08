@@ -17,5 +17,4 @@
 
 	<!-- dao -->
 	<bean name="mainContainerDao" class="org.jerrymouse.web.dao.impl.MainContainerDaoImpl"></bean>
-	<bean name="xmlDataSource" class="org.jerrymouse.web.dao.impl.XMLDataSource"></bean>
 </beans>
