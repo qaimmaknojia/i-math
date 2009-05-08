@@ -16,6 +16,16 @@
 			<result name="success" type="freemarker">debugger.htm
 			</result>
 		</action>
+		<action name="getGreeting" class="getGreetingAction">
+			<result name="success" type="freemarker">getGreeting.htm
+			</result>
+		</action>
+
+		<action name="saveGreeting" class="saveGreetingAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getGreeting</param>
+			</result>
+		</action>
 	</package>
 
 </struts>

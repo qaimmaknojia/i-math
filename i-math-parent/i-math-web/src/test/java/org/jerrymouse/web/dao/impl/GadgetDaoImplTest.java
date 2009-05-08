@@ -7,8 +7,8 @@ public class GadgetDaoImplTest extends BaseTest {
 	GadgetDaoImpl gadgetDaoImpl;
 
 	@Override
-	public void onSetUp() throws Exception {
-		super.onSetUp();
+	public void setUp() throws Exception {
+		super.setUp();
 		gadgetDaoImpl = new GadgetDaoImpl();
 	}
 

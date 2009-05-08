@@ -7,12 +7,13 @@ public class ContainerServiceImplTest extends SpringContextTests {
 	ContainerService containerService;
 
 	@Override
-	protected void onSetUp() throws Exception {
+	protected void setUp() throws Exception {
+		super.setUp();
 		containerService = (ContainerService) applicationContext
 				.getBean("containerService");
 	}
 
 	public void testname() throws Exception {
-//		containerService.createXML();
+		// containerService.createXML();
 	}
 }

@@ -46,7 +46,21 @@
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>true</downloadJavadocs>
 					<wtpversion>1.5</wtpversion>
+					<excludes><!-- GAE_CONTAINER already have these jars -->
+						<exclude>com.google.appengine:appengine-tools-api</exclude>
+						<exclude>com.google.appengine:datanucleus-core</exclude>
+						<exclude>com.google.appengine:datanucleus-jpa</exclude>
+						<exclude>com.google.appengine:datanucleus-appengine</exclude>
+						<exclude>org.apache.geronimo.specs:geronimo-servlet_2.5_spec</exclude>
+						<exclude>org.apache.geronimo.specs:geronimo-jsp_2.1_spec</exclude>
+						<exclude>org.apache.geronimo.specs:geronimo-el_1.0_spec</exclude>
+						<exclude>org.apache.geronimo.specs:geronimo-jpa_3.0_spec</exclude>
+						<exclude>org.apache.geronimo.specs:geronimo-jta_1.1_spec</exclude>
+						<exclude>javax.jdo:jdo2-api</exclude>
+						<exclude>com.google.appengine:appengine-api</exclude>
+					</excludes>
 				</configuration>
+
 			</plugin>
 
 			<plugin>
@@ -84,6 +98,32 @@
 					<outputEncoding>${project_charset}</outputEncoding>
 					<inputEncoding>${project_charset}</inputEncoding>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<!--
+						<execution> <id>datanucleusenhance</id> <phase>package</phase>
+						<configuration> <tasks> <ant antfile="${basedir}/build.xml">
+						<target name="datanucleusenhance" /> </ant> </tasks>
+						</configuration> <goals> <goal>run</goal> </goals> </execution>
+					-->
+					<execution>
+						<id>runserver</id>
+						<phase>install</phase>
+						<configuration>
+							<tasks>
+								<ant antfile="${basedir}/build.xml">
+									<target name="runserver" />
+								</ant>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 		</plugins>
@@ -256,7 +296,8 @@
 
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-servlet_2.5_spec</artifactId>
+			<artifactId>geronimo-servlet_2.5_spec
+			</artifactId>
 			<version>1.2</version>
 			<scope>provided</scope>
 		</dependency>
@@ -310,6 +351,12 @@
 			<groupId>org.jerrymouse</groupId>
 			<artifactId>add-gadget</artifactId>
 			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+			<version>1.2.0</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<properties>
