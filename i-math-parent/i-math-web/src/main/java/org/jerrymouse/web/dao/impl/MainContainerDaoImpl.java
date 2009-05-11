@@ -1,12 +1,15 @@
 package org.jerrymouse.web.dao.impl;
 
+import javax.jdo.PersistenceManager;
+import javax.persistence.EntityManager;
+
 import org.jerrymouse.web.bean.Gadget;
 import org.jerrymouse.web.bean.GagetContainer;
 import org.jerrymouse.web.bean.MainContainer;
 import org.jerrymouse.web.dao.MainContainerDao;
+import org.jerrymouse.web.dao.PMF;
 
 public class MainContainerDaoImpl implements MainContainerDao {
-	private String fileName = "mainContainer.xml";
 
 	@Override
 	public MainContainer getMainContainer() {
@@ -32,7 +35,14 @@ public class MainContainerDaoImpl implements MainContainerDao {
 
 	@Override
 	public void save(MainContainer mainContainer) {
+		PersistenceManager pm = PMF.getPersistenceManager();
+		pm.makePersistent(mainContainer);
+		pm.close();
 	}
 
+	@Override
+	public void initMainContainer() {
+		save(initFromCode());
+	}
 
 }

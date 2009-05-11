@@ -1,6 +1,7 @@
 package org.jerrymouse.web.dao.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 
@@ -26,5 +27,10 @@ public class GreetingDaoImplTest extends DatastoreTestCase {
 		greetingDao.save(new Greeting("hello", new Date()));
 		// EntityManager pm = PMF.get().createEntityManager();
 		// pm.persist(new Greeting("c", new Date()));
+	}
+
+	public void testGetAll() throws Exception {
+		List<Greeting> Greetings = greetingDao.getAll();
+		System.out.println(Greetings);
 	}
 }

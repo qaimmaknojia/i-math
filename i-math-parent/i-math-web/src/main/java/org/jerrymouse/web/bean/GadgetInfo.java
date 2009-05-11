@@ -1,8 +1,11 @@
 package org.jerrymouse.web.bean;
 
+import javax.jdo.annotations.Persistent;
+
 public class GadgetInfo {
 	private String htmlId;
 	protected String name;
+	@Persistent
 	private String relativeUrl;
 
 	public GadgetInfo(String name, String relativeUrl) {

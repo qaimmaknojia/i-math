@@ -9,10 +9,12 @@ import org.jerrymouse.web.bean.GagetContainer;
 import org.jerrymouse.web.bean.Gadget;
 import org.jerrymouse.web.bean.MainContainer;
 import org.jerrymouse.web.dao.MainContainerDao;
+import org.jerrymouse.web.service.ContainerService;
 import org.jerrymouse.web.service.GadgetRenderService;
 
 public class GadgetRenderServiceImpl implements GadgetRenderService {
 	MainContainerDao mainContainerDao;
+	ContainerService containerService;
 
 	private Gadget renderGadget(String htmlId, URL url) {
 		// Debugger.log("build:" + url);
@@ -50,6 +52,10 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 
 	public void setMainContainerDao(MainContainerDao mainContainerDao) {
 		this.mainContainerDao = mainContainerDao;
+	}
+
+	public void setContainerService(ContainerService containerService) {
+		this.containerService = containerService;
 	}
 
 }

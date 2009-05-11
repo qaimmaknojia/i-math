@@ -15,10 +15,11 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
 import org.apache.commons.io.IOUtils;
 import org.dom4j.Document;
@@ -27,15 +28,17 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.jerrymouse.google.Debugger;
 
+import com.google.appengine.api.datastore.Key;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
-@Entity
+@PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Gadget extends GadgetInfo {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+	private Key id;
 
 	private String html;
 	private List<String> javascripts;
@@ -174,11 +177,11 @@ public class Gadget extends GadgetInfo {
 		return javascriptSrc;
 	}
 
-	public Long getId() {
+	public Key getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Key id) {
 		this.id = id;
 	}
 

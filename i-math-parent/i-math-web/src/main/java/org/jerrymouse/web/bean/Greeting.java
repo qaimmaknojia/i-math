@@ -2,19 +2,22 @@ package org.jerrymouse.web.bean;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
-@Entity
+@PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Greeting {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
 
+	@Persistent
 	private String content;
 
+	@Persistent
 	private Date date;
 
 	public Greeting(String content, Date date) {

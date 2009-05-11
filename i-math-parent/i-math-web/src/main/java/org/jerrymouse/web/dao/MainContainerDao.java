@@ -8,4 +8,6 @@ public interface MainContainerDao {
 	MainContainer initFromCode();
 
 	void save(MainContainer mainContainer);
+
+	void initMainContainer();
 }
