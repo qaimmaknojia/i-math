@@ -1,6 +1,6 @@
 package org.jerrymouse.web.dao.impl;
 
-import javax.persistence.EntityManager;
+import javax.jdo.PersistenceManager;
 
 import org.jerrymouse.web.bean.Gadget;
 import org.jerrymouse.web.dao.PMF;
@@ -8,12 +8,12 @@ import org.jerrymouse.web.dao.PMF;
 public class GadgetDaoImpl {
 
 	public void save(Gadget gadget) {
-		EntityManager pm = PMF.get().createEntityManager();
+		PersistenceManager pm = PMF.getPersistenceManager();
 		try {
-			pm.persist(gadget);
+			pm.makePersistent(gadget);
 		} finally {
 			pm.close();
 		}
 	}
-	
+
 }

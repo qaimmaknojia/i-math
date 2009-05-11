@@ -3,10 +3,27 @@ package org.jerrymouse.web.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+import com.google.appengine.api.datastore.Key;
+
+@PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class GagetContainer {
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+	private Key id;
+
+	@Persistent
 	private String title;
+	@Persistent
 	private List<Gadget> leftGadget = new ArrayList<Gadget>();
+	@Persistent
 	private List<Gadget> middleGadget = new ArrayList<Gadget>();
+	@Persistent
 	private List<Gadget> rightGadget = new ArrayList<Gadget>();
 
 	public GagetContainer() {
@@ -58,6 +75,14 @@ public class GagetContainer {
 
 	public void setRightGadget(List<Gadget> rightGadget) {
 		this.rightGadget = rightGadget;
+	}
+
+	public Key getId() {
+		return id;
+	}
+
+	public void setId(Key id) {
+		this.id = id;
 	}
 
 }

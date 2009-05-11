@@ -1,16 +1,22 @@
 package org.jerrymouse.web.dao;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.jdo.JDOHelper;
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
 
 public final class PMF {
-	private static final EntityManagerFactory pmfInstance = Persistence
-			.createEntityManagerFactory("transactions-optional");
+	private static final PersistenceManagerFactory pmfInstance = JDOHelper
+			.getPersistenceManagerFactory("transactions-optional");
 
 	private PMF() {
 	}
 
-	public static EntityManagerFactory get() {
+	public static PersistenceManagerFactory get() {
 		return pmfInstance;
 	}
+
+	public static PersistenceManager getPersistenceManager() {
+		return pmfInstance.getPersistenceManager();
+	}
+
 }
