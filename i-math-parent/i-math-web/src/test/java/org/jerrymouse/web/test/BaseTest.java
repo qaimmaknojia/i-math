@@ -21,7 +21,8 @@ public class BaseTest extends SpringContextTests {
 	protected void setUp() throws Exception {
 		super.setUp();
 		ApiProxy.setEnvironmentForCurrentThread(new TestEnvironment());
-		ApiProxy.setDelegate(new ApiProxyLocalImpl(new File(".")) {
+		ApiProxy.setDelegate(new ApiProxyLocalImpl(new File(
+				"target/i-math-web-1.0-SNAPSHOT")) {
 		});
 	}
 
