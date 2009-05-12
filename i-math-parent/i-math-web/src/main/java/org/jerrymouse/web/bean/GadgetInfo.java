@@ -1,5 +1,7 @@
 package org.jerrymouse.web.bean;
 
+import java.util.Random;
+
 import javax.jdo.annotations.Persistent;
 
 public class GadgetInfo {
