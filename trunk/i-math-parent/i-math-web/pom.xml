@@ -90,6 +90,15 @@
 						</resource>
 					</webResources>
 				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>exploded</goal>
+						</goals>
+					</execution>
+				</executions>
+
 			</plugin>
 
 			<plugin>
@@ -112,7 +121,7 @@
 					-->
 					<execution>
 						<id>runserver</id>
-						<phase>install</phase>
+						<phase>compile</phase>
 						<configuration>
 							<tasks>
 								<ant antfile="${basedir}/build.xml">

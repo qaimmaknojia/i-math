@@ -25,7 +25,7 @@ public class MainContainerDaoImpl implements MainContainerDao {
 		Gadget addGadget = new Gadget("add-gadget",
 				"/gadgets/add-gadget/add-gadget.xml");
 		container1.addLeft(smartcalculator);
-		container1.addMiddle(addGadget);
+		container1.addLeft(addGadget);
 		GagetContainer container2 = new GagetContainer("分布运算");
 		container2.addLeft(addGadget);
 		mainContainer.addTab(container1);
