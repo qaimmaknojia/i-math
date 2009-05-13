@@ -7,6 +7,9 @@ var mainContainer;
 
 var init = function() {
 	createGadgetContainer();
+	$j(".column").sortable();
+	$j(".column").disableSelection();
+
 };
 
 var renderGadgets = function() {
@@ -66,7 +69,7 @@ var cleancolumns = function() {
 
 var writeColumn = function(gadgets, columnId) {
 	gadgets.each( function(item, index) {
-		var gadgetDiv = new Element('div', {
+		var gadgetDiv = new Element('li', {
 			'class' : 'gadgets-gadget-chrome',
 			'id' : item.htmlId
 		});
@@ -156,3 +159,4 @@ var loadJSSrc = function(src) {
 };
 
 var gadgets = new Gadgets();
+
