@@ -7,9 +7,6 @@ var mainContainer;
 
 var init = function() {
 	createGadgetContainer();
-	$j(".column").sortable();
-	$j(".column").disableSelection();
-
 };
 
 var renderGadgets = function() {
@@ -57,6 +54,7 @@ var createTabContainer = function(index) {
 	writeColumn(mainContainer.tabs[index].rightGadget, "rightColumn");
 	var gadgets = getGadgets(mainContainer.tabs[index]);
 	createGadgets(gadgets);
+	updateSortable();
 };
 
 // layout
@@ -160,3 +158,13 @@ var loadJSSrc = function(src) {
 
 var gadgets = new Gadgets();
 
+var updateSortable = function() {
+	$j(".column").sortable( {
+		handle : '.gadgets-gadget-title-bar',
+		placeholder : 'widget-placeholder',
+		forcePlaceholderSize : true,
+		revert : 300,
+		delay : 100,
+		opacity : 0.8
+	});
+}
