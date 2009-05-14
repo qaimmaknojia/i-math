@@ -1,14 +1,14 @@
 package org.jerrymouse.web.dao.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import org.jerrymouse.web.bean.Greeting;
-import org.jerrymouse.web.dao.PMF;
-import org.jerrymouse.web.test.BaseTest;
 import org.jerrymouse.web.test.DatastoreTestCase;
+
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 
 public class GreetingDaoImplTest extends DatastoreTestCase {
 
@@ -21,16 +21,25 @@ public class GreetingDaoImplTest extends DatastoreTestCase {
 				.getBean("greetingDao");
 	}
 
-	public void testSave() throws Exception {
+	public void atestSave() throws Exception {
 		// System.out.println("ok");
 		// System.out.println(greetingDao);
 		greetingDao.save(new Greeting("hello", new Date()));
 		// EntityManager pm = PMF.get().createEntityManager();
 		// pm.persist(new Greeting("c", new Date()));
+
 	}
 
 	public void testGetAll() throws Exception {
+		Greeting greeting = new Greeting("hello", new Date());
+		List<Key> list = new ArrayList<Key>();
+		list.add(KeyFactory.createKey("aaa", 111));
+		greeting.setStrings(list);
+		greetingDao.save(greeting);
 		List<Greeting> Greetings = greetingDao.getAll();
-		System.out.println(Greetings);
+		for (Greeting greeting2 : Greetings) {
+			System.out.println(greeting2.getId());
+			System.out.println(greeting2.getStrings());
+		}
 	}
 }

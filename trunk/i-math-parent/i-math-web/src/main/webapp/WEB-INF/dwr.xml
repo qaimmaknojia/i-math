@@ -7,11 +7,14 @@
 		<create creator="spring" javascript="gadgetRenderService">
 			<param name="beanName" value="gadgetRenderService" />
 		</create>
+		<create creator="spring" javascript="containerService">
+			<param name="beanName" value="containerService" />
+		</create>
 		<convert match="org.jerrymouse.web.bean.Gadget" converter="bean">
 			<param name="include"
-				value="name,html,javascripts,javascriptSrc,title,,relativeUrl,htmlId"></param>
+				value="name,html,javascripts,javascriptSrc,title,relativeUrl,htmlId"></param>
 		</convert>
-		<convert match="org.jerrymouse.web.bean.GagetContainer"
+		<convert match="org.jerrymouse.web.bean.GadgetContainer"
 			converter="bean">
 			<param name="include" value="leftGadget,middleGadget,rightGadget,title"></param>
 		</convert>

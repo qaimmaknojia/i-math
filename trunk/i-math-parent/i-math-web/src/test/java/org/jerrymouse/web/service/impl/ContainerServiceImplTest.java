@@ -1,9 +1,10 @@
 package org.jerrymouse.web.service.impl;
 
 import org.jerrymouse.web.service.ContainerService;
+import org.jerrymouse.web.test.DatastoreTestCase;
 import org.jerrymouse.web.test.SpringContextTests;
 
-public class ContainerServiceImplTest extends SpringContextTests {
+public class ContainerServiceImplTest extends DatastoreTestCase {
 	ContainerService containerService;
 
 	@Override
@@ -13,7 +14,8 @@ public class ContainerServiceImplTest extends SpringContextTests {
 				.getBean("containerService");
 	}
 
-	public void testname() throws Exception {
-		// containerService.createXML();
-	}
+	// public void testGetMainContainer() throws Exception {
+	// containerService.getMainContainer();
+	// }
+
 }

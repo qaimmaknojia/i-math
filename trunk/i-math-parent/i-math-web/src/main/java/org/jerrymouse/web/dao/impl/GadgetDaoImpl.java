@@ -1,19 +1,28 @@
 package org.jerrymouse.web.dao.impl;
 
-import javax.jdo.PersistenceManager;
+import java.util.List;
 
 import org.jerrymouse.web.bean.Gadget;
-import org.jerrymouse.web.dao.PMF;
+import org.jerrymouse.web.dao.GadgetDao;
 
-public class GadgetDaoImpl {
+import com.google.appengine.api.datastore.Key;
+
+public class GadgetDaoImpl extends JdoDaoSupport implements GadgetDao {
 
 	public void save(Gadget gadget) {
-		PersistenceManager pm = PMF.getPersistenceManager();
-		try {
-			pm.makePersistent(gadget);
-		} finally {
-			pm.close();
-		}
+		super.save(gadget);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Gadget> getByKeyList(List<Key> keyList) {
+		return super.getByKeyList(keyList, Gadget.class);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Gadget> getAll() {
+		return super.getAll(Gadget.class);
 	}
 
 }

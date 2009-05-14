@@ -5,7 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.jerrymouse.google.Debugger;
-import org.jerrymouse.web.bean.GagetContainer;
+import org.jerrymouse.web.bean.GadgetContainer;
 import org.jerrymouse.web.bean.Gadget;
 import org.jerrymouse.web.bean.MainContainer;
 import org.jerrymouse.web.dao.MainContainerDao;
@@ -43,7 +43,7 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 
 	@Override
 	public MainContainer getContainer() {
-		return mainContainerDao.initFromCode();
+		return containerService.getMainContainer();
 	}
 
 	public MainContainerDao getMainContainerDao() {

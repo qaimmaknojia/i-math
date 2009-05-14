@@ -1,12 +1,15 @@
 package org.jerrymouse.web.bean;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+
+import com.google.appengine.api.datastore.Key;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Greeting {
@@ -19,6 +22,9 @@ public class Greeting {
 
 	@Persistent
 	private Date date;
+
+	@Persistent
+	private List<Key> strings;
 
 	public Greeting(String content, Date date) {
 		this.content = content;
@@ -43,5 +49,13 @@ public class Greeting {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public void setStrings(List<Key> strings) {
+		this.strings = strings;
+	}
+
+	public List<Key> getStrings() {
+		return strings;
 	}
 }
