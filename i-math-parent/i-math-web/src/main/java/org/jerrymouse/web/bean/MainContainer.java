@@ -1,9 +1,7 @@
 package org.jerrymouse.web.bean;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -11,29 +9,25 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
+import org.jerrymouse.web.dao.GadgetContainerDao;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.google.appengine.api.datastore.Key;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class MainContainer {
+	GadgetContainerDao gadgetContainerDao;
+
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Key id;
 
 	@Persistent
-	private List<GagetContainer> tabs;
+	private List<Key> tabKeys = new ArrayList<Key>();
 
-	public void setTabs(List<GagetContainer> tabs) {
-		this.tabs = tabs;
-	}
+	private List<GadgetContainer> tabs = new ArrayList<GadgetContainer>();;
 
-	public List<GagetContainer> getTabs() {
-		return tabs;
-	}
-
-	public void addTab(GagetContainer g) {
-		if (tabs == null) {
-			tabs = new ArrayList<GagetContainer>();
-		}
+	public void addTab(GadgetContainer g) {
 		tabs.add(g);
 	}
 
@@ -43,6 +37,35 @@ public class MainContainer {
 
 	public void setId(Key id) {
 		this.id = id;
+	}
+
+	public List<Key> getTabKeys() {
+		return tabKeys;
+	}
+
+	public void setTabKeys(List<Key> tabKeys) {
+		this.tabKeys = tabKeys;
+	}
+
+	public GadgetContainerDao getGadgetContainerDao() {
+		if (gadgetContainerDao == null) {
+			gadgetContainerDao = (GadgetContainerDao) new ClassPathXmlApplicationContext(
+					"classpath:/applicationContext.xml")
+					.getBean("gadgetContainerDao");
+		}
+		return gadgetContainerDao;
+	}
+
+	public void setGadgetContainerDao(GadgetContainerDao gadgetContainerDao) {
+		this.gadgetContainerDao = gadgetContainerDao;
+	}
+
+	public void setTabs(List<GadgetContainer> tabs) {
+		this.tabs = tabs;
+	}
+
+	public List<GadgetContainer> getTabs() {
+		return tabs;
 	}
 
 }

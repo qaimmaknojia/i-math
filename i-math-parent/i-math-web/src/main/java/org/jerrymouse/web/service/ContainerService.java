@@ -4,4 +4,7 @@ import org.jerrymouse.web.bean.MainContainer;
 
 public interface ContainerService {
 	MainContainer getMainContainer();
+
+	void init();
+
 }

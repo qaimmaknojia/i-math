@@ -6,7 +6,6 @@
 
 	<!-- action -->
 	<bean name="debuggerAction" class="org.jerrymouse.google.Debugger"></bean>
-
 	<bean name="indexAction" class="org.jerrymouse.web.action.IndexAction"></bean>
 	<bean name="ifrAction" class="org.jerrymouse.web.action.IfrAction"></bean>
 	<bean name="getGreetingAction" class="org.jerrymouse.web.action.GetGreetingAction"></bean>
@@ -18,6 +17,8 @@
 	<bean name="containerService" class="org.jerrymouse.web.service.impl.ContainerServiceImpl"></bean>
 
 	<!-- dao -->
+	<bean name="gadgetContainerDao" class="org.jerrymouse.web.dao.impl.GadgetContainerDaoImpl"></bean>
+	<bean name="gadgetDao" class="org.jerrymouse.web.dao.impl.GadgetDaoImpl"></bean>
 	<bean name="greetingDao" class="org.jerrymouse.web.dao.impl.GreetingDaoImpl"></bean>
 	<bean name="mainContainerDao" class="org.jerrymouse.web.dao.impl.MainContainerDaoImpl"></bean>
 </beans>
