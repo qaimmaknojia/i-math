@@ -188,6 +188,10 @@ a:hover {
 	bottom: 5px;
 	cursor: pointer;
 	font-size: 18px;
+        padding-bottom: 4px;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 4px;
 }
 
 #gadgets {
