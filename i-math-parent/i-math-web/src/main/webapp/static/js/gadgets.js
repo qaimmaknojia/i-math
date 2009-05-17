@@ -160,11 +160,12 @@ var gadgets = new Gadgets();
 
 var updateSortable = function() {
 	$j(".column").sortable( {
+		connectWith : $j('.column'),
 		handle : '.gadgets-gadget-title-bar',
-		placeholder : 'widget-placeholder',
+		placeholder : 'gadgets-placeholder',
 		forcePlaceholderSize : true,
 		revert : 300,
 		delay : 100,
-		opacity : 0.8
+		opacity : 0.8,
 	});
 }
