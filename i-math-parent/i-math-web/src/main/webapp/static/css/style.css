@@ -64,7 +64,7 @@ h3 {
 }
 
 p,ul,ol {
-	margin-top: 1.5em;
+	margin-top: 0.5em;
 }
 
 ul,ol {
@@ -72,7 +72,7 @@ ul,ol {
 }
 
 blockquote {
-	margin-left: 1.4em;
+	margin-left: 0.7em;
 	margin-right: 1.4em;
 	/*gai*/
 }
@@ -88,7 +88,7 @@ a:hover {
 
 /* Header */
 #header {
-	height: 100px;
+	height: 80px;
 	background: url("../images/h1-bg.gif") repeat-x;
 	color: #006aad;
 	border: 1px solid #c5e2f2;
@@ -170,10 +170,11 @@ a:hover {
 
 /* container */
 #tabDiv {
-	
+	padding: 0px 10px 0 10px;
 }
 
 #tabs {
+        clear: both;
 	list-style-type: none;
 }
 
@@ -193,7 +194,7 @@ a:hover {
 	padding-bottom: 20px;
 	padding-left: 15px;
 	padding-right: 15px;
-	padding-top: 20px;
+	padding-top: 10px;
 }
 
 .column {
@@ -201,11 +202,11 @@ a:hover {
 	float: left;
 	width: 32%;
 	margin: 0;
-	padding: 17px 0 0 0;
+	padding: 30px 0 0 0;
 	margin: 0 9px;
 	min-height: 400px;
 	height: auto !important;
-	height: 400px;
+	height: 450px;
 }
 
 .middlecolumn {
@@ -271,6 +272,7 @@ a:hover {
 	line-height: 37px;
 	height: 37px;
 	padding-left: 900px;
+      
 	background: url("../images/h1-bg.gif") repeat-x;
 	color: #006aad;
 	border: 1px solid #c5e2f2;
@@ -281,14 +283,14 @@ a:hover {
 
 #footer p {
 	margin: 0;
-	padding: 0 20px;
+	padding: 00px 20px;
 	line-height: normal;
 }
 
 #footer .legal {
 	float: left;
 	height: 32px;
-	padding-top: 18px;
+	padding-top: 9px;
 }
 
 #footer .credits {
