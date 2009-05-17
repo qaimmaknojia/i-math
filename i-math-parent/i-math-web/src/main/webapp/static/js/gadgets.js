@@ -7,6 +7,7 @@ var mainContainer;
 
 var init = function() {
 	createGadgetContainer();
+	updateSortable();
 };
 
 var renderGadgets = function() {
@@ -34,13 +35,13 @@ var createTabs = function() {
 			'text' : item.title
 		});
 		tabUL.grab(tab);
-		new dojox.widget.FisheyeLite( {
-			properties : {
-				fontSize : 1.75
-			},
-			easeOut : dojox.fx.easing.backInOut,
-			durationOut : 500
-		}, tab);
+//		new dojox.widget.FisheyeLite( {
+//			properties : {
+//				fontSize : 1.75
+//			},
+//			easeOut : dojox.fx.easing.backInOut,
+//			durationOut : 500
+//		}, tab);
 		tab.addEvent('click', function() {
 			createTabContainer(index);
 		});
@@ -54,7 +55,6 @@ var createTabContainer = function(index) {
 	writeColumn(mainContainer.tabs[index].rightGadget, "rightColumn");
 	var gadgets = getGadgets(mainContainer.tabs[index]);
 	createGadgets(gadgets);
-	updateSortable();
 };
 
 // layout
