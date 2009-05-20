@@ -20,6 +20,9 @@
 		<module>google-chart</module>
 		<module>jep</module>
 		<module>eyes</module>
+		<module>sudoku</module>
+		<module>scale</module>
+		<module>calcll</module>
 	</modules>
 
 </project>
