@@ -10,8 +10,8 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>i-math-web</module>
 		<module>gadgets</module>
+		<module>i-math-web</module>
 	</modules>
 
 	<properties>
