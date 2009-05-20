@@ -11,7 +11,6 @@
 	<artifactId>i-math-web</artifactId>
 	<packaging>war</packaging>
 
-
 	<build>
 		<plugins>
 			<plugin>
@@ -87,6 +86,30 @@
 						<resource>
 							<directory>${basedir}/../gadgets/smartcalculator/src/main/webapp/</directory>
 							<targetPath>gadgets/smartcalculator</targetPath>
+						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/google-chart/src/main/webapp/</directory>
+							<targetPath>gadgets/google-chart</targetPath>
+						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/jep/src/main/webapp/</directory>
+							<targetPath>gadgets/jep</targetPath>
+						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/eyes/src/main/webapp/</directory>
+							<targetPath>gadgets/eyes</targetPath>
+						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/sudoku/src/main/webapp/</directory>
+							<targetPath>gadgets/sudoku</targetPath>
+						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/calcll/src/main/webapp/</directory>
+							<targetPath>gadgets/calcll</targetPath>
+						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/scale/src/main/webapp/</directory>
+							<targetPath>gadgets/scale</targetPath>
 						</resource>
 					</webResources>
 				</configuration>
@@ -360,6 +383,11 @@
 		<dependency>
 			<groupId>org.jerrymouse</groupId>
 			<artifactId>add-gadget</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jerrymouse</groupId>
+			<artifactId>google-chart</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
