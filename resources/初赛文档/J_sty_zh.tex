@@ -1,0 +1,118 @@
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{fancyvrb} % for verbatim
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage[sf]{titlesec}
+\usepackage{titletoc}
+\usepackage[boldfont,slantfont,CJKnumber]{xeCJK}
+\usepackage{xcolor} % 使用颜色宏包
+
+\definecolor{steelblue}{rgb}{.275,.51,.71}
+\definecolor{lpink}{rgb}{.991,.711,.754}
+\definecolor{mygray}{gray}{0.92}
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkgreen}{rgb}{0,.39,0}
+\definecolor{hgray}{gray}{.5}
+\definecolor{lgray}{gray}{.8}
+
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref} % for links and anchors
+
+\setCJKmainfont[BoldFont=Adobe Heiti Std]{Adobe Song Std} % 设置默认的中文字体
+\setCJKfamilyfont{kai}{Adobe Kaiti Std}
+
+\newcommand{\kai}{\CJKfamily{kai}}
+\newcommand{\sectionname}{第\CJKnumber{\thesection}章}
+\newcommand{\myheader}[1]{\textcolor{darkblue}{#1}}
+
+\renewcommand\contentsname{目录}
+
+\newcommand\refsite{\section{附录}
+您可以在\href{http://i-math.appspot.com/}{\color{blue}http://i-math.appspot.com/}访问该站点。}
+\special{ pdf: bgcolor [ 1.00 0.98 0.95 ] }
+
+ \linespread{1.36}
+
+\pagestyle{fancy}
+
+\rhead{\textcolor{hgray}{JerryMouse}}
+\fancyhead[LE,LO]{\textcolor{hgray}\leftmark} 
+
+\makeatletter
+\renewcommand{\maketitle}{\begin{titlepage}%
+\let\footnotesize\small
+    \let\footnoterule\relax
+    \parindent \z@
+    \reset@font
+    \vskip 10\p@
+    \hbox{\mbox{%
+        \hspace{4pt}%
+        \includegraphics[width=6em]{data/logo.jpeg}
+        \hspace{4pt}
+        }%
+     \vrule depth 0.8\textheight%
+      \mbox{\hspace{2em}}
+      \vtop{% %%%%%%%%%%%%%%%%%%
+        \vskip 40\p@
+        \begin{flushleft}
+          \Large \@author \par
+        \end{flushleft}
+        \vskip 80\p@
+        \begin{flushleft}
+        \textcolor{steelblue}{ \fontsize{36}{20pt} \bfseries \kai \@title }\par
+        \end{flushleft}
+        \vfil
+        }}
+
+  \end{titlepage}%
+}
+
+\makeatother
+
+
+\titleformat{\section}[hang]{\LARGE\sf\kai}
+            {\myheader\sectionname}
+            {1em}
+            {\myheader}[\color{steelblue}{\titlerule}]
+
+\titleformat{\subsection}[hang]{\Large\sf\kai}
+            {\myheader\thesubsection}
+            {1em}
+            {\myheader}
+\titleformat{\subsubsection}[hang]{\large\sf\kai}
+            {\myheader\thesubsubsection}
+            {1em}
+            {\myheader}
+
+
+\titlecontents{section}
+              [2em]{\large\sf\kai\addvspace{-0.1em}}
+              {\thecontentslabel\quad}
+%%            {\hspace*{-2.3em}}
+              {}
+              {\titlerule*[0.8pc]{.}\contentspage}
+\titlecontents{subsection}
+              [4em]{\small\addvspace{-0.2em}}
+              {\thecontentslabel\quad}
+%%            {\hspace*{-2.3em}}
+              {}
+              {\titlerule*[0.8pc]{.}\contentspage}
+\titlecontents{subsubsection}
+              [6em]{\small\addvspace{-0.2em}}
+              {\thecontentslabel\quad}
+%%            {\hspace*{-2.3em}}
+              {}
+              {\titlerule*[0.8pc]{.}\contentspage}
+
+
+
+\lstset{
+keywordstyle=\color{blue!70}, commentstyle=\color{red!50!green!50!blue!50},
+frame=shadowbox,
+rulesepcolor=\color{red!20!green!20!blue!20}
+}
+\lstset{breaklines}%这条命令可以让LaTeX自动将长的代码行换行排版
+\lstset{extendedchars=false}
+
+% \lstset{ xleftmargin=2em,xrightmargin=2em, aboveskip=1em}
