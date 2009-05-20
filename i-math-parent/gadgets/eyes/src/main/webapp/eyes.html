@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="mootools-1.2.2-core-nc.js"></script>
+<title>eyes</title>
+
+
+</head>
+
+<body>
+<style>
+#EYES_pupil0115,#EYES_pupil1115 {
+	position: relative;
+	width: 15px;
+	height: 15px;
+	left: 52px;
+	top: 52px;
+}
+</style>
+<table cellspacing="0" cellpadding="0" border="0" align="center"
+	style="margin-top: 5px;margin-left: auto; margin-right: auto;">
+	<tbody>
+		<tr>
+			<td background="/gadgets/eyes/eye-r.gif">
+			<div style="width: 117px; height: 117px;"><img
+				id="EYES_pupil0115" src="/gadgets/eyes/pupil.gif"
+				style="left: 31px; top: 21px;" /></div>
+			</td>
+			<td background="/gadgets/eyes/eye-y.gif">
+			<div style="width: 117px; height: 117px;"><img
+				id="EYES_pupil1115" src="/gadgets/eyes/pupil.gif"
+				style="left: 19px; top: 35px;" /></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<script type="text/javascript">
+<!-- With thanks to Keith Packard and Jeremy Huxtable and Dylan Parker -->
+var EYES115 = {
+MAX_DIST : 37,     // furthest pupil can move from center
+EYE_RADIUS : 59,   // eye image width / 2
+PUPIL_RADIUS : 7,  // pupil image width / 2
+pupils : [],
+init : function() {
+document.onmousemove=EYES115.moveEyes;
+EYES115.pupils =
+[ $("EYES_pupil0115"), $("EYES_pupil1115") ];
+},
+moveEyes : function(e) {
+if (!e) e = window.event;
+var app = EYES115;
+for (var i = 0; i < app.pupils.length; i++) {
+var pupil = app.pupils[i];
+var midx = app.getPagePos(pupil.parentNode,true) + app.EYE_RADIUS;
+var midy = app.getPagePos(pupil.parentNode,false) + app.EYE_RADIUS;
+var scrollx = 0;
+var scrolly = 0;
+if (typeof(window.pageXOffset) == 'number') {
+scrollx = window.pageXOffset;
+scrolly = window.pageYOffset;
+} else {
+scrollx = document.documentElement.scrollLeft;
+scrolly = document.documentElement.scrollTop;
+}
+var distX = e.clientX + scrollx - midx;
+var distY = e.clientY + scrolly - midy;
+var dist = Math.sqrt(Math.pow(distX, 2) + Math.pow(distY, 2));
+if (dist > app.MAX_DIST) {
+var scale = app.MAX_DIST / dist;
+distX *= scale; distY *= scale;
+}
+pupil.style.left = parseInt(distX + app.EYE_RADIUS - app.PUPIL_RADIUS) + "px";
+pupil.style.top = parseInt(distY + app.EYE_RADIUS - app.PUPIL_RADIUS) + "px";
+}
+},
+getPagePos : function(el, left) {
+var val=0;
+while(el != null) {
+val += el["offset"+(left?"Left":"Top")];
+el = el.offsetParent;
+}
+return val;
+}
+};
+EYES115.init();
+</script>
+</body>
+</html>

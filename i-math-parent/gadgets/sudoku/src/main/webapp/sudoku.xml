@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module id="sudoku">
+	<ModulePrefs title="数独" />
+	<Content type="html">
+  <![CDATA[ 
+
+<div style="border: 0pt none; margin: 0pt; padding: 0pt; width: 100%;"
+	id="remote_14"><iframe frameborder="0" scrolling="no"
+	style="border: 0pt none; margin: 0pt; padding: 0pt; overflow: hidden; width: 100%; height: 250px;"
+	name="remote_iframe_14" id="remote_iframe_14"
+	src="http://14.gmodules.com/ig/ifr?url=http://www.google.com/ig/modules/china/sudoku.xml&amp;nocache=0&amp;up_difficulty=40&amp;lang=zh-CN&amp;country=us&amp;.lang=zh-CN&amp;.country=us&amp;synd=ig&amp;mid=14&amp;ifpctok=-7735051465646034171&amp;parent=http://www.google.com&amp;extern_js=/extern_js/f/CgJlbhICdXMrMBA4ACwrMBI4ACwrMBM4ACwrMBU4ACw/oKMw8vf6XhY.js" /></div>
+ ]]>
+	</Content>
+</Module>
