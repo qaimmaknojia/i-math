@@ -74,18 +74,33 @@ public class MainContainerDaoImpl extends JdoDaoSupport implements
 
 		Gadget addGadget = new Gadget("add-gadget",
 				"/gadgets/add-gadget/add-gadget.xml");
+		Gadget jep = new Gadget("jep", "/gadgets/jep/jep.xml");
+		Gadget eyes = new Gadget("eyes", "/gadgets/eyes/eyes.xml");
+		Gadget sudoku = new Gadget("sudoku", "/gadgets/sudoku/sudoku.xml");
+		Gadget calcll = new Gadget("calcll", "/gadgets/calcll/calcll.xml");
+		Gadget scale = new Gadget("scale", "/gadgets/scale/scale.xml");
 
-		GadgetContainer container1 = new GadgetContainer("概率运算");
-		GadgetContainer container2 = new GadgetContainer("分布运算");
-
-		container1.addLeft(smartcalculator);
-		container1.addLeft(addGadget);
-		container2.addLeft(addGadget);
+		GadgetContainer container1 = new GadgetContainer("计算器");
+		GadgetContainer container2 = new GadgetContainer("绘图");
+		GadgetContainer container3 = new GadgetContainer("解方程");
+		GadgetContainer container4 = new GadgetContainer("游戏");
 
 		MainContainer mainContainer = new MainContainer();
 
+		container1.addLeft(smartcalculator);
+		container1.addMiddle(calcll);
+
+		container2.addLeft(jep);
+		container3.addLeft(eyes);
+
+		container4.addLeft(sudoku);
+		container4.addRight(scale);
+		container4.addMiddle(eyes);
+
 		mainContainer.addTab(container1);
 		mainContainer.addTab(container2);
+		mainContainer.addTab(container3);
+		mainContainer.addTab(container4);
 
 		return mainContainer;
 	}

@@ -49,6 +49,13 @@ public class GadgetContainer {
 		leftGadget.add(gadget);
 	}
 
+	public void addMiddle(Gadget gadget) {
+		middleGadget.add(gadget);
+	}
+	
+	public void addRight(Gadget gadget) {
+		rightGadget.add(gadget);
+	}
 	public GadgetDao getGadgetDao() {
 		if (gadgetDao == null) {
 			gadgetDao = (GadgetDao) new ClassPathXmlApplicationContext(
@@ -101,7 +108,6 @@ public class GadgetContainer {
 		this.rightGadgetKeys = rightGadgetKeys;
 	}
 
-
 	public void setLeftGadget(List<Gadget> leftGadget) {
 		this.leftGadget = leftGadget;
 	}
@@ -125,5 +131,7 @@ public class GadgetContainer {
 	public List<Gadget> getRightGadget() {
 		return rightGadget;
 	}
+
+
 
 }

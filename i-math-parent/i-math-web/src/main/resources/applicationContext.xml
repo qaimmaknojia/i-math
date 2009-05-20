@@ -7,5 +7,6 @@
 
 	<import resource="classpath:/spring/applicationContext-add-gadget.xml" />
 	<import resource="classpath:/spring/applicationContext-web.xml" />
+	<import resource="classpath:/spring/applicationContext-google-chart.xml" />
 
 </beans>

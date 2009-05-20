@@ -1,6 +1,6 @@
 //dojo
-dojo.require("dojox.widget.FisheyeLite");
-dojo.require("dojox.fx.easing");
+//dojo.require("dojox.widget.FisheyeLite");
+//dojo.require("dojox.fx.easing");
 
 var test = false;
 var mainContainer;
