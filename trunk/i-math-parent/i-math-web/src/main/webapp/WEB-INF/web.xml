@@ -27,6 +27,10 @@
 			<param-name>config-web</param-name>
 			<param-value>/WEB-INF/dwr.xml</param-value>
 		</init-param>
+		<init-param>
+			<param-name>config-google-chart</param-name>
+			<param-value>/gadgets/google-chart/dwr.xml</param-value>
+		</init-param>
 	</servlet>
 
 	<servlet-mapping>
