@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module id="scale">
+	<ModulePrefs title="平衡游戏" />
+	<Content type="html">
+  <![CDATA[ 
+<div style="text-align: center; width: 100%;" id="smartcalculatordiv"><embed
+	style="width: 350px;height=350px;"
+	src="gadgets/scale/scale.swf"
+	type="application/x-shockwave-flash" allowscriptaccess="always"
+	menu="false" /></div>
+ ]]>
+	</Content>
+</Module>
