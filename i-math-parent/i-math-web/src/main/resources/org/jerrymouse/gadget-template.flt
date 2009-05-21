@@ -1,4 +1,6 @@
-<div class="gadgets-gadget-title-bar" id="gadgets-gadget-title-bar-0"><span
-	class="gadgets-gadget-title" id="remote_iframe_0_title">${title?if_exists}</span>
+<div class="gadgets-gadget-title-bar" id="gadgets-gadget-title-bar-${name?if_exists}">
+<span class="gadgets-gadget-title-toggle-button" id="gadgets-gadget-title-toggle-button-${name?if_exists}"
+onclick="runEffect('#gadgets-gadget-content-${name?if_exists}');"></span>
+<span class="gadgets-gadget-title" id="remote_iframe_${name?if_exists}">${title?if_exists}</span>
 </div>
-<div class="gadgets-gadget-content">${content?if_exists}</div>
+<div class="gadgets-gadget-content" id="gadgets-gadget-content-${name?if_exists}">${content?if_exists}</div>
