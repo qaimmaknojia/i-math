@@ -134,6 +134,7 @@ public class Gadget extends GadgetInfo {
 		Reader reader = null;
 		Map<String, String> rootMap = new HashMap<String, String>();
 		rootMap.put("title", title);
+		rootMap.put("name", name);
 		rootMap.put("content", text);
 		StringWriter out = null;
 		String html = null;

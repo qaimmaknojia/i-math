@@ -35,13 +35,13 @@ var createTabs = function() {
 			'text' : item.title
 		});
 		tabUL.grab(tab);
-//		new dojox.widget.FisheyeLite( {
-//			properties : {
-//				fontSize : 1.75
-//			},
-//			easeOut : dojox.fx.easing.backInOut,
-//			durationOut : 500
-//		}, tab);
+// new dojox.widget.FisheyeLite( {
+// properties : {
+// fontSize : 1.75
+// },
+// easeOut : dojox.fx.easing.backInOut,
+// durationOut : 500
+// }, tab);
 		tab.addEvent('click', function() {
 			createTabContainer(index);
 		});
@@ -169,3 +169,10 @@ var updateSortable = function() {
 		opacity : 0.8,
 	});
 }
+
+var runEffect=function(str){
+	var obj=$j(str);
+	obj.toggle('blind');
+};
+
+
