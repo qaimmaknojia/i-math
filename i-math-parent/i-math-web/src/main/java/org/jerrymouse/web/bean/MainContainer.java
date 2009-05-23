@@ -14,29 +14,22 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.google.appengine.api.datastore.Key;
 
-@PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class MainContainer {
 	GadgetContainerDao gadgetContainerDao;
 
-	@PrimaryKey
-	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Key id;
-
-	@Persistent
 	private List<Key> tabKeys = new ArrayList<Key>();
 
-	private List<GadgetContainer> tabs = new ArrayList<GadgetContainer>();;
+	private List<GadgetContainer> tabs = new ArrayList<GadgetContainer>();
+
+	public MainContainer(User user) {
+		tabs = user.getGadgetContainers();
+	}
+
+	public MainContainer() {
+	}
 
 	public void addTab(GadgetContainer g) {
 		tabs.add(g);
-	}
-
-	public Key getId() {
-		return id;
-	}
-
-	public void setId(Key id) {
-		this.id = id;
 	}
 
 	public List<Key> getTabKeys() {

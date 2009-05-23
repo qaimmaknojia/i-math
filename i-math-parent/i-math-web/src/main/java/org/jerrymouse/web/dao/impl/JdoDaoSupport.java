@@ -23,19 +23,20 @@ public class JdoDaoSupport {
 		return key;
 	}
 
-	protected void save(Object object) {
+	protected Object save(Object object) {
 		PersistenceManager pm = PMF.getPersistenceManager();
 		Transaction transaction = pm.currentTransaction();
-
 		try {
 			transaction.begin();
 			pm.makePersistent(object);
+			transaction.commit();
 		} finally {
 			if (transaction.isActive()) {
 				transaction.rollback();
 			}
 			pm.close();
 		}
+		return object;
 	}
 
 	@SuppressWarnings("unchecked")

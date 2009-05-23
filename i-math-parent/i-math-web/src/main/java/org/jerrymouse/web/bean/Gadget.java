@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.NotPersistent;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
@@ -35,16 +36,27 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
-public class Gadget extends GadgetInfo {
+public class Gadget {
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Key id;
 
-	private String html;
-	private List<String> javascripts;
-	private String javascriptSrc;
-	private String title;
+	@NotPersistent
+	private String htmlId;
+	@Persistent
+	protected String name;
+	@Persistent
+	private String relativeUrl;
 
+	@NotPersistent
+	private String html;
+	@NotPersistent
+	private List<String> javascripts;
+	@NotPersistent
+	private String javascriptSrc;
+	@NotPersistent
+	private String title;
+	@NotPersistent
 	private Document document;
 
 	public Gadget() {
@@ -61,10 +73,6 @@ public class Gadget extends GadgetInfo {
 		httpURLConnection.setUseCaches(true);
 		loadFromInputStream(httpURLConnection.getInputStream());
 		init();
-	}
-
-	public Gadget(String name, String relativeUrl) {
-		super(name, relativeUrl);
 	}
 
 	private void loadFromInputStream(InputStream in) {
@@ -198,4 +206,36 @@ public class Gadget extends GadgetInfo {
 		this.title = title;
 	}
 
+	public Gadget(String name, String relativeUrl) {
+		this.name = name;
+		this.relativeUrl = relativeUrl;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getRelativeUrl() {
+		return relativeUrl;
+	}
+
+	public void setRelativeUrl(String relativeUrl) {
+		this.relativeUrl = relativeUrl;
+	}
+
+	public String getHtmlId() {
+		if (htmlId == null) {
+			htmlId = name
+					+ new Integer((int) (Math.random() * 1000)).toString();
+		}
+		return htmlId;
+	}
+
+	public void setHtmlId(String htmlId) {
+		this.htmlId = htmlId;
+	}
 }
