@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<project>
+	<parent>
+		<artifactId>gadgets</artifactId>
+		<groupId>org.jerrymouse</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>calculator</artifactId>
+	<packaging>jar</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<!--
+					NOTE: We don't need a groupId specification because the group is
+					org.apache.maven.plugins ...which is assumed by default.
+				-->
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies
+						</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>jep</groupId>
+			<artifactId>jep</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>
