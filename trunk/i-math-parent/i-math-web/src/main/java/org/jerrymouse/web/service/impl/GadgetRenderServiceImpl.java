@@ -58,4 +58,8 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 		this.containerService = containerService;
 	}
 
+	public ContainerService getContainerService() {
+		return containerService;
+	}
+
 }

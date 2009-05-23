@@ -15,10 +15,13 @@
 	<bean name="gadgetRenderService"
 		class="org.jerrymouse.web.service.impl.GadgetRenderServiceImpl"></bean>
 	<bean name="containerService" class="org.jerrymouse.web.service.impl.ContainerServiceImpl"></bean>
+	<bean name="userService" class="org.jerrymouse.web.service.impl.UserServiceImpl"></bean>
 
 	<!-- dao -->
 	<bean name="gadgetContainerDao" class="org.jerrymouse.web.dao.impl.GadgetContainerDaoImpl"></bean>
 	<bean name="gadgetDao" class="org.jerrymouse.web.dao.impl.GadgetDaoImpl"></bean>
 	<bean name="greetingDao" class="org.jerrymouse.web.dao.impl.GreetingDaoImpl"></bean>
 	<bean name="mainContainerDao" class="org.jerrymouse.web.dao.impl.MainContainerDaoImpl"></bean>
+	<bean name="userDao" class="org.jerrymouse.web.dao.impl.UserDaoImpl"></bean>
+
 </beans>

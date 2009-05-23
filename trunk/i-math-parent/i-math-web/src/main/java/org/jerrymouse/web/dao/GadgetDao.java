@@ -10,7 +10,7 @@ public interface GadgetDao {
 
 	public List<Gadget> getByKeyList(List<Key> leftGadgetKey);
 
-	public void save(Gadget smartcalculator);
+	public void save(Gadget gadget);
 
 	public List<Gadget> getAll();
 

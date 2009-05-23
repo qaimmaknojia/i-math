@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.jdo.PersistenceManager;
+
 import org.jerrymouse.web.bean.Greeting;
+import org.jerrymouse.web.dao.PMF;
 import org.jerrymouse.web.test.DatastoreTestCase;
 
 import com.google.appengine.api.datastore.Key;
@@ -21,12 +24,12 @@ public class GreetingDaoImplTest extends DatastoreTestCase {
 				.getBean("greetingDao");
 	}
 
-	public void atestSave() throws Exception {
+	public void testSave() throws Exception {
 		// System.out.println("ok");
 		// System.out.println(greetingDao);
-		greetingDao.save(new Greeting("hello", new Date()));
-		// EntityManager pm = PMF.get().createEntityManager();
-		// pm.persist(new Greeting("c", new Date()));
+		// greetingDao.save(new Greeting("hello", new Date()));
+		PersistenceManager pm = PMF.getPersistenceManager();
+		pm.makePersistent(new Greeting("c", new Date()));
 
 	}
 

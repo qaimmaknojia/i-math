@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.NotPersistent;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
@@ -27,35 +28,30 @@ public class GadgetContainer {
 	private String title;
 
 	@Persistent
-	private List<Key> leftGadgetKeys = new ArrayList<Key>();
+	private List<Key> leftGadgetKeys;
 
 	@Persistent
-	private List<Key> middleGadgetKeys = new ArrayList<Key>();
+	private List<Key> middleGadgetKeys;
 
 	@Persistent
-	private List<Key> rightGadgetKeys = new ArrayList<Key>();
-
-	private List<Gadget> leftGadget = new ArrayList<Gadget>();
-
-	private List<Gadget> middleGadget = new ArrayList<Gadget>();;
-
-	private List<Gadget> rightGadget = new ArrayList<Gadget>();;
+	private List<Key> rightGadgetKeys;
 
 	public GadgetContainer(String string) {
 		title = string;
 	}
 
 	public void addLeft(Gadget gadget) {
-		leftGadget.add(gadget);
+		getLeftGadgetKeys().add(gadget.getId());
 	}
 
 	public void addMiddle(Gadget gadget) {
-		middleGadget.add(gadget);
+		getMiddleGadgetKeys().add(gadget.getId());
 	}
-	
+
 	public void addRight(Gadget gadget) {
-		rightGadget.add(gadget);
+		getRightGadgetKeys().add(gadget.getId());
 	}
+
 	public GadgetDao getGadgetDao() {
 		if (gadgetDao == null) {
 			gadgetDao = (GadgetDao) new ClassPathXmlApplicationContext(
@@ -85,6 +81,9 @@ public class GadgetContainer {
 	}
 
 	public List<Key> getLeftGadgetKeys() {
+		if (leftGadgetKeys == null) {
+			leftGadgetKeys = new ArrayList<Key>();
+		}
 		return leftGadgetKeys;
 	}
 
@@ -93,6 +92,9 @@ public class GadgetContainer {
 	}
 
 	public List<Key> getMiddleGadgetKeys() {
+		if (middleGadgetKeys == null) {
+			middleGadgetKeys = new ArrayList<Key>();
+		}
 		return middleGadgetKeys;
 	}
 
@@ -101,6 +103,9 @@ public class GadgetContainer {
 	}
 
 	public List<Key> getRightGadgetKeys() {
+		if (rightGadgetKeys == null) {
+			rightGadgetKeys = new ArrayList<Key>();
+		}
 		return rightGadgetKeys;
 	}
 
@@ -108,30 +113,17 @@ public class GadgetContainer {
 		this.rightGadgetKeys = rightGadgetKeys;
 	}
 
-	public void setLeftGadget(List<Gadget> leftGadget) {
-		this.leftGadget = leftGadget;
-	}
-
-	public void setMiddleGadget(List<Gadget> middleGadget) {
-		this.middleGadget = middleGadget;
-	}
-
-	public void setRightGadget(List<Gadget> rightGadget) {
-		this.rightGadget = rightGadget;
-	}
-
 	public List<Gadget> getLeftGadget() {
-		return leftGadget;
+		return getGadgetDao().getByKeyList(getLeftGadgetKeys());
+
 	}
 
 	public List<Gadget> getMiddleGadget() {
-		return middleGadget;
+		return getGadgetDao().getByKeyList(getMiddleGadgetKeys());
 	}
 
 	public List<Gadget> getRightGadget() {
-		return rightGadget;
+		return getGadgetDao().getByKeyList(getRightGadgetKeys());
 	}
-
-
 
 }
