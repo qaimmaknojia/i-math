@@ -31,6 +31,10 @@
 			<param-name>config-google-chart</param-name>
 			<param-value>/gadgets/google-chart/dwr.xml</param-value>
 		</init-param>
+				<init-param>
+			<param-name>config-calculator</param-name>
+			<param-value>/gadgets/calculator/dwr.xml</param-value>
+		</init-param>
 	</servlet>
 
 	<servlet-mapping>
