@@ -8,11 +8,591 @@
 </head>
 
 <body>
+<style type="text/css">
+body,td,div,span,p {
+	font-family: arial, sans-serif;
+}
 
-<div style="border: 0pt none; margin: 0pt; padding: 0pt; width: 100%;"
-	id="remote_14"><iframe frameborder="0" scrolling="no"
-	style="border: 0pt none; margin: 0pt; padding: 0pt; overflow: hidden; width: 100%; height: 250px;"
-	name="remote_iframe_14" id="remote_iframe_14"
-	src="http://14.gmodules.com/ig/ifr?url=http://www.google.com/ig/modules/china/sudoku.xml&amp;nocache=0&amp;up_difficulty=40&amp;lang=zh-CN&amp;country=us&amp;.lang=zh-CN&amp;.country=us&amp;synd=ig&amp;mid=14&amp;ifpctok=-7735051465646034171&amp;parent=http://www.google.com&amp;extern_js=/extern_js/f/CgJlbhICdXMrMBA4ACwrMBI4ACwrMBM4ACwrMBU4ACw/oKMw8vf6XhY.js" /></div>
+a {
+	color: #00c
+}
+
+a:visited {
+	color: #551a8b;
+}
+
+a:active {
+	color: #f00
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: white
+}
+</style>
+<script src="/gadgets/sudoku/sudoku.js"></script>
+<script>function sendRequest(iframe_id, service_name, args_list, remote_relay_url,callback, local_relay_url) {_IFPC.call(iframe_id, service_name, args_list, remote_relay_url, callback,local_relay_url);}function _IFPC_SetPref(key, value) {throw new Error('To use this feature, you must add ' +'<Require feature="setprefs"/> to your ' +'<ModulePrefs> tag.');}
+function _IG_SetTitle(title) {throw new Error('To use this feature, you must add ' +'<Require feature="settitle"/> to your ' +'<ModulePrefs> tag.');}function _IG_AdjustIFrameHeight() {throw new Error('To use this feature, you must add ' +'<Require feature="dynamic-height"/> to your ' +'<ModulePrefs> tag.');}
+var gv = null;if (window.gadgets && window.gadgets.views) {var errFunc = function() {throw new Error('To use this feature, you must add ' +'<Require feature="views"/> to your ' +'<ModulePrefs> tag.');};gv = window.gadgets.views;gv.requestNavigateTo = gv.getCurrentView = gv.getParams = errFunc;}
+</script>
+<script>_et='';_IG_Prefs._parseURL('0');</script>
+<script>_IG_Prefs._addAll("0", [["msg_hint_msg","对当前格提示"],["msg_clean_msg","恢复到本局初始"],["msg_congratulation","恭喜!"],["msg_thumbnail","/ig/modules/simple_sudoku/ALL_cn-thm.png"],["msg_ok_button","确定"],["msg_success_msg","您已经成功的解决了本局！"],["msg_sorry","抱歉!"],["msg_check_msg","检查是否完成"],["msg_result","答案"],["msg_print_msg","打印本局"],["msg_title","开心数独"],["msg_result_msg","看答案"],["msg_clean","重置"],["msg_err_msg","您还没有完成本局！"],["msg_new","新局"],["msg_print","打印"],["msg_screenshot","/ig/modules/simple_sudoku/ALL_cn.png"],["msg_check","检查"],["msg_new_msg","重新生成新一局"],["msg_hint","提示"],["msg_description","一个数独游戏，练练你的逻辑吧，玩的开心！"],["msg_difficulty","难度"],["msg_medium_level","普通"],["msg_easy_level","简单"],["msg_hard_level","困难"],["up_difficulty","40"],["up_.lang","zh-CN"],["up_.country","us"],["up_synd","ig"]]);if (window._isk) {window._isk[0] = "-8658427931842713682";}</script>
+<!-- Create your own Google Gadgets: http://code.google.com/apis/igoogle/ -->
+<div id="remote_0"
+	style="border: 0pt none; margin: 0pt; padding: 0pt; overflow: hidden; width: 100%; height: auto;">
+<style>
+.style2 {
+	border: 1px solid #006cb3;
+	color: #006cb3;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	cursor: pointer;
+	width: 55px
+}
+
+.digit {
+	margin: 0px;
+	padding: 1px;
+	background-color: #eee;
+	font-family: verdana, tahoma, helvetica, arial, sans-serif;
+	font-weight: bold;
+	color: #444;
+	font-size: 9pt;
+	text-align: center;
+	border: 0 none;
+	width: 14pt
+}
+
+.digitlock {
+	margin: 0px;
+	padding: 1px;
+	background-color: #eee;
+	font-family: verdana, tahoma, helvetica, arial, sans-serif;
+	font-weight: bold;
+	color: #484;
+	font-size: 9pt;
+	text-align: center;
+	border: 0 none;
+	width: 14pt
+}
+
+.bdigit {
+	width: 50px;
+	height: 30px;
+	font-family: verdana, tahoma, helvetica, arial, sans-serif;
+	font-weight: bold;
+	font-size: 12pt
+}
+
+.stylePopUp {
+	position: absolute;
+	display: none;
+	background-color: #fff;
+	border: 2px solid #006cb3;
+	top: 53px;
+	left: 60px
+}
+
+.styleBox {
+	cursor: pointer;
+	background-color: #006cb3;
+	color: white;
+	font-weight: bold;
+	font-family: arial;
+	font-size: 12px;
+	width: 30px;
+	align: center
+}
+
+.style1 {
+	font-size: 16px;
+	color: #dc4920;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif
+}
+</style>
+<form>
+<table class="stylePopUp" id="congratMenu" border="0" cellpadding="0"
+	cellspacing="0" height="130" width="160">
+	<tbody>
+		<tr>
+			<td>
+			<table id="Table9" border="0" cellpadding="0" cellspacing="0"
+				height="130" width="144">
+				<tbody>
+					<tr>
+						<td height="27">
+						<div id="congTitle" class="style1" align="center">恭喜!</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" height="99" valign="top">
+						<p id="congText" align="center">您已经成功的解决了本局！</p>
+						<div id="ok" onmouseover="this.style.color='#dc4920'"
+							onmouseout="this.style.color='#fff'" class="styleBox"
+							onclick="closemsg()" align="center">确定</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table class="stylePopUp" id="errorMenu" border="0" cellpadding="0"
+	cellspacing="0" height="130" width="160">
+	<tbody>
+		<tr>
+			<td>
+			<table id="Table10" border="0" cellpadding="0" cellspacing="0"
+				height="130" width="144">
+				<tbody>
+					<tr>
+						<td height="27">
+						<div id="errorTitle" class="style1" align="center">抱歉!</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" height="99" valign="top">
+						<p id="errorText" align="center">您还没有完成本局！</p>
+						<div id="ok" onmouseover="this.style.color='#dc4920'"
+							onmouseout="this.style.color='#fff'" class="styleBox"
+							onclick="closemsg()" align="center">确定</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p></p>
+<center>
+<table bgcolor="#eeeeee" border="3" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td id="bigbox0" valign="top">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td><input style="background-color: rgb(238, 221, 204);"
+							class="digitlock" id="c0" value=" " size="1" readonly="readonly"
+							onclick="cell(0)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c1" value=" " size="1" readonly="readonly"
+							onclick="cell(1)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c2" value=" " size="1" readonly="readonly"
+							onclick="cell(2)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c9" value=" " size="1" readonly="readonly"
+							onclick="cell(9)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c10" value=" " size="1" readonly="readonly"
+							onclick="cell(10)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c11" value=" " size="1" readonly="readonly"
+							onclick="cell(11)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c18" value=" " size="1" readonly="readonly"
+							onclick="cell(18)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c19" value=" " size="1" readonly="readonly"
+							onclick="cell(19)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c20" value=" " size="1" readonly="readonly"
+							onclick="cell(20)" type="text"></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td id="bigbox1" valign="top">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c3" value=" " size="1" readonly="readonly"
+							onclick="cell(3)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c4" value=" " size="1" readonly="readonly"
+							onclick="cell(4)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c5" value=" " size="1" readonly="readonly"
+							onclick="cell(5)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c12" value=" " size="1" readonly="readonly"
+							onclick="cell(12)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c13" value=" " size="1" readonly="readonly"
+							onclick="cell(13)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c14" value=" " size="1" readonly="readonly"
+							onclick="cell(14)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c21" value=" " size="1" readonly="readonly"
+							onclick="cell(21)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c22" value=" " size="1" readonly="readonly"
+							onclick="cell(22)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c23" value=" " size="1" readonly="readonly"
+							onclick="cell(23)" type="text"></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td id="bigbox2" valign="top">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c6" value=" " size="1" readonly="readonly"
+							onclick="cell(6)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c7" value=" " size="1" readonly="readonly"
+							onclick="cell(7)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c8" value=" " size="1" readonly="readonly"
+							onclick="cell(8)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c15" value=" " size="1" readonly="readonly"
+							onclick="cell(15)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c16" value=" " size="1" readonly="readonly"
+							onclick="cell(16)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c17" value=" " size="1" readonly="readonly"
+							onclick="cell(17)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c24" value=" " size="1" readonly="readonly"
+							onclick="cell(24)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c25" value=" " size="1" readonly="readonly"
+							onclick="cell(25)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c26" value=" " size="1" readonly="readonly"
+							onclick="cell(26)" type="text"></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td id="bigbox3" valign="top">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c27" value=" " size="1" readonly="readonly"
+							onclick="cell(27)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c28" value=" " size="1" readonly="readonly"
+							onclick="cell(28)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c29" value=" " size="1" readonly="readonly"
+							onclick="cell(29)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c36" value=" " size="1" readonly="readonly"
+							onclick="cell(36)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c37" value=" " size="1" readonly="readonly"
+							onclick="cell(37)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c38" value=" " size="1" readonly="readonly"
+							onclick="cell(38)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c45" value=" " size="1" readonly="readonly"
+							onclick="cell(45)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c46" value=" " size="1" readonly="readonly"
+							onclick="cell(46)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c47" value=" " size="1" readonly="readonly"
+							onclick="cell(47)" type="text"></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td id="bigbox4" valign="top">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c30" value=" " size="1" readonly="readonly"
+							onclick="cell(30)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c31" value=" " size="1" readonly="readonly"
+							onclick="cell(31)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c32" value=" " size="1" readonly="readonly"
+							onclick="cell(32)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c39" value=" " size="1" readonly="readonly"
+							onclick="cell(39)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c40" value=" " size="1" readonly="readonly"
+							onclick="cell(40)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c41" value=" " size="1" readonly="readonly"
+							onclick="cell(41)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c48" value=" " size="1" readonly="readonly"
+							onclick="cell(48)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c49" value=" " size="1" readonly="readonly"
+							onclick="cell(49)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c50" value=" " size="1" readonly="readonly"
+							onclick="cell(50)" type="text"></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td id="bigbox5" valign="top">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c33" value=" " size="1" readonly="readonly"
+							onclick="cell(33)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c34" value=" " size="1" readonly="readonly"
+							onclick="cell(34)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c35" value=" " size="1" readonly="readonly"
+							onclick="cell(35)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c42" value=" " size="1" readonly="readonly"
+							onclick="cell(42)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c43" value=" " size="1" readonly="readonly"
+							onclick="cell(43)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c44" value=" " size="1" readonly="readonly"
+							onclick="cell(44)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c51" value=" " size="1" readonly="readonly"
+							onclick="cell(51)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c52" value=" " size="1" readonly="readonly"
+							onclick="cell(52)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c53" value=" " size="1" readonly="readonly"
+							onclick="cell(53)" type="text"></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td id="bigbox6" valign="top">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c54" value=" " size="1" readonly="readonly"
+							onclick="cell(54)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c55" value=" " size="1" readonly="readonly"
+							onclick="cell(55)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c56" value=" " size="1" readonly="readonly"
+							onclick="cell(56)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c63" value=" " size="1" readonly="readonly"
+							onclick="cell(63)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c64" value=" " size="1" readonly="readonly"
+							onclick="cell(64)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c65" value=" " size="1" readonly="readonly"
+							onclick="cell(65)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c72" value=" " size="1" readonly="readonly"
+							onclick="cell(72)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c73" value=" " size="1" readonly="readonly"
+							onclick="cell(73)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c74" value=" " size="1" readonly="readonly"
+							onclick="cell(74)" type="text"></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td id="bigbox7" valign="top">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c57" value=" " size="1" readonly="readonly"
+							onclick="cell(57)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c58" value=" " size="1" readonly="readonly"
+							onclick="cell(58)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c59" value=" " size="1" readonly="readonly"
+							onclick="cell(59)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c66" value=" " size="1" readonly="readonly"
+							onclick="cell(66)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c67" value=" " size="1" readonly="readonly"
+							onclick="cell(67)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c68" value=" " size="1" readonly="readonly"
+							onclick="cell(68)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c75" value=" " size="1" readonly="readonly"
+							onclick="cell(75)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c76" value=" " size="1" readonly="readonly"
+							onclick="cell(76)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c77" value=" " size="1" readonly="readonly"
+							onclick="cell(77)" type="text"></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td id="bigbox8" valign="top">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c60" value=" " size="1" readonly="readonly"
+							onclick="cell(60)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c61" value=" " size="1" readonly="readonly"
+							onclick="cell(61)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c62" value=" " size="1" readonly="readonly"
+							onclick="cell(62)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c69" value=" " size="1" readonly="readonly"
+							onclick="cell(69)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c70" value=" " size="1" readonly="readonly"
+							onclick="cell(70)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c71" value=" " size="1" readonly="readonly"
+							onclick="cell(71)" type="text"></td>
+					</tr>
+					<tr>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digit" id="c78" value=" " size="1" readonly="readonly"
+							onclick="cell(78)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c79" value=" " size="1" readonly="readonly"
+							onclick="cell(79)" type="text"></td>
+						<td><input style="background-color: rgb(238, 238, 238);"
+							class="digitlock" id="c80" value=" " size="1" readonly="readonly"
+							onclick="cell(80)" type="text"></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="style2" onclick="showResult()"
+				onmouseover="this.style.color='#7e9d1e'"
+				onmouseout="this.style.color='#006cb3'" title="看答案" align="center"
+				height="15">答案</td>
+			<td class="style2" onclick="showHint()"
+				onmouseover="this.style.color='#7e9d1e'"
+				onmouseout="this.style.color='#006cb3'" title="对当前格提示"
+				align="center" height="15">提示</td>
+			<td style="color: rgb(0, 108, 179);" class="style2"
+				onclick="checkWin()" onmouseover="this.style.color='#7e9d1e'"
+				onmouseout="this.style.color='#006cb3'" title="检查是否完成"
+				align="center" height="15">检查</td>
+		</tr>
+		<tr>
+			<td class="style2" onclick="Clean()"
+				onmouseover="this.style.color='#7e9d1e'"
+				onmouseout="this.style.color='#006cb3'" title="恢复到本局初始"
+				align="center" height="15">重置</td>
+			<td class="style2" onclick="window.print();"
+				onmouseover="this.style.color='#7e9d1e'"
+				onmouseout="this.style.color='#006cb3'" title="打印本局" align="center"
+				height="15">打印</td>
+			<td style="color: rgb(0, 108, 179);" class="style2"
+				onclick="doCreate()" onmouseover="this.style.color='#7e9d1e'"
+				onmouseout="this.style.color='#006cb3'" title="重新生成新一局"
+				align="center" height="15">新局</td>
+		</tr>
+	</tbody>
+</table>
+</center>
+</form>
+<script>var prefs=new _IG_Prefs,numOfBlank=prefs.getInt("difficulty"),index,lockMask=131072,box_index=new Array(9),col_index=new Array(9),row_index=new Array(9),numList=new Array(9),board=new Array(81),result=new Array(81),needrestore=[],blank_pos=[];box_index[0]=[0,1,2,9,10,11,18,19,20];box_index[1]=[3,4,5,12,13,14,21,22,23];box_index[2]=[6,7,8,15,16,17,24,25,26];box_index[3]=[27,28,29,36,37,38,45,46,47];box_index[4]=[30,31,32,39,40,41,48,49,50];box_index[5]=[33,34,35,42,43,44,51,52,53];
+box_index[6]=[54,55,56,63,64,65,72,73,74];box_index[7]=[57,58,59,66,67,68,75,76,77];box_index[8]=[60,61,62,69,70,71,78,79,80];row_index[0]=[0,1,2,3,4,5,6,7,8];row_index[1]=[9,10,11,12,13,14,15,16,17];row_index[2]=[18,19,20,21,22,23,24,25,26];row_index[3]=[27,28,29,30,31,32,33,34,35];row_index[4]=[36,37,38,39,40,41,42,43,44];row_index[5]=[45,46,47,48,49,50,51,52,53];row_index[6]=[54,55,56,57,58,59,60,61,62];row_index[7]=[63,64,65,66,67,68,69,70,71];row_index[8]=[72,73,74,75,76,77,78,79,80];
+col_index[0]=[0,9,18,27,36,45,54,63,72];col_index[1]=[1,10,19,28,37,46,55,64,73];col_index[2]=[2,11,20,29,38,47,56,65,74];col_index[3]=[3,12,21,30,39,48,57,66,75];col_index[4]=[4,13,22,31,40,49,58,67,76];col_index[5]=[5,14,23,32,41,50,59,68,77];col_index[6]=[6,15,24,33,42,51,60,69,78];col_index[7]=[7,16,25,34,43,52,61,70,79];col_index[8]=[8,17,26,35,44,53,62,71,80];var digit=["1","2","3","4","5","6","7","8","9"," "],template_length=10,data_template=new Array(template_length);
+data_template[0]=["i","f","h","e","d","g","a","c","b","a","d","b","h","i","c","e","f","g","c","e","g","a","b","f","h","d","i","b","h","d","i","e","a","c","g","f","g","a","e","c","f","b","i","h","d","f","c","i","d","g","h","b","a","e","d","g","a","b","h","e","f","i","c","e","i","c","f","a","d","g","b","h","h","b","f","g","c","i","d","e","a"];
+data_template[1]=["b","e","i","g","a","d","c","f","h","c","f","h","e","i","b","a","d","g","a","d","g","f","h","c","b","e","i","h","i","e","a","d","f","g","b","c","g","b","f","i","c","e","h","a","d","d","c","a","b","g","h","f","i","e","i","g","b","h","e","a","d","c","f","f","h","c","d","b","i","e","g","a","e","a","d","c","f","g","i","h","b"];
+data_template[2]=["b","c","i","f","a","h","g","e","d","d","e","h","b","g","c","f","a","i","f","g","a","e","i","d","h","b","c","h","i","c","d","b","a","e","f","g","e","f","g","h","c","i","b","d","a","a","d","b","g","e","f","i","c","h","g","a","f","i","d","b","c","h","e","c","h","e","a","f","g","d","i","b","i","b","d","c","h","e","a","g","f"];
+data_template[3]=["c","e","g","b","h","d","f","i","a","a","f","h","g","e","i","b","c","d","b","i","a","d","c","f","e","g","h","g","a","f","d","b","e","i","h","c","d","c","e","i","a","h","g","b","f","h","b","i","c","f","g","a","d","e","i","h","a","e","d","b","c","f","g","f","g","c","h","i","a","d","e","b","e","d","b","f","g","c","h","a","i"];
+data_template[4]=["c","e","a","f","g","h","i","b","d","b","d","g","a","e","i","h","c","f","f","h","i","c","b","d","g","a","e","a","i","c","d","h","g","e","f","b","e","b","f","i","a","c","d","g","h","d","g","h","b","f","e","a","i","c","h","f","b","g","d","a","c","e","i","g","c","e","h","i","b","f","d","a","i","a","d","e","c","f","b","h","g"];
+data_template[5]=["f","d","g","h","i","a","e","c","b","a","c","i","b","e","d","f","g","h","b","e","h","c","f","g","a","d","i","h","i","c","e","b","f","d","a","g","d","a","b","g","c","h","i","e","f","g","f","e","a","d","i","b","h","c","c","b","d","f","g","e","h","i","a","e","g","a","i","h","b","c","f","d","i","h","f","d","a","c","g","b","e"];
+data_template[6]=["b","a","c","f","d","g","h","i","e","e","f","g","a","i","h","d","b","c","d","h","i","b","c","e","a","f","g","c","i","a","e","b","d","g","h","f","f","e","h","c","g","i","b","a","d","g","b","d","h","a","f","c","e","i","i","d","b","g","e","a","f","c","h","h","c","e","d","f","b","i","g","a","a","g","f","i","h","c","e","d","b"];
+data_template[7]=["f","c","d","e","i","b","g","a","h","e","b","g","a","f","h","i","c","d","a","h","i","c","d","g","e","b","f","i","f","h","d","b","c","a","e","g","d","a","e","g","h","i","c","f","b","b","g","c","f","a","e","d","h","i","h","e","b","i","c","d","f","g","a","g","i","f","b","e","a","h","d","c","c","d","a","h","g","f","b","i","e"];
+data_template[8]=["i","g","f","d","b","c","a","h","e","a","c","b","e","h","f","d","g","i","e","d","h","a","g","i","b","c","f","d","e","g","i","a","h","f","b","c","f","h","i","c","d","b","e","a","g","b","a","c","f","e","g","i","d","h","h","f","d","g","i","a","c","e","b","g","i","e","b","c","d","h","f","a","c","b","a","h","f","e","g","i","d"];
+data_template[9]=["c","e","a","b","f","g","h","i","d","d","g","i","c","a","h","f","b","e","b","f","h","d","e","i","c","g","a","h","b","g","a","c","d","i","e","f","e","a","f","h","i","b","d","c","g","i","c","d","f","g","e","a","h","b","f","i","b","e","h","a","g","d","c","g","d","c","i","b","f","e","a","h","a","h","e","g","d","c","b","f","i"];var data;
+function initMatrix(a){a[0]="a";a[1]="b";a[2]="c";a[3]="d";a[4]="e";a[5]="f";a[6]="g";a[7]="h";a[8]="i";for(var c=8;c>=0;--c){var b=Math.floor(Math.random()*(c+1)),d=a[c];a[c]=a[b];a[b]=d}}function getBlankCell(a){for(var c=0;c<81;++c)blank_pos[c]=c;for(var b=80;b>80-a;--b){var d=Math.floor(Math.random()*(b+1)),e=blank_pos[b];blank_pos[b]=blank_pos[d];blank_pos[d]=e;for(var f=0;f<9;++f)if(data[blank_pos[b]]==numList[f]){board[blank_pos[b]]=f+1;result[blank_pos[b]]=0}}}
+function clearboard(){for(var a=0;a<81;++a){var c=document.getElementById("c"+a);c.className="digit";c.style.backgroundColor="#eee";c.value=" "}}function doCreate(){result=new Array(81);board=new Array(81);clearboard();initialize();for(var a=0;a<81;++a)setcell(a)}
+function setcell(a){for(var c=80;c>80-numOfBlank;--c)if(a==blank_pos[c])return;for(var b=0;b<9;++b)if(data[a]==numList[b]){var d=document.getElementById("c"+a);d.className="digitlock";d.value=digit[b];board[a]=digit[b];result[a]=digit[b];board[a]|=lockMask}}
+function initialize(){index=0;var a=document.getElementById("c"+index);a.className="digit";a.style.backgroundColor="#edc";a.focus();var c=Math.floor(Math.random()*template_length);data=data_template[c];initMatrix(numList);getBlankCell(numOfBlank);document.onkeydown=inputHandler}
+function cell(a){if(needrestore.length!=0){for(var c=0;c<needrestore.length;++c){var b=document.getElementById("c"+needrestore[c]);b.style.backgroundColor="#eee"}needrestore=[]}var b=document.getElementById("c"+index);b.className=board[index]&lockMask?"digitlock":"digit";b.style.backgroundColor="#eee";index=a;b=document.getElementById("c"+index);b.className=board[index]&lockMask?"digitlock":"digit";b.style.backgroundColor="#edc";b.focus()}
+function checklegal(){var a=0,c=0,b=getBox(index);for(var d=0;d<9;++d)if(result[box_index[b][d]]==result[index]&&box_index[b][d]!=index){needrestore[a++]=box_index[b][d];var e=document.getElementById("c"+box_index[b][d]);e.style.backgroundColor="Red";c=1}var f=Math.floor(index/9);for(var d=0;d<9;++d)if(result[row_index[f][d]]==result[index]&&row_index[f][d]!=index){needrestore[a++]=row_index[f][d];var e=document.getElementById("c"+row_index[f][d]);e.style.backgroundColor="Red";c=1}var g=Math.floor(index%
+9);for(var d=0;d<9;++d)if(result[col_index[g][d]]==result[index]&&col_index[g][d]!=index){needrestore[a++]=col_index[g][d];var e=document.getElementById("c"+col_index[g][d]);e.style.backgroundColor="Red";c=1}if(c){var e=document.getElementById("c"+index);e.style.backgroundColor="Red";needrestore[a++]=index}}
+function setvalue(a){if(needrestore.length!=0){for(var c=0;c<needrestore.length;++c){var b=document.getElementById("c"+needrestore[c]);b.style.backgroundColor="#eee"}needrestore=[]}var b=document.getElementById("c"+index);if(!(board[index]&lockMask)){b.value=digit[a];result[index]=a+1;checklegal()}}
+function showResult(){for(var a=80;a>80-numOfBlank;--a){var c=document.getElementById("c"+blank_pos[a]);result[blank_pos[a]]=board[blank_pos[a]];c.value=board[blank_pos[a]];c.className="digit";c.style.backgroundColor="#eee"}}function showHint(){if((board[index]&lockMask)==0){result[index]=board[index];var a=document.getElementById("c"+index);a.value=board[index];a.className="digit";a.style.backgroundColor="#eee"}}
+function Clean(){for(var a=80;a>80-numOfBlank;--a){result[blank_pos[a]]=0;var c=document.getElementById("c"+blank_pos[a]);c.value=" ";c.className="digit";c.style.backgroundColor="#eee"}}
+function checkWin(){var a=1,c=new Array(10),b=new Array(10),d=new Array(10);for(var e=0;e<9;++e){for(var f=0;f<10;++f)c[f]=b[f]=d[f]=0;for(var g=0;g<9;++g){if(c[result[row_index[e][g]]]!=0){a=0;break}else c[result[row_index[e][g]]]=1;if(b[result[col_index[e][g]]]!=0){a=0;break}else b[result[col_index[e][g]]]=1;if(d[result[box_index[e][g]]]!=0){a=0;break}else d[result[box_index[e][g]]]=1;if(d[0]|c[0]|b[0]){a=0;break}}if(a==0)break}if(a==1){var h=document.getElementById("congratMenu");h.style.display=
+"inline"}else{var h=document.getElementById("errorMenu");h.style.display="inline"}}function closemsg(){var a=document.getElementById("congratMenu");a.style.display="none";a=document.getElementById("errorMenu");a.style.display="none"}
+function inputHandler(a){var c=document.getElementById("c"+index);if(!a)a=window.event;var b=String.fromCharCode(a.keyCode);if("1"<=b&&b<="9"){var d=b.charCodeAt(0)-49;setvalue(d)}else if("a"<=b&&b<="i"){var d=b.charCodeAt(0)-97;setvalue(d)}else if(b==" "||a.keyCode==46||a.keyCode==8){if((board[index]&lockMask)==0){c.value=" ";result[index]=0;cell(index)}}else if(b=="%"){var e=index-1;if(e<0)e+=81;cell(e)}else if(b=="&"){var e=index-9;if(e<0)if(e==-9)e=80;else e+=80;cell(e)}else if(b=="'"){var e=
+index+1;if(e>80)e-=81;cell(e)}else if(b=="("){var e=index+9;if(e>80)if(e==89)e=0;else e-=80;cell(e)}}function getBox(a){var c=Math.floor(a/9),b=Math.floor(a%9);return Math.floor(3*Math.floor(c/3)+Math.floor(b/3))}
+function generateHTML(a){var c=[0,1,2,9,10,11,18,19,20,3,4,5,12,13,14,21,22,23,6,7,8,15,16,17,24,25,26,27,28,29,36,37,38,45,46,47,30,31,32,39,40,41,48,49,50,33,34,35,42,43,44,51,52,53,54,55,56,63,64,65,72,73,74,57,58,59,66,67,68,75,76,77,60,61,62,69,70,71,78,79,80],b=[],d=a*9;b.push("<table border=1 cellpadding=0 cellspacing=0>");for(var e=0;e<3;++e){b.push("<tr>");for(var f=0;f<3;++f){b.push('<td><input class="digit" type="text" id="c'+c[d]+'" value=" " size="1" readonly onclick="cell('+c[d]+')" ></td>');
+++d}b.push("</tr>")}b.push("</table>");document.getElementById("bigbox"+a).innerHTML=b.join(" ")}function renderSudoku(){for(var a=0;a<9;++a)generateHTML(a);doCreate()}_IG_RegisterOnloadHandler(renderSudoku);</script>
+</div>
+
+
+<script>_IG_TriggerEvent('domload');</script>
 </body>
 </html>
