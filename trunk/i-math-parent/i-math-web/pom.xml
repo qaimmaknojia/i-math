@@ -11,6 +11,7 @@
 	<artifactId>i-math-web</artifactId>
 	<packaging>war</packaging>
 
+
 	<build>
 		<plugins>
 			<plugin>
@@ -110,6 +111,10 @@
 						<resource>
 							<directory>${basedir}/../gadgets/scale/src/main/webapp/</directory>
 							<targetPath>gadgets/scale</targetPath>
+						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/calculator/src/main/webapp/</directory>
+							<targetPath>gadgets/calculator</targetPath>
 						</resource>
 					</webResources>
 				</configuration>
@@ -381,15 +386,21 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>org.jerrymouse</groupId>
-			<artifactId>add-gadget</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>calculator</artifactId>
+			<version>${pom.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.jerrymouse</groupId>
-			<artifactId>google-chart</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>add-gadget</artifactId>
+			<version>${pom.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>google-chart</artifactId>
+			<version>${pom.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-1.0-sdk</artifactId>
