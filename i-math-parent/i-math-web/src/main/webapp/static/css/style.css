@@ -340,12 +340,12 @@ display:inline;
 	bottom: 5px;
 	cursor: pointer;	
    
-       TEXT-ALIGN: left; PADDING-BOTTOM: 2px; TEXT-INDENT: 0.5em; PADDING-LEFT: 5px; WIDTH: 7.0em; height:120px; PADDING-RIGHT: 35px; 
-       DISPLAY: block;
-    BACKGROUND: url(../images/del_sprite_tabs.gif) #e4ecf9 no-repeat right -200px; COLOR: #fff;
+       text-align: left; padding-bottom: 3px; text-indent: 0.5em; padding-left: 7px; width: 7.0em; height:120px; padding-right: 35px; 
+       display: block;
+       background: url(../images/del_sprite_tabs.gif) #e4ecf9 no-repeat right -200px; color:#3d669c;
        display: inline;
-FONT-SIZE: 122%; FONT-WEIGHT: bold; MARGIN-RIGHT: 0.4em; TEXT-DECORATION: none; PADDING-TOP: 3px
-color:#7887a6;
+        font-size: 122%; font-weight: bold; margin-right: 0.2em; text-decoration: none; padding-top: 5px;
+
 }
 #tabs LI {
 	FONT-SIZE: 100%
