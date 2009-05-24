@@ -359,17 +359,17 @@ blockquote {
 	cursor: pointer;
 	bottom: 0px;
 	cursor: pointer;	 
-    text-align: left; 
+        text-align: left; 
 	text-indent: 0.5em;
 	text-decoration: none; 
 	padding-bottom: 8px; 
-	padding-left: 29px; 
-	padding-top: 13px;
-	padding-right: 30px; 
-    background: url(../images/menu.png) no-repeat left top; 
+	padding-left: 25px; 
+	padding-top: 10px;
+	padding-right: 22px; 
+        background: url(../images/menu.png) no-repeat left top; 
 	height:46px; 
-    color:#3d669c;
-    font-size: 122%; font-weight: bold; margin-right: 0.2em; 
+        color:#3d669c;
+        font-size: 122%; font-weight: bold; margin-right: 0.0em; 
 
 }
 
