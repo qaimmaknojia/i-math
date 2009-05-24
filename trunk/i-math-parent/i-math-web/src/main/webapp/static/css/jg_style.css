@@ -21,3 +21,6 @@ html,body {
 #footer .credits {
 	
 }
+#add-content: hover {
+cursor:hand;
+}
