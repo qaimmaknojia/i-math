@@ -201,6 +201,9 @@ blockquote {
 
 #add-content {
 	float: right;
+	margin-right: 25px;
+	color:#5b5f8c;
+	font:  small-caps bold 18px arial;
 }
 
 #gadgets {
@@ -337,12 +340,13 @@ blockquote {
 
 #tabs {
 	clear: both;
+	margin-left: 20px;
 	list-style-type: none;
 	/*DISPLAY: block*/
 }
 
 #tabs LI {
-	FLOAT: left overflow :       visible;
+	FLOAT: left overflow :    visible;
 	cursor: pointer;
 	bottom: 5px;
 	cursor: pointer;
@@ -353,14 +357,19 @@ blockquote {
 	display: inline;
 	overflow: visible;
 	cursor: pointer;
-	bottom: 5px;
-	cursor: pointer;	
-      
-       text-align: left; padding-bottom: 3px; text-indent: 0.5em; padding-left: 7px; width: 7.0em; height:46px; padding-right: 35px; 
-       display: block;
-       background: url(../images/menu.png) no-repeat left top;width:52px; color:#3d669c;
-       display: inline;
-        font-size: 122%; font-weight: bold; margin-right: 0.2em; text-decoration: none; padding-top: 5px
+	bottom: 0px;
+	cursor: pointer;	 
+    text-align: left; 
+	text-indent: 0.5em;
+	text-decoration: none; 
+	padding-bottom: 8px; 
+	padding-left: 29px; 
+	padding-top: 13px;
+	padding-right: 30px; 
+    background: url(../images/menu.png) no-repeat left top; 
+	height:46px; 
+    color:#3d669c;
+    font-size: 122%; font-weight: bold; margin-right: 0.2em; 
 
 }
 
@@ -369,15 +378,15 @@ blockquote {
 }
 
 #tabs LI:hover {
-	BACKGROUND: url(../images/menu.png) no-repeat left bottom;width:52px
+	BACKGROUND: url(../images/menu.png) no-repeat left bottom;width:52px;
 }
 
 
 #tabs LI.activeTab {
-	BACKGROUND: url(../images/menu.png) no-repeat left bottom;width:52px
+	BACKGROUND: url(../images/menu.png) no-repeat left bottom;width:52px;
 }
 
 #tabs LI.activeTab :hover {
-	BACKGROUND: url(../images/menu.png) #3274d0 no-repeat right -150px
+	BACKGROUND: url(../images/menu.png) #3274d0 no-repeat right -150px;
 		
 }
