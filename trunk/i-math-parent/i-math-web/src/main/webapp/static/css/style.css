@@ -316,3 +316,50 @@ blockquote {
 #footer a {
 	color: #FFFFFF;
 }
+#tabs{
+         clear: both;
+	list-style-type: none;
+	/*DISPLAY: block*/
+}
+#tabs LI {
+	FLOAT: left    
+	overflow: visible;
+	cursor: pointer;
+	bottom: 5px;
+	cursor: pointer;
+display:inline;
+	
+}
+#tabs LI {
+	display: inline;
+	overflow: visible;
+	cursor: pointer;
+	bottom: 5px;
+	cursor: pointer;	
+   
+       TEXT-ALIGN: left; PADDING-BOTTOM: 2px; TEXT-INDENT: 0.5em; PADDING-LEFT: 5px; WIDTH: 6.5em; height:100px; PADDING-RIGHT: 35px; 
+       DISPLAY: block;
+    BACKGROUND: url(../images/del_sprite_tabs.gif) #d2d2d2 no-repeat right -200px; COLOR: #fff;
+       display: inline;
+FONT-SIZE: 122%; FONT-WEIGHT: bold; MARGIN-RIGHT: 0.4em; TEXT-DECORATION: none; PADDING-TOP: 3px
+}
+#tabs LI {
+	FONT-SIZE: 100%
+}
+#tabs LI:hover {
+	BACKGROUND: url(../images/del_sprite_tabs.gif) #565656 no-repeat right -250px
+}
+
+#tabs LI.selected {
+	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right -150px
+}
+
+#tabs LI.selected:hover {
+	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right -150px
+}
+.active_tab {
+	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right -150px
+}
+.active_tab :hover{
+	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right -150px
+}
