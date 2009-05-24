@@ -26,7 +26,7 @@ public class CalculateServiceImpl implements CalculateService {
 	}
 
 	@Override
-	public double value(String expression) {
+	public double calculate(String expression) {
 		jep = getJep();
 		jep.parseExpression(expression);
 		return jep.getValue();
