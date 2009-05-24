@@ -8,27 +8,29 @@
 <div id="loginDiv"><nobr><span id="userInfo"
 	style="visibility: hidden"></span>
 <div id="loginBtn" dojoType="dijit.form.DropDownButton"><span>登录</span>
-<div id="loginDialog" dojoType="dijit.TooltipDialog" style="visibility: hidden">
+<div id="loginDialog" dojoType="dijit.TooltipDialog"
+	style="visibility: hidden"><span id="loginRes"></span>
 <form>
 <table cellspacing="0" cellpadding="1" border="0" align="center">
 	<tr>
 		<td><label>电子邮件:</label></td>
-		<td><input type="text"></td>
+		<td><input id="loginEmail" type="text"></td>
 	</tr>
 	<tr>
 		<td><label>密码:</label></td>
-		<td><input type="text"></td>
+		<td><input id="loginPassword" type="password"></td>
 	</tr>
 	<tr>
 		<td></td>
-		<td><input type="button" value="确定"></td>
+		<td><input id="loginSubmitBtn" type="button" value="确定"></td>
 	</tr>
 </table>
 </form>
 </div>
 </div>
 <div id="signInBtn" dojoType="dijit.form.DropDownButton"><span>注册</span>
-<div id="signInDialog" dojoType="dijit.TooltipDialog" style="visibility: hidden">
+<div id="signInDialog" dojoType="dijit.TooltipDialog"
+	style="visibility: hidden">
 <form>
 <table cellspacing="0" cellpadding="1" border="0" align="center">
 	<tr>
@@ -41,11 +43,11 @@
 	</tr>
 	<tr>
 		<td><label>密码:</label></td>
-		<td><input type="text"></td>
+		<td><input type="password"></td>
 	</tr>
 	<tr>
 		<td><label>确认密码:</label></td>
-		<td><input type="text"></td>
+		<td><input type="password"></td>
 	</tr>
 	<tr>
 		<td><input type="button" value="确定"></td>

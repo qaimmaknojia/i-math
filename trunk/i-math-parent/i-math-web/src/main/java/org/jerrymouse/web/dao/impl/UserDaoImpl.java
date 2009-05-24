@@ -18,8 +18,8 @@ public class UserDaoImpl extends JdoDaoSupport implements UserDao {
 		User u;
 		try {
 			Query q = pm.newQuery(User.class);
-			q.setFilter("email == '" + email + "' && " + "password == '"
-					+ password + "'");
+			q.setFilter("email == \"" + email + "\" && " + "password == \""
+					+ password + "\"");
 			q.setUnique(true);
 			u = (User) q.execute();
 			if (u != null) {

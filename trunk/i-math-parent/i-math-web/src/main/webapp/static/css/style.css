@@ -169,6 +169,10 @@ blockquote {
 	background-color: #f0f7fd;
 }
 
+#loginRes {
+	color: red;
+}
+
 /* container */
 #tabDiv {
 	padding: 0px 10px 0 10px;
@@ -219,7 +223,6 @@ blockquote {
 }
 
 .gadgets-gadget-chrome {
-	float: left;
 	margin: 4px;
 	border: 1px solid #7aa5d6;
 	width: 100%;
