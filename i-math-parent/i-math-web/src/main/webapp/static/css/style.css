@@ -191,7 +191,6 @@ blockquote {
 	overflow: visible;
 	cursor: pointer;
 	bottom: 5px;
-	cursor: pointer;
 	font-size: 18px;
 	padding-bottom: 4px;
 	padding-left: 4px;
@@ -204,7 +203,11 @@ blockquote {
 	margin-right: 25px;
 	color: #5b5f8c;
 	font: small-caps bold 18px arial;
+<<<<<<< .mine
+	cursor: pointer;
+=======
         cursor:pointer
+>>>>>>> .r116
 }
 
 #gadgets {
@@ -224,6 +227,19 @@ blockquote {
 	margin-right: 10px;
 	display: none;
 	z-index: 1000;
+	width: 200px;
+}
+
+#allgadetsDiv ul {
+	list-style-type: none;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#allgadetsDiv ul li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
 }
 
 .column {
@@ -349,7 +365,7 @@ blockquote {
 }
 
 #tabs LI {
-	FLOAT: left overflow :      visible;
+	FLOAT: left overflow :                        visible;
 	cursor: pointer;
 	bottom: 5px;
 	cursor: pointer;
