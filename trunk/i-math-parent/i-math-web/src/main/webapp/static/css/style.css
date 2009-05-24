@@ -337,17 +337,18 @@ display:inline;
 	bottom: 5px;
 	cursor: pointer;	
    
-       TEXT-ALIGN: left; PADDING-BOTTOM: 2px; TEXT-INDENT: 0.5em; PADDING-LEFT: 5px; WIDTH: 6.5em; height:100px; PADDING-RIGHT: 35px; 
+       TEXT-ALIGN: left; PADDING-BOTTOM: 2px; TEXT-INDENT: 0.5em; PADDING-LEFT: 5px; WIDTH: 7.0em; height:120px; PADDING-RIGHT: 35px; 
        DISPLAY: block;
-    BACKGROUND: url(../images/del_sprite_tabs.gif) #d2d2d2 no-repeat right -200px; COLOR: #fff;
+    BACKGROUND: url(../images/del_sprite_tabs.gif) #e4ecf9 no-repeat right -200px; COLOR: #fff;
        display: inline;
 FONT-SIZE: 122%; FONT-WEIGHT: bold; MARGIN-RIGHT: 0.4em; TEXT-DECORATION: none; PADDING-TOP: 3px
+color:#7887a6;
 }
 #tabs LI {
 	FONT-SIZE: 100%
 }
 #tabs LI:hover {
-	BACKGROUND: url(../images/del_sprite_tabs.gif) #565656 no-repeat right -250px
+	BACKGROUND: url(../images/del_sprite_tabs.gif) #6c83ac no-repeat right -250px
 }
 
 #tabs LI.selected {
@@ -358,7 +359,7 @@ FONT-SIZE: 122%; FONT-WEIGHT: bold; MARGIN-RIGHT: 0.4em; TEXT-DECORATION: none; 
 	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right -150px
 }
 .active_tab {
-	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right -150px
+	BACKGROUND: url(../images/del_sprite_tabs.gif) #6c83ac no-repeat right -150px
 }
 .active_tab :hover{
 	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right -150px
