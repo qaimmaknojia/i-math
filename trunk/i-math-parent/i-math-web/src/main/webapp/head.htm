@@ -3,36 +3,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-<#assign dojo_host = "http://ajax.googleapis.com/ajax/libs/dojo/1.3" >
-<#assign dojo_file =
-"http://ajax.googleapis.com/ajax/libs/dojo/1.3/dojo/dojo.xd.js" >
-
-<!--
- dojo_host = "http://192.168.1.100/dojo" 
- dojo_file = "http://192.168.1.100/dojo/dojo/dojo.js" 
- -->
-
 <link media="screen" type="text/css" rel="stylesheet"
 	href="/static/css/style.css">
-<style type="text/css">
-@import "${dojo_host}/dijit/themes/soria/soria.css";
-@import
-"${dojo_host}/dojo/resources/dojo.css"
-</style>
 
-<script type="text/javascript" src="${dojo_file}"
-	djConfig="parseOnLoad:true, isDebug:false"></script>
+<#include "/jsremote.htm">
 
-<script type="text/javascript"
-	src="/static/js/mootools-1.2.2-core-nc.js"></script>
 
-<script type="text/javascript" src="/static/js/jquery-1.3.2.min.js"></script>
-
-<script type="text/javascript"
-	src="/static/js/jquery-ui-1.7.1.custom.min.js"></script>
 <script>
      var $j = jQuery.noConflict();
 </script>
+
 <script type="text/javascript" src="/dwr/engine.js">
   </script>
 <script type='text/javascript'
