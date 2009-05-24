@@ -60,10 +60,10 @@ var createTabContainer = function(index) {
 	tabIndex=index;
 	$('tabs').getChildren().each(function(item, i) {
 		if(item.get('class') == 'activeTab'){
-			item.set('class', '');
+			item.removeProperty('class');
 		}	
 		if(tabIndex == i){
-			item.set('class', 'activeTab');
+			item.setProperty('class', 'activeTab');
 		}
 	});
 	
