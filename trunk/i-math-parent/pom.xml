@@ -149,6 +149,22 @@
 				<artifactId>cxf-common-utilities</artifactId>
 				<version>${cxf.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>${pom.groupId}</groupId>
+				<artifactId>add-gadget</artifactId>
+				<version>${pom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${pom.groupId}</groupId>
+				<artifactId>google-chart</artifactId>
+				<version>${pom.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${pom.groupId}</groupId>
+				<artifactId>gadgets</artifactId>
+				<version>${pom.version}</version>
+				<type>pom</type>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
