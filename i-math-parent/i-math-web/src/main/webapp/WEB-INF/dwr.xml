@@ -10,6 +10,10 @@
 		<create creator="spring" javascript="containerService">
 			<param name="beanName" value="containerService" />
 		</create>
+		<create creator="spring" javascript="userService">
+			<param name="beanName" value="userService" />
+		</create>
+
 		<convert match="org.jerrymouse.web.bean.Gadget" converter="bean">
 			<param name="include"
 				value="name,html,javascripts,javascriptSrc,title,relativeUrl,htmlId"></param>
@@ -21,6 +25,9 @@
 		<convert match="org.jerrymouse.web.bean.MainContainer"
 			converter="bean">
 			<param name="include" value="tabs"></param>
+		</convert>
+		<convert match="org.jerrymouse.web.bean.User" converter="bean">
+			<param name="include" value="nickName,email"></param>
 		</convert>
 	</allow>
 </dwr>

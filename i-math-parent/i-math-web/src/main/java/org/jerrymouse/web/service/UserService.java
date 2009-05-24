@@ -6,5 +6,5 @@ public interface UserService {
 	User verify(String email, String password);
 
 	User currentUser();
-
+	
 }

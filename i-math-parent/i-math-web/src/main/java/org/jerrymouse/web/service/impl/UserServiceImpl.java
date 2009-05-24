@@ -12,6 +12,14 @@ public class UserServiceImpl implements UserService {
 		return userDao.findUser(email, password);
 	}
 
+	public UserDao getUserDao() {
+		return userDao;
+	}
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+
 	@Override
 	public User currentUser() {
 		// if no

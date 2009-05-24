@@ -5,13 +5,17 @@ dojo.require("dojo.parser");
 dojo.require("dijit.form.Button");
 dojo.require("dijit.Dialog");
 
+var $j = jQuery.noConflict();
+
 var test = false;
 var mainContainer;
 var tabIndex;
+var user;
 
 var init = function() {
 	createGadgetContainer();
 	updateSortable();
+	initLogin();
 };
 
 var renderGadgets = function() {
@@ -168,6 +172,7 @@ var updateSortable = function() {
 		connectWith : $j('.column'),
 		handle : '.gadgets-gadget-title-bar',
 		placeholder : 'gadgets-placeholder',
+		connectWith:  '.column',
 		forcePlaceholderSize : true,
 		revert : 300,
 		delay : 100,
@@ -180,4 +185,29 @@ var runEffect=function(str){
 	obj.toggle('blind');
 };
 
+var initLogin=function(){
+	$('loginSubmitBtn').addEvent('click', function(){
+		var e=$('loginEmail').value;
+		var p=$('loginPassword').value;
+		 userService.verify(e,p,loginReply);
+	});
+
+};
+
+var loginReply=function(data){
+	if(data==null){
+		$('loginRes').set('text', '您输入的用户名或密码不正确');
+	}else{
+		user=data;
+		var nickName=data.nickName;
+		$$('#loginDiv .dijitDropDownButton').setStyle('visibility', 'hidden');
+		$$('#loginDiv .dijitDropDownButton').setStyle('width', '0px');
+
+		$('userInfo').set('text', nickName);
+		$('userInfo').setStyle('visibility', 'visible');
+		$('signOutBtn').setStyle('visibility', 'visible');
+		var loginDialog=dijit.byId('loginDialog');
+		loginDialog.onCancel();
+	}
+};
 
