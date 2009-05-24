@@ -44,8 +44,8 @@
 						<buildcommand>org.springframework.ide.eclipse.core.springbuilder
 						</buildcommand>
 					</additionalBuildcommands>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>true</downloadJavadocs>
+					<downloadSources>false</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
 					<wtpversion>1.5</wtpversion>
 					<excludes><!-- GAE_CONTAINER already have these jars -->
 						<exclude>com.google.appengine:appengine-tools-api</exclude>

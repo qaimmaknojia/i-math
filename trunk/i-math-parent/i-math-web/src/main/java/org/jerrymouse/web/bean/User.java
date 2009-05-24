@@ -103,6 +103,7 @@ public class User {
 		Gadget sudoku = new Gadget("sudoku", "/gadgets/sudoku/sudoku.xml");
 		Gadget calcll = new Gadget("calcll", "/gadgets/calcll/calcll.xml");
 		Gadget scale = new Gadget("scale", "/gadgets/scale/scale.xml");
+		Gadget calculator = new Gadget("calculator", "/gadgets/calculator/calculator.xml");
 
 		GadgetDao gadgetDao = user.getGadgetDao();
 		gadgetDao.save(smartcalculator);
@@ -111,6 +112,7 @@ public class User {
 		gadgetDao.save(sudoku);
 		gadgetDao.save(calcll);
 		gadgetDao.save(scale);
+		gadgetDao.save(calculator);
 
 		GadgetContainer container1 = new GadgetContainer("计算器");
 		GadgetContainer container2 = new GadgetContainer("绘图");
@@ -119,8 +121,10 @@ public class User {
 
 		container1.addLeft(smartcalculator);
 		container1.addMiddle(calcll);
+		container1.addRight(calculator);
 
 		container2.addLeft(jep);
+		
 		container3.addLeft(eyes);
 
 		container4.addLeft(sudoku);

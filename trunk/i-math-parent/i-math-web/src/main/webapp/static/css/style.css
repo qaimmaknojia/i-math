@@ -77,15 +77,6 @@ blockquote {
 	/*gai*/
 }
 
-a {
-	color: #40C1D4;
-}
-
-a:hover {
-	text-decoration: none;
-	color: #D8B077;
-}
-
 /* Header */
 #header {
 	height: 80px;
@@ -166,6 +157,16 @@ a:hover {
 
 #search #x {
 	display: none;
+}
+
+#loginDiv {
+	padding: 5px 0 7px;
+	float: right;
+}
+
+.dijitPopup {
+	opacity: 0.8;
+	background-color: #f0f7fd;
 }
 
 /* container */
