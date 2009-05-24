@@ -1,9 +1,13 @@
 //dojo
 //dojo.require("dojox.widget.FisheyeLite");
 //dojo.require("dojox.fx.easing");
+dojo.require("dojo.parser");
+dojo.require("dijit.form.Button");
+dojo.require("dijit.Dialog");
 
 var test = false;
 var mainContainer;
+var tabIndex;
 
 var init = function() {
 	createGadgetContainer();
@@ -49,6 +53,7 @@ var createTabs = function() {
 };
 
 var createTabContainer = function(index) {
+	tabIndex=index;
 	cleancolumns();
 	writeColumn(mainContainer.tabs[index].leftGadget, "leftColumn");
 	writeColumn(mainContainer.tabs[index].middleGadget, "middleColumn");
