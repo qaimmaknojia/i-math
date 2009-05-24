@@ -9,7 +9,7 @@ var calculatorReply = function(data) {
 	$('calculator-result').set('text', data);
 }
 </script>
-<form><textarea id="calculator-request"></textarea></form>
+<form><textarea id="calculator-request" style="width: 300px"></textarea></form>
 
 <input type="button" value="计算" style="margin: 5px 0pt;"
 	onclick="calculateService.calculate($('calculator-request').value,calculatorReply);" />
