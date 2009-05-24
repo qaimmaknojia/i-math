@@ -354,24 +354,14 @@ blockquote {
 	overflow: visible;
 	cursor: pointer;
 	bottom: 5px;
-	cursor: pointer;
-	text-align: left;
-	padding-bottom: 3px;
-	text-indent: 0.5em;
-	padding-left: 7px;
-	width: 7.0em;
-	height: 120px;
-	padding-right: 35px;
-	display: block;
-	background: url(../images/del_sprite_tabs.gif) #e4ecf9 no-repeat right
-		-200px;
-	color: #3d669c;
-	display: inline;
-	font-size: 122%;
-	font-weight: bold;
-	margin-right: 0.2em;
-	text-decoration: none;
-	padding-top: 5px;
+	cursor: pointer;	
+      
+       text-align: left; padding-bottom: 3px; text-indent: 0.5em; padding-left: 7px; width: 7.0em; height:46px; padding-right: 35px; 
+       display: block;
+       background: url(../images/menu.png) no-repeat left top;width:52px; color:#3d669c;
+       display: inline;
+        font-size: 122%; font-weight: bold; margin-right: 0.2em; text-decoration: none; padding-top: 5px
+
 }
 
 #tabs LI {
@@ -379,26 +369,15 @@ blockquote {
 }
 
 #tabs LI:hover {
-	BACKGROUND: url(../images/del_sprite_tabs.gif) #6c83ac no-repeat right
-		-250px
+	BACKGROUND: url(../images/menu.png) no-repeat left bottom;width:52px
 }
 
-#tabs LI.selected {
-	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right
-		-150px
-}
-
-#tabs LI.selected:hover {
-	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right
-		-150px
-}
 
 #tabs LI.activeTab {
-	BACKGROUND: url(../images/del_sprite_tabs.gif) #6c83ac no-repeat right
-		-250px
+	BACKGROUND: url(../images/menu.png) no-repeat left bottom;width:52px
 }
 
 #tabs LI.activeTab :hover {
-	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right
-		-150px
+	BACKGROUND: url(../images/menu.png) #3274d0 no-repeat right -150px
+		
 }
