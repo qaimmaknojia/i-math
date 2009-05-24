@@ -40,7 +40,7 @@ var createTabs = function() {
 	var tabs = mainContainer.tabs;
 	tabs.each( function(item, index) {
 		var tab = new Element('li', {
-			'text' : item.title
+			'text' : item.title 
 		});
 		tabUL.grab(tab);
 // new dojox.widget.FisheyeLite( {
@@ -58,6 +58,15 @@ var createTabs = function() {
 
 var createTabContainer = function(index) {
 	tabIndex=index;
+	$('tabs').getChildren().each(function(item, i) {
+		if(item.get('class') == 'activeTab'){
+			item.set('class', '');
+		}	
+		if(tabIndex == i){
+			item.set('class', 'activeTab');
+		}
+	});
+	
 	cleancolumns();
 	writeColumn(mainContainer.tabs[index].leftGadget, "leftColumn");
 	writeColumn(mainContainer.tabs[index].middleGadget, "middleColumn");
