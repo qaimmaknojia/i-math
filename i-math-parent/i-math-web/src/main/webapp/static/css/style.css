@@ -204,6 +204,7 @@ blockquote {
 	margin-right: 25px;
 	color: #5b5f8c;
 	font: small-caps bold 18px arial;
+        cursor:pointer
 }
 
 #gadgets {
