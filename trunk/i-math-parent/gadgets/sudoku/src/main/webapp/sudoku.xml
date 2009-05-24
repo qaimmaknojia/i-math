@@ -4,27 +4,18 @@
 	<Content type="html">
   <![CDATA[ 
 
-<style type="text/css">
-body,td,div,span,p {
-	font-family: arial, sans-serif;
-}
 
-a {
+<style type="text/css">
+.sudoku_form a {
 	color: #00c
 }
 
-a:visited {
+.sudoku_form a:visited {
 	color: #551a8b;
 }
 
-a:active {
+.sudoku_form a:active {
 	color: #f00
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	background-color: white
 }
 </style>
 <script src="/gadgets/sudoku/sudoku.js"></script>
@@ -109,7 +100,7 @@ var gv = null;if (window.gadgets && window.gadgets.views) {var errFunc = functio
 	font-family: Arial, Helvetica, sans-serif
 }
 </style>
-<form>
+<form id="sudoku_form">
 <table class="stylePopUp" id="congratMenu" border="0" cellpadding="0"
 	cellspacing="0" height="130" width="160">
 	<tbody>
