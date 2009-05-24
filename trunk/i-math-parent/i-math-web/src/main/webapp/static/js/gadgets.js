@@ -200,6 +200,9 @@ var initLogin=function(){
 		var p=$('loginPassword').value;
 		 userService.verify(e,p,loginReply);
 	});
+	$j("#add-content").click(function() {
+		runAddGadetsDiv();
+	});
 
 };
 
@@ -220,3 +223,6 @@ var loginReply=function(data){
 	}
 };
 
+var runAddGadetsDiv=function(){
+	$j("#allgadetsDiv").toggle("fold");
+};
