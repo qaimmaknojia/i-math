@@ -3,11 +3,11 @@ package org.jerrymouse.web.service.impl;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
-import org.jerrymouse.google.Debugger;
-import org.jerrymouse.web.bean.GadgetContainer;
 import org.jerrymouse.web.bean.Gadget;
 import org.jerrymouse.web.bean.MainContainer;
+import org.jerrymouse.web.dao.GadgetDao;
 import org.jerrymouse.web.dao.MainContainerDao;
 import org.jerrymouse.web.service.ContainerService;
 import org.jerrymouse.web.service.GadgetRenderService;
@@ -15,6 +15,15 @@ import org.jerrymouse.web.service.GadgetRenderService;
 public class GadgetRenderServiceImpl implements GadgetRenderService {
 	MainContainerDao mainContainerDao;
 	ContainerService containerService;
+	GadgetDao gadgetDao;
+
+	public GadgetDao getGadgetDao() {
+		return gadgetDao;
+	}
+
+	public void setGadgetDao(GadgetDao gadgetDao) {
+		this.gadgetDao = gadgetDao;
+	}
 
 	private Gadget renderGadget(String htmlId, URL url) {
 		// Debugger.log("build:" + url);
@@ -60,6 +69,11 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 
 	public ContainerService getContainerService() {
 		return containerService;
+	}
+
+	@Override
+	public List<Gadget> getAllGadgets() {
+		return gadgetDao.getAll();
 	}
 
 }
