@@ -79,7 +79,7 @@ blockquote {
 
 /* Header */
 #header {
-	height: 80px;
+	height: 60px;
 	background: url("../images/h1-bg.gif") repeat-x;
 	color: #006aad;
 	border: 1px solid #c5e2f2;
@@ -290,6 +290,7 @@ blockquote {
 	line-height: 37px;
 	height: 37px;
 	padding-left: 900px;
+        padding-top:300;
 	background: url("../images/h1-bg.gif") repeat-x;
 	color: #006aad;
 	border: 1px solid #c5e2f2;
@@ -361,9 +362,9 @@ display:inline;
 #tabs LI.selected:hover {
 	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right -150px
 }
-.active_tab {
-	BACKGROUND: url(../images/del_sprite_tabs.gif) #6c83ac no-repeat right -150px
+#tabs LI.activeTab {
+	BACKGROUND: url(../images/del_sprite_tabs.gif) #6c83ac no-repeat right -250px
 }
-.active_tab :hover{
+#tabs LI.activeTab :hover{
 	BACKGROUND: url(../images/del_sprite_tabs.gif) #3274d0 no-repeat right -150px
 }
