@@ -15,7 +15,7 @@ public class CalculateServiceImplTest extends TestCase {
 	}
 
 	public void testValue() throws Exception {
-		System.out.println(calculateService.value("1+cos(2)"));
+		System.out.println(calculateService.calculate("1+cos(2)"));
 	}
 
 	public void testValue1() throws Exception {

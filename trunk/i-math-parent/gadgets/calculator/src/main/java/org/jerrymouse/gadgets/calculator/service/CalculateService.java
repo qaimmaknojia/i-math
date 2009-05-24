@@ -5,7 +5,7 @@ public interface CalculateService {
 
 	void setExpression(String expression);
 
-	double value(String expression);
+	double calculate(String expression);
 
 	double value(String expression, double x);
 }
