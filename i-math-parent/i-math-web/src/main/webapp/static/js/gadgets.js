@@ -227,7 +227,7 @@ var initLogin=function(){
 	});
 	$('ensureAddButton').addEvent('click', function(){
 		var s=getSelectNewOne();
-		addGadget(s.getProperty('text'))
+		addGadget(s.getProperty('gName'));
 	});
 	
 };
@@ -266,7 +266,8 @@ var replyAllGadgets=function(data){
 	data.each( function(item, index) {
 		var newGadget = new Element('li', {
 			'class' : 'newGadget ui-state-default',
-			'text':item.nickName
+			'text':item.nickName ,
+			'gName':item.name
 		});
 		newGadget.addEvent('click',function() {
 			var select=getSelectNewOne();
