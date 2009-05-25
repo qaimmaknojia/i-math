@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module id="calculator">
-	<ModulePrefs title="计算器" />
+	<ModulePrefs title="轻型计算器" />
 	<Content type="html">
   <![CDATA[ 
 <script type='text/javascript' src='/dwr/interface/calculateService.js'></script>
