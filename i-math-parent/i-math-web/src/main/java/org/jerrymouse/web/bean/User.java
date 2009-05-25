@@ -96,14 +96,16 @@ public class User {
 	public static User buildAdminUser() {
 		User user = new User("admin", "admin@imath.org", "admin");
 
-		Gadget smartcalculator = new Gadget("smartcalculator",
+		Gadget smartcalculator = new Gadget("smartcalculator", "计算器",
 				"/gadgets/smartcalculator/smartcalculator.xml");
-		Gadget jep = new Gadget("jep", "/gadgets/jep/jep.xml");
-		Gadget eyes = new Gadget("eyes", "/gadgets/eyes/eyes.xml");
-		Gadget sudoku = new Gadget("sudoku", "/gadgets/sudoku/sudoku.xml");
-		Gadget calcll = new Gadget("calcll", "/gadgets/calcll/calcll.xml");
-		Gadget scale = new Gadget("scale", "/gadgets/scale/scale.xml");
-		Gadget calculator = new Gadget("calculator", "/gadgets/calculator/calculator.xml");
+		Gadget jep = new Gadget("jep", "绘图器", "/gadgets/jep/jep.xml");
+		Gadget eyes = new Gadget("eyes", "眼睛", "/gadgets/eyes/eyes.xml");
+		Gadget sudoku = new Gadget("sudoku", "数独", "/gadgets/sudoku/sudoku.xml");
+		Gadget calcll = new Gadget("calcll", "高级计算器",
+				"/gadgets/calcll/calcll.xml");
+		Gadget scale = new Gadget("scale", "平衡游戏", "/gadgets/scale/scale.xml");
+		Gadget calculator = new Gadget("calculator", "轻型计算器",
+				"/gadgets/calculator/calculator.xml");
 
 		GadgetDao gadgetDao = user.getGadgetDao();
 		gadgetDao.save(smartcalculator);
@@ -124,7 +126,7 @@ public class User {
 		container1.addRight(calculator);
 
 		container2.addLeft(jep);
-		
+
 		container3.addLeft(eyes);
 
 		container4.addLeft(sudoku);
