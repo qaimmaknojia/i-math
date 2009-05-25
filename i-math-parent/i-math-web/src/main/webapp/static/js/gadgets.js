@@ -1,9 +1,9 @@
-//dojo
-//dojo.require("dojox.widget.FisheyeLite");
-//dojo.require("dojox.fx.easing");
 dojo.require("dojo.parser");
 dojo.require("dijit.form.Button");
 dojo.require("dijit.Dialog");
+dojo.require("dijit.form.ValidationTextBox");
+dojo.require("dojox.validate.regexp");
+dojo.require("dojox.widget.FisheyeLite");
 
 var $j = jQuery.noConflict();
 
@@ -37,34 +37,49 @@ var loadContainer = function(data) {
 };
 
 var createTabs = function() {
+	var pos=0;
+	var buf=135;
 	var tabUL = $("tabs");
 	var tabs = mainContainer.tabs;
 	tabs.each( function(item, index) {
-		var tab = new Element('li', {
-			'text' : item.title 
+		var tab = new Element('div', {
+			'class' : 'headLink'
 		});
+		tab.setStyle('left', pos+'px');
+		pos+=buf;
+		var fisheye = new Element('div', {
+			'class' : 'fisheyeTarget'
+		});
+		var inner = new Element('div', {
+			'class' : 'inner',
+			'text' : item.title
+		});
+		
+	 tab.grab(inner);
+	 tab.grab(fisheye);
 		tabUL.grab(tab);
-// new dojox.widget.FisheyeLite( {
-// properties : {
-// fontSize : 1.75
-// },
-// easeOut : dojox.fx.easing.backInOut,
-// durationOut : 500
-// }, tab);
+
 		tab.addEvent('click', function() {
 			createTabContainer(index);
 		});
 	});
+	 dojo.query('.headLink').forEach(function(n){
+		 new dojox.widget.FisheyeLite( {
+				properties : {
+			 		height:{
+	            end:42, unit:"px"
+	         		}
+				}
+			}, n);
+	 });
 };
 
 var createTabContainer = function(index) {
 	tabIndex=index;
 	$('tabs').getChildren().each(function(item, i) {
-		if(item.get('class') == 'activeTab'){
-			item.removeProperty('class');
-		}	
+		item.removeClass('activeTab');
 		if(tabIndex == i){
-			item.setProperty('class', 'activeTab');
+			item.addClass('activeTab');
 		}
 	});
 	
@@ -201,6 +216,12 @@ var initLogin=function(){
 		var p=$('loginPassword').value;
 		 userService.verify(e,p,loginReply);
 	});
+	$('signInSubmitBtn').addEvent('click', function(){
+		var e=$('signInEmail').value;
+		var p=$('signInPassword').value;
+		var n=$('signInNickName').value;
+		userService.signIn(e,n,p,SignInReply);
+	});
 	$j("#add-content").click(function() {
 		runAddGadetsDiv();
 	});
@@ -287,3 +308,15 @@ var addGadget=function(str){
 	gadgetRenderService.renderGadget(id, parentUrl+url, loadGadget);
 };
 
+var SignInReply=function(data){
+		user=data;
+		var nickName=data.nickName;
+		$$('#loginDiv .dijitDropDownButton').setStyle('visibility', 'hidden');
+		$$('#loginDiv .dijitDropDownButton').setStyle('width', '0px');
+
+		$('userInfo').set('text', nickName);
+		$('userInfo').setStyle('visibility', 'visible');
+		$('signOutBtn').setStyle('visibility', 'visible');
+		var loginDialog=dijit.byId('signInDialog');
+		loginDialog.onCancel();
+};

@@ -2,16 +2,17 @@ html,body {
 	background: #f0f7fc url("../images/bg.gif") repeat-x;
 	text-align: left;
 }
-#footer{
-	line-height:37px;
-	height:37px;
-	padding-left:900px;
-	background:url("../images/h1-bg.gif") repeat-x;
-	color:#006aad;
-	border:1px solid #c5e2f2;
-	border-bottom:0;
-	font-size:14px;
-	font-weight:normal;
+
+#footer {
+	line-height: 37px;
+	height: 37px;
+	padding-left: 900px;
+	background: url("../images/h1-bg.gif") repeat-x;
+	color: #006aad;
+	border: 1px solid #c5e2f2;
+	border-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
 }
 
 #footer .legal {
@@ -21,6 +22,7 @@ html,body {
 #footer .credits {
 	
 }
-#add-content: hover {
-cursor:hand;
+
+#add-content : hover {
+	cursor: hand;
 }
