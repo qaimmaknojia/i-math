@@ -43,4 +43,21 @@ public class UserDaoImpl extends JdoDaoSupport implements UserDao {
 		return (User) super.save(user);
 	}
 
+	@Override
+	public User hasEmail(String email) {
+		if (email == null)
+			return null;
+		PersistenceManager pm = PMF.getPersistenceManager();
+		User u;
+		try {
+			Query q = pm.newQuery(User.class);
+			q.setFilter("email == \"" + email + "\"");
+			q.setUnique(true);
+			u = (User) q.execute();
+		} finally {
+			pm.close();
+		}
+		return u;
+	}
+
 }

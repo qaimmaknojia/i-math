@@ -12,4 +12,6 @@ public interface UserDao {
 
 	User save(User user);
 
+	User hasEmail(String email);
+
 }

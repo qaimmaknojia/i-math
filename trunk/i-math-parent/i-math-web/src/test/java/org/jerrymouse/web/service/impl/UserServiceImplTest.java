@@ -22,4 +22,13 @@ public class UserServiceImplTest extends DatastoreTestCase {
 		User user = userService.verify("bb", "c");
 		System.out.println(user);
 	}
+
+	public void testSignIn() throws Exception {
+		User user = userService.signIn("kaiyannju@gmail.com", "yankai", "123");
+		user = userService.verify("kaiyannju@gmail.com", "123");
+		User a = user.getAdminUser();
+		System.err.println(user.getGadgetContainers());
+		System.err.println(a.getGadgetContainers());
+
+	}
 }

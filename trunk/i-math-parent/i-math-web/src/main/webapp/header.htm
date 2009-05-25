@@ -5,11 +5,11 @@
 <h2>带给您一个真正属于自己的数学新世界</h2>
 </div>
 
-<div id="loginDiv"><nobr><span id="userInfo"
-	style="visibility: hidden"></span>
-<div id="loginBtn" dojoType="dijit.form.DropDownButton"><span>登录</span>
+<div id="loginDiv"><span id="userInfo" style="visibility: hidden"></span>
+<div id="loginBtn" dojoType="dijit.form.DropDownButton"
+	style="float: left;"><span>登录</span>
 <div id="loginDialog" dojoType="dijit.TooltipDialog"
-	style="visibility: hidden"><span id="loginRes"></span>
+	style="visibility: hidden;"><span id="loginRes"></span>
 <form>
 <table cellspacing="0" cellpadding="1" border="0" align="center">
 	<tr>
@@ -28,34 +28,41 @@
 </form>
 </div>
 </div>
-<div id="signInBtn" dojoType="dijit.form.DropDownButton"><span>注册</span>
+<div id="signInBtn" dojoType="dijit.form.DropDownButton"
+	style="float: left;"><span>注册</span>
 <div id="signInDialog" dojoType="dijit.TooltipDialog"
-	style="visibility: hidden">
+	style="visibility: hidden;">
 <form>
 <table cellspacing="0" cellpadding="1" border="0" align="center">
 	<tr>
 		<td><label>用户名:</label></td>
-		<td><input type="text"></td>
+		<td><input id="signInNickName" type="text"
+			dojoType="dijit.form.ValidationTextBox"></td>
 	</tr>
 	<tr>
 		<td><label>电子邮件:</label></td>
-		<td><input type="text"></td>
+		<td><input id="signInEmail" type="text"
+			dojoType="dijit.form.ValidationTextBox" invalidMessage="不正确的邮箱地址"></td>
 	</tr>
 	<tr>
 		<td><label>密码:</label></td>
-		<td><input type="password"></td>
+		<td><input type="password" id="signInPassword"
+			dojoType="dijit.form.ValidationTextBox"></td>
 	</tr>
 	<tr>
 		<td><label>确认密码:</label></td>
-		<td><input type="password"></td>
+		<td><input type="password"
+			dojoType="dijit.form.ValidationTextBox"
+			validator="return this.getValue() == dijit.byId('signInPassword').getValue()"
+			invalidMessage="两次输入密码不相同"></td>
 	</tr>
 	<tr>
-		<td><input type="button" value="确定"></td>
-		<td><input type="button" value="重置"></td>
+		<td><input id="signInSubmitBtn" type="button" value="确定"></td>
+		<td><input type="reset" value="重置"></td>
 	</tr>
 </table>
 </form>
 </div>
 </div>
-<a id="signOutBtn" style="visibility: hidden">退出</a> </nobr></div>
+<a id="signOutBtn" style="visibility: hidden; float: left;">退出</a></div>
 </div>
