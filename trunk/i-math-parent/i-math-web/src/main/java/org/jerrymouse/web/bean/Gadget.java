@@ -44,7 +44,9 @@ public class Gadget {
 	@NotPersistent
 	private String htmlId;
 	@Persistent
-	protected String name;
+	private String name;
+	@Persistent
+	private String nickName;
 	@Persistent
 	private String relativeUrl;
 
@@ -211,6 +213,13 @@ public class Gadget {
 		this.relativeUrl = relativeUrl;
 	}
 
+	public Gadget(String name, String nickName, String relativeUrl) {
+		super();
+		this.name = name;
+		this.nickName = nickName;
+		this.relativeUrl = relativeUrl;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -238,4 +247,21 @@ public class Gadget {
 	public void setHtmlId(String htmlId) {
 		this.htmlId = htmlId;
 	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public Document getDocument() {
+		return document;
+	}
+
+	public void setDocument(Document document) {
+		this.document = document;
+	}
+
 }

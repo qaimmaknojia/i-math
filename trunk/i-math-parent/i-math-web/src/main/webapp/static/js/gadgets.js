@@ -266,7 +266,7 @@ var replyAllGadgets=function(data){
 	data.each( function(item, index) {
 		var newGadget = new Element('li', {
 			'class' : 'newGadget ui-state-default',
-			'text':item.name
+			'text':item.nickName
 		});
 		newGadget.addEvent('click',function() {
 			var select=getSelectNewOne();

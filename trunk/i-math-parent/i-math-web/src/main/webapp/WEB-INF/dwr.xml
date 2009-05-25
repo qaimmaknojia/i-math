@@ -16,7 +16,7 @@
 
 		<convert match="org.jerrymouse.web.bean.Gadget" converter="bean">
 			<param name="include"
-				value="name,html,javascripts,javascriptSrc,title,relativeUrl,htmlId"></param>
+				value="name,html,javascripts,javascriptSrc,title,relativeUrl,htmlId,nickName"></param>
 		</convert>
 		<convert match="org.jerrymouse.web.bean.GadgetContainer"
 			converter="bean">
