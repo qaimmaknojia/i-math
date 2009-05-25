@@ -11,8 +11,6 @@ Released for free under a Creative Commons Attribution 2.5 License
 html,body {
 	background: #f0f7fc url("../images/bg.gif") repeat-x;
 	text-align: left;
-	overflow-x: auto;
-	overflow-y: hidden;
 }
 
 /* Colors */
