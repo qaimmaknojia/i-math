@@ -283,19 +283,28 @@ blockquote {
 
 .gadgets-gadget-chrome {
 	margin: 4px;
-	border: 1px solid #7aa5d6;
+	border: 3px solid;
 	width: 100%;
 	background-color: #FFFFFF;
+	border-color: #8bd2fc;
+	background-color: white;
 }
 
-.gadgets-gadget {
-	border: none;
+.mContainer {
+	border: 1px solid;
+	border-color: #003399;
 }
 
 .gadgets-gadget-title-bar {
-	padding: 2px 4px;
-	background-color: #e5ecf9;
+	padding: 2px 2px 3px 4px;
+	background-color: #fdfefd;
+	background-image: url(../images/droplet_gradient.gif);
 	cursor: move;
+	position: relative;
+	background-position: 0 0;
+	background-repeat: repeat-x;
+		border-bottom: 1px solid;
+	border-bottom-color: #003399;
 }
 
 .gadgets-gadget-title {
@@ -333,6 +342,7 @@ blockquote {
 .gadgets-gadget-content {
 	width: 100%;
 	padding: 4px;
+
 }
 
 .gadgets-log-entry {
