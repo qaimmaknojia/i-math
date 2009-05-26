@@ -195,7 +195,7 @@ blockquote {
 }
 
 #tabs .headLink {
-	background: url(../images/header-bg.png) no-repeat left top;
+	background: url(../images/header-bg-y.png) no-repeat left top;
 	cursor: pointer;
 	padding: 0;
 	bottom: 0;
@@ -213,7 +213,7 @@ blockquote {
 }
 
 #tabs .activeTab {
-	background: url(../images/header-bg-y.png) no-repeat left top;
+	background: url(../images/header-bg.png) no-repeat left top;
 }
 
 #tabs .headLink .inner {
