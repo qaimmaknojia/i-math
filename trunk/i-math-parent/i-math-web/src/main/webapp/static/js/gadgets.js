@@ -299,9 +299,14 @@ var addGadget = function(str) {
 	vNum = Math.round(vNum);
 	var id = str + vNum;
 	var url;
+	var name;
+	var nickName;
 	allGadgets.each( function(item, index) {
-		if (item.name == str)
+		if (item.name == str) {
 			url = item.relativeUrl;
+			name = item.name;
+			nickName = item.nickName;
+		}
 	});
 
 	var gadgetDiv = new Element('li', {
@@ -311,7 +316,18 @@ var addGadget = function(str) {
 	$("leftColumn").grab(gadgetDiv);
 	var parentUrl = 'http://' + document.location.host;
 	gadgetRenderService.renderGadget(id, parentUrl + url, loadGadget);
+	appendMode(id, url, name, nickName);
 };
+
+var appendMode = function(id, url, name, nickName) {
+	var g = new Object();
+	g.htmlId = id;
+	g.relativeUrl = url;
+	g.name = name;
+	g.nickName = nickName;
+	model = getGadgetFromName('leftColumn');
+	model.push(g);
+}
 
 var SignInReply = function(data) {
 	user = data;
@@ -333,20 +349,31 @@ var colseGadget = function(id) {
 		percent : 0
 	}
 	$j('#' + id).hide(selectedEffect, options, 500);
+
+	removeGadget(id);
 };
 
 var swichGadget = function(e, ui) {
 	var g = ui.item;
 	var id = ui.item.attr('id');
 	var from = e.target;
-	var to = getGadgetFromHtml(id);
+	var toL = getGadgetFromHtml(id);
+	var to = toL.to;
+	var toIndex = toL.toIndex;
 
 	var gModel = getGadgetMode(id, getGadgetFromName(from.getProperty('id')));
-
-	modelAdd(gModel, getGadgetFromName(to.getProperty('id')));
-
-	modelRemove(id, getGadgetFromName(from.getProperty('id')));
+	if (to.getProperty('id') != from.getProperty('id')) {
+		modelAdd(gModel, toIndex, getGadgetFromName(to.getProperty('id')));
+		modelRemove(id, getGadgetFromName(from.getProperty('id')));
+	} else {
+		modelSwich(gModel, toIndex, getGadgetFromName(to.getProperty('id')));
+	}
 };
+
+var removeGadget = function(id) {
+	var parent = $(id).getParent().getParent();
+	modelRemove(id, getGadgetFromName(parent.getProperty('id')));
+}
 
 var getGadgetMode = function(id, container) {
 	for ( var i = 0; i < container.length; i++) {
@@ -369,6 +396,7 @@ var getGadgetFromName = function(str) {
 
 var getGadgetFromHtml = function(id) {
 	var to;
+
 	to = seachGadgetIn('leftColumn', id);
 	if (to != null) {
 		return to;
@@ -385,11 +413,15 @@ var getGadgetFromHtml = function(id) {
 
 var seachGadgetIn = function(str, id) {
 	var list = $(str).getChildren();
+	var a = new Object();
 	if (list != null) {
 		for ( var i = 0; i < list.length; i++) {
 			var nid = list[i].getProperty('id');
-			if (nid == id)
-				return $(str);
+			if (nid == id) {
+				a.to = $(str);
+				a.toIndex = i;
+				return a;
+			}
 		}
 	}
 	return null;
@@ -445,14 +477,44 @@ var viewHas = function(name, id) {
 	return v;
 };
 
-var modelAdd = function(newG, model) {
+var modelAdd = function(newG, toIndex, model) {
 	var g = new Object();
 	g.htmlId = newG.htmlId;
 	g.name = newG.name;
 	g.nickName = newG.nickName;
 	g.relativeUrl = newG.relativeUrl;
 	model.push(g);
+
+	var temp;
+	for ( var i = 0; i < model.length; i++) {
+		if (i == toIndex) {
+			temp = model[i];
+			model[i] = g;
+		} else if (i > toIndex) {
+			var t = model[i];
+			model[i] = temp;
+			temp = t;
+		}
+	}
 };
+var modelSwich = function(newG, toIndex, model) {
+	var g = new Object();
+	g.htmlId = newG.htmlId;
+	g.name = newG.name;
+	g.nickName = newG.nickName;
+	g.relativeUrl = newG.relativeUrl;
+	var temp;
+	for ( var i = 0; i < model.length; i++) {
+		if (i == toIndex) {
+			temp = model[i];
+			model[i] = g;
+		} else if (i > toIndex) {
+			var t = model[i];
+			model[i] = temp;
+			temp = t;
+		}
+	}
+}
 
 var modelRemove = function(id, model) {
 	for ( var i = 0; i < model.length; i++) {
