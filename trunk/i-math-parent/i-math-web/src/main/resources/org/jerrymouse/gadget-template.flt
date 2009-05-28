@@ -1,8 +1,7 @@
-<div class="mContainer">
-<div class="gadgets-gadget-title-bar" id="gadgets-gadget-title-bar-${name?if_exists}">
+<div class="gadgets-gadget-title-bar" id="gadgets-gadget-title-bar-${htmlId?if_exists}">
 <span class="gadgets-gadget-title-toggle-button" id="gadgets-gadget-title-toggle-button-${name?if_exists}"
-onclick="runEffect('#gadgets-gadget-content-${name?if_exists}');"></span>
+onclick="runEffect('#gadgets-gadget-content-${htmlId?if_exists}');"></span>
 <span class="gadgets-gadget-title" id="remote_iframe_${name?if_exists}">${title?if_exists}</span>
+<span class="gadgets-gadget-close-btn" id="remote_iframe_close_btn_${htmlId?if_exists}" onclick="colseGadget('${htmlId?if_exists}');"></span>
 </div>
-<div class="gadgets-gadget-content" id="gadgets-gadget-content-${name?if_exists}">${content?if_exists}</div>
-</div>
+<div class="gadgets-gadget-content" id="gadgets-gadget-content-${htmlId?if_exists}">${content?if_exists}</div>

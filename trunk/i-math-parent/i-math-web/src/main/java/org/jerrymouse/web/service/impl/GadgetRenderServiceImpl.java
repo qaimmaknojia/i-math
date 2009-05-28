@@ -25,12 +25,11 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 		this.gadgetDao = gadgetDao;
 	}
 
-	private Gadget renderGadget(String htmlId, URL url) {
+	private Gadget renderGadget(String htmlId, URL url, String urlStr) {
 		// Debugger.log("build:" + url);
 		Gadget gadget = null;
 		try {
-			gadget = new Gadget(url);
-			gadget.setHtmlId(htmlId);
+			gadget = new Gadget(htmlId,url,urlStr);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -43,7 +42,7 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 		// Debugger.log("build:" + url);
 		Gadget gadget = null;
 		try {
-			gadget = renderGadget(htmlId, new URL(url));
+			gadget = renderGadget(htmlId, new URL(url),url);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

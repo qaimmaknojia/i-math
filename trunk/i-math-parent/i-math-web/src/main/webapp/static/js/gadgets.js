@@ -37,16 +37,16 @@ var loadContainer = function(data) {
 };
 
 var createTabs = function() {
-	var pos=0;
-	var buf=135;
+	var pos = 0;
+	var buf = 135;
 	var tabUL = $("tabs");
 	var tabs = mainContainer.tabs;
 	tabs.each( function(item, index) {
 		var tab = new Element('div', {
 			'class' : 'headLink'
 		});
-		tab.setStyle('left', pos+'px');
-		pos+=buf;
+		tab.setStyle('left', pos + 'px');
+		pos += buf;
 		var fisheye = new Element('div', {
 			'class' : 'fisheyeTarget'
 		});
@@ -54,35 +54,36 @@ var createTabs = function() {
 			'class' : 'inner',
 			'text' : item.title
 		});
-		
-	 tab.grab(inner);
-	 tab.grab(fisheye);
+
+		tab.grab(inner);
+		tab.grab(fisheye);
 		tabUL.grab(tab);
 
 		tab.addEvent('click', function() {
 			createTabContainer(index);
 		});
 	});
-	 dojo.query('.headLink').forEach(function(n){
-		 new dojox.widget.FisheyeLite( {
-				properties : {
-			 		height:{
-	            end:42, unit:"px"
-	         		}
+	dojo.query('.headLink').forEach( function(n) {
+		new dojox.widget.FisheyeLite( {
+			properties : {
+				height : {
+					end : 42,
+					unit : "px"
 				}
-			}, n);
-	 });
+			}
+		}, n);
+	});
 };
 
 var createTabContainer = function(index) {
-	tabIndex=index;
-	$('tabs').getChildren().each(function(item, i) {
+	tabIndex = index;
+	$('tabs').getChildren().each( function(item, i) {
 		item.removeClass('activeTab');
-		if(tabIndex == i){
+		if (tabIndex == i) {
 			item.addClass('activeTab');
 		}
 	});
-	
+
 	cleancolumns();
 	writeColumn(mainContainer.tabs[index].leftGadget, "leftColumn");
 	writeColumn(mainContainer.tabs[index].middleGadget, "middleColumn");
@@ -197,81 +198,84 @@ var updateSortable = function() {
 		connectWith : $j('.column'),
 		handle : '.gadgets-gadget-title-bar',
 		placeholder : 'gadgets-placeholder',
-		connectWith:  '.column',
+		connectWith : '.column',
 		forcePlaceholderSize : true,
 		revert : 300,
 		delay : 100,
 		opacity : 0.8,
+		stop : function(e, ui) {
+			swichGadget(e, ui);
+		}
 	});
 }
 
-var runEffect=function(str){
-	var obj=$j(str);
+var runEffect = function(str) {
+	var obj = $j(str);
 	obj.toggle('blind');
 };
 
-var initLogin=function(){
-	$('loginSubmitBtn').addEvent('click', function(){
-		var e=$('loginEmail').value;
-		var p=$('loginPassword').value;
-		 userService.verify(e,p,loginReply);
+var initLogin = function() {
+	$('loginSubmitBtn').addEvent('click', function() {
+		var e = $('loginEmail').value;
+		var p = $('loginPassword').value;
+		userService.verify(e, p, loginReply);
 	});
-	$('signInSubmitBtn').addEvent('click', function(){
-		var e=$('signInEmail').value;
-		var p=$('signInPassword').value;
-		var n=$('signInNickName').value;
-		userService.signIn(e,n,p,SignInReply);
+	$('signInSubmitBtn').addEvent('click', function() {
+		var e = $('signInEmail').value;
+		var p = $('signInPassword').value;
+		var n = $('signInNickName').value;
+		userService.signIn(e, n, p, SignInReply);
 	});
-	$j("#add-content").click(function() {
+	$j("#add-content").click( function() {
 		runAddGadetsDiv();
 	});
-	$('ensureAddButton').addEvent('click', function(){
-		var s=getSelectNewOne();
+	$('ensureAddButton').addEvent('click', function() {
+		var s = getSelectNewOne();
 		addGadget(s.getProperty('gName'));
 	});
-	
+
 };
 
-var loginReply=function(data){
-	if(data==null){
+var loginReply = function(data) {
+	if (data == null) {
 		$('loginRes').set('text', '您输入的用户名或密码不正确');
-	}else{
-		user=data;
-		var nickName=data.nickName;
+	} else {
+		user = data;
+		var nickName = data.nickName;
 		$$('#loginDiv .dijitDropDownButton').setStyle('visibility', 'hidden');
 		$$('#loginDiv .dijitDropDownButton').setStyle('width', '0px');
 
 		$('userInfo').set('text', nickName);
 		$('userInfo').setStyle('visibility', 'visible');
 		$('signOutBtn').setStyle('visibility', 'visible');
-		var loginDialog=dijit.byId('loginDialog');
+		var loginDialog = dijit.byId('loginDialog');
 		loginDialog.onCancel();
 	}
 };
 
-var runAddGadetsDiv=function(){
-	$j("#allgadetsDiv").toggle("fold",loadAllGadgets());
+var runAddGadetsDiv = function() {
+	$j("#allgadetsDiv").toggle("fold", loadAllGadgets());
 };
 
-var loadAllGadgets=function(){
-	var d=$('allgadetsDiv').getStyle('display');
-	if(d=='none'){
+var loadAllGadgets = function() {
+	var d = $('allgadetsDiv').getStyle('display');
+	if (d == 'none') {
 		gadgetRenderService.getAllGadgets(replyAllGadgets);
 	}
 };
 // 
-var replyAllGadgets=function(data){
+var replyAllGadgets = function(data) {
 	$("allgadetsUl").empty();
-	allGadgets=data;
+	allGadgets = data;
 	data.each( function(item, index) {
 		var newGadget = new Element('li', {
 			'class' : 'newGadget ui-state-default',
-			'text':item.nickName ,
-			'gName':item.name
+			'text' : item.nickName,
+			'gName' : item.name
 		});
-		newGadget.addEvent('click',function() {
-			var select=getSelectNewOne();
-			if(select!=null)
+		newGadget.addEvent('click', function() {
+			var select = getSelectNewOne();
+			if (select != null)
 				select.removeClass('ui-state-active');
 			newGadget.addClass('ui-state-active');
 		});
@@ -279,45 +283,192 @@ var replyAllGadgets=function(data){
 	});
 };
 
-var getSelectNewOne=function(){
+var getSelectNewOne = function() {
 	var s;
 	$("allgadetsUl").getChildren().each( function(item, index) {
 		var myProp = item.getProperty('class');
-		if(item.hasClass('ui-state-active')){
-			s=item;
+		if (item.hasClass('ui-state-active')) {
+			s = item;
 		}
 	});
 	return s;
 };
 
-var addGadget=function(str){
-	var vNum=	Math.random()*1000;
+var addGadget = function(str) {
+	var vNum = Math.random() * 1000;
 	vNum = Math.round(vNum);
-	var id=str+vNum;
+	var id = str + vNum;
 	var url;
-	allGadgets.each(function(item, index) {
-		if(item.name==str)
-			url=item.relativeUrl;
+	allGadgets.each( function(item, index) {
+		if (item.name == str)
+			url = item.relativeUrl;
 	});
-	
+
 	var gadgetDiv = new Element('li', {
 		'class' : 'gadgets-gadget-chrome',
 		'id' : id
 	});
 	$("leftColumn").grab(gadgetDiv);
 	var parentUrl = 'http://' + document.location.host;
-	gadgetRenderService.renderGadget(id, parentUrl+url, loadGadget);
+	gadgetRenderService.renderGadget(id, parentUrl + url, loadGadget);
 };
 
-var SignInReply=function(data){
-		user=data;
-		var nickName=data.nickName;
-		$$('#loginDiv .dijitDropDownButton').setStyle('visibility', 'hidden');
-		$$('#loginDiv .dijitDropDownButton').setStyle('width', '0px');
+var SignInReply = function(data) {
+	user = data;
+	var nickName = data.nickName;
+	$$('#loginDiv .dijitDropDownButton').setStyle('visibility', 'hidden');
+	$$('#loginDiv .dijitDropDownButton').setStyle('width', '0px');
 
-		$('userInfo').set('text', nickName);
-		$('userInfo').setStyle('visibility', 'visible');
-		$('signOutBtn').setStyle('visibility', 'visible');
-		var loginDialog=dijit.byId('signInDialog');
-		loginDialog.onCancel();
+	$('userInfo').set('text', nickName);
+	$('userInfo').setStyle('visibility', 'visible');
+	$('signOutBtn').setStyle('visibility', 'visible');
+	var loginDialog = dijit.byId('signInDialog');
+	loginDialog.onCancel();
+};
+
+var colseGadget = function(id) {
+	var g = $(id);
+	var selectedEffect = 'scale';
+	var options = {
+		percent : 0
+	}
+	$j('#' + id).hide(selectedEffect, options, 500);
+};
+
+var swichGadget = function(e, ui) {
+	var g = ui.item;
+	var id = ui.item.attr('id');
+	var from = e.target;
+	var to = getGadgetFromHtml(id);
+
+	var gModel = getGadgetMode(id, getGadgetFromName(from.getProperty('id')));
+
+	modelAdd(gModel, getGadgetFromName(to.getProperty('id')));
+
+	modelRemove(id, getGadgetFromName(from.getProperty('id')));
+};
+
+var getGadgetMode = function(id, container) {
+	for ( var i = 0; i < container.length; i++) {
+		var item = container[i];
+		if (item.htmlId == id) {
+			return item;
+		}
+	}
+};
+
+var getGadgetFromName = function(str) {
+	var tab = mainContainer.tabs[tabIndex];
+	if (str == 'leftColumn')
+		return tab.leftGadget;
+	if (str == 'middleColumn')
+		return tab.middleGadget;
+	if (str == 'rightColumn')
+		return tab.rightGadget;
+};
+
+var getGadgetFromHtml = function(id) {
+	var to;
+	to = seachGadgetIn('leftColumn', id);
+	if (to != null) {
+		return to;
+	}
+	to = seachGadgetIn('middleColumn', id);
+	if (to != null) {
+		return to;
+	}
+	to = seachGadgetIn('rightColumn', id);
+	if (to != null) {
+		return to;
+	}
+};
+
+var seachGadgetIn = function(str, id) {
+	var list = $(str).getChildren();
+	if (list != null) {
+		for ( var i = 0; i < list.length; i++) {
+			var nid = list[i].getProperty('id');
+			if (nid == id)
+				return $(str);
+		}
+	}
+	return null;
+};
+var updateModel = function() {
+	var tab = mainContainer.tabs[tabIndex];
+	updateColumn('leftColumn', tab.leftGadget);
+	updateColumn('middleColumn', tab.middleGadget);
+	updateColumn('rightColumn', tab.rightGadget);
+};
+
+var updateColumn = function(name, column) {
+	var list = $(name).getChildren();
+	if (list != null) {
+		for ( var i = 0; i < list.length; i++) {
+			var id = list[i].getProperty('id');
+			if (!modelHas(id, column)) {
+				modelAdd(id, column);
+			}
+		}
+	}
+	if (column != null) {
+		for ( var i = 0; i < column.length; i++) {
+			var item = column[i];
+			var id = item.htmlId;
+			if (!viewHas(name, id)) {
+				modelRemove(id, column);
+			}
+		}
+	}
+};
+
+var modelHas = function(id, model) {
+	var v = false;
+	if (model == null)
+		return false;
+	model.each( function(item, index) {
+		if (item.htmlId == id) {
+			v = true;
+		}
+	});
+	return v;
+};
+
+var viewHas = function(name, id) {
+	var v = false;
+	$(name).getChildren().each( function(item, index) {
+		var hId = item.getProperty('id');
+		if (hId == id) {
+			v = true;
+		}
+	});
+	return v;
+};
+
+var modelAdd = function(newG, model) {
+	var g = new Object();
+	g.htmlId = newG.htmlId;
+	g.name = newG.name;
+	g.nickName = newG.nickName;
+	g.relativeUrl = newG.relativeUrl;
+	model.push(g);
+};
+
+var modelRemove = function(id, model) {
+	for ( var i = 0; i < model.length; i++) {
+		var item = model[i];
+		if (item.htmlId == id) {
+			model.erase(item);
+		}
+	}
+};
+
+var getFromMainContainer = function(id) {
+	var gs = getAllGadgets();
+	for ( var i = 0; i < gs.length; i++) {
+		var item = gs[i];
+		if (item.htmlId == id) {
+			return item;
+		}
+	}
 };
