@@ -389,3 +389,11 @@ blockquote {
 #footer a {
 	color: #FFFFFF;
 }
+#loading {
+        font-weight: bold;
+	color: #FFFFFF;
+	margin: 0;
+	font-size: 0.8em;
+	padding: 0px 40px 0 10px;
+	line-height: normal;
+}
