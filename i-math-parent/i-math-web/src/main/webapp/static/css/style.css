@@ -283,28 +283,17 @@ blockquote {
 
 .gadgets-gadget-chrome {
 	margin: 4px;
-	border: 3px solid;
+	border: 1px solid #7aa5d6;
 	width: 100%;
 	background-color: #FFFFFF;
 	border-color: #8bd2fc;
-	background-color: white;
-}
-
-.mContainer {
-	border: 1px solid;
-	border-color: #003399;
 }
 
 .gadgets-gadget-title-bar {
-	padding: 2px 2px 3px 4px;
-	background-color: #fdfefd;
-	background-image: url(../images/droplet_gradient.gif);
+	padding: 2px 4px;
+	background-color: #e5ecf9;
 	cursor: move;
 	position: relative;
-	background-position: 0 0;
-	background-repeat: repeat-x;
-		border-bottom: 1px solid;
-	border-bottom-color: #003399;
 }
 
 .gadgets-gadget-title {
@@ -326,6 +315,28 @@ blockquote {
 	width: 19px;
 }
 
+.gadgets-gadget-close-btn {
+	position: absolute;
+	top: 50%;
+	width: 19px;
+	margin: -10px 0 0 0;
+	padding: 0;
+	height: 18px;
+	right: 0.3em;
+	top: 50%;
+	background-image:
+		url(/static/css/redmond/images/ui-icons_217bc0_256x240.png);
+	background-position: -96px -128px;
+	cursor: pointer;
+}
+
+.gadgets-gadget-close-btn:hover,.gadgets-gadget-close-btn:focus {
+	padding: 0;
+	background-image:
+		url(/static/css/redmond/images/ui-icons_f9bd01_256x240.png);
+	background-position: -96px -128px;
+}
+
 .gadgets-gadget-user-prefs-dialog {
 	background-color: #e5ecf9;
 }
@@ -342,7 +353,6 @@ blockquote {
 .gadgets-gadget-content {
 	width: 100%;
 	padding: 4px;
-
 }
 
 .gadgets-log-entry {

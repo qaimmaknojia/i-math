@@ -145,7 +145,9 @@ public class Gadget {
 		Map<String, String> rootMap = new HashMap<String, String>();
 		rootMap.put("title", title);
 		rootMap.put("name", name);
+		rootMap.put("relativeUrl", relativeUrl);
 		rootMap.put("content", text);
+		rootMap.put("htmlId", htmlId);
 		StringWriter out = null;
 		String html = null;
 		try {
@@ -218,6 +220,22 @@ public class Gadget {
 		this.name = name;
 		this.nickName = nickName;
 		this.relativeUrl = relativeUrl;
+	}
+
+	public Gadget(String htmlId, URL url) throws IOException {
+		this.htmlId = htmlId;
+		URLConnection httpURLConnection = url.openConnection();
+		httpURLConnection.setUseCaches(true);
+		loadFromInputStream(httpURLConnection.getInputStream());
+		init();
+	}
+
+	public Gadget(String htmlId, URL url, String urlStr) throws IOException {
+		this.htmlId = htmlId;
+		URLConnection httpURLConnection = url.openConnection();
+		httpURLConnection.setUseCaches(true);
+		loadFromInputStream(httpURLConnection.getInputStream());
+		init();
 	}
 
 	public String getName() {
