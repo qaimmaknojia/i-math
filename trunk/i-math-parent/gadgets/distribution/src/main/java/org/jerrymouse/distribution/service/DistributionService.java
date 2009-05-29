@@ -5,9 +5,13 @@ public interface DistributionService {
 
 	double getStandardNormalDistribution(double x);
 
+	double getBinomialDistribution(double p, int n, double x);
+
 	double getExponentialDistribution(double sita, double x);
 
-	double getBinomialDistribution(double p, int n, double x);
+	double getHypergeometricDistribution(int p, int n, int s, double x);
+
+	double getTDistribution(double degreesOfFreedom, double x);
 
 	double getInverseNormalDistribution(double d, double m, double x);
 
@@ -17,10 +21,6 @@ public interface DistributionService {
 
 	double getInverseBinomialDistribution(double p, int n, double x);
 
-	double getHypergeometricDistribution(int p, int n, int s, double x);
-
-	double getTDistribution(double degreesOfFreedom, double x);
-	
 	double getInverseTDistribution(double degreesOfFreedom, double x);
 
 }
