@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<project>
+	<parent>
+		<artifactId>gadgets</artifactId>
+		<groupId>org.jerrymouse</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.jerrymouse</groupId>
+	<artifactId>linearSystem</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>calculator</artifactId>
+			<version>${pom.version}</version>
+		</dependency>
+	</dependencies>
+</project>
