@@ -18,15 +18,13 @@ import org.jerrymouse.univariateFunction.service.UnivariateFunctionService;
 
 public class UnivariateFunctionServiceImpl implements UnivariateFunctionService {
 
-	@Override
-	public double getFunctionValue(String expression, double variableValue) {
+	private double getFunctionValue(String expression, double variableValue) {
 		// TODO Auto-generated method stub
 		CalculateService calculate = new CalculateServiceImpl();
 		return calculate.value(expression, variableValue);
 	}
 
-	@Override
-	public double getRootOfFunction(String expression, double min, double max,
+	private double getRootOfFunction(String expression, double min, double max,
 			double startValue, String solver) {
 		UnivariateRealFunction fun = new Function(expression);
 		UnivariateRealSolverImpl funSolver = getSolver(solver);
@@ -64,7 +62,7 @@ public class UnivariateFunctionServiceImpl implements UnivariateFunctionService 
 		return s;
 	}
 
-	public double getRootOfFunction(String expression, double min, double max,
+	private double getRootOfFunction(String expression, double min, double max,
 			double startValue) throws MathException {
 		UnivariateRealFunction fun = new Function(expression);
 		UnivariateRealSolverImpl funSolver = new BisectionSolver();
@@ -73,7 +71,7 @@ public class UnivariateFunctionServiceImpl implements UnivariateFunctionService 
 
 	}
 
-	public double getRootOfFunction(String expression, double min, double max)
+	private double getRootOfFunction(String expression, double min, double max)
 			throws MathException {
 		UnivariateRealFunction fun = new Function(expression);
 		UnivariateRealSolverImpl funSolver = getSolver(BisectionSolver);
@@ -81,9 +79,19 @@ public class UnivariateFunctionServiceImpl implements UnivariateFunctionService 
 	}
 
 	public double getRootOfFunction(String expression, double min, double max,
-			String solver) throws MathException {
+			String solver) {
 		UnivariateRealFunction fun = new Function(expression);
 		UnivariateRealSolverImpl funSolver = getSolver(solver);
-		return funSolver.solve(fun, min, max);
+		double result = 0;
+		try {
+			result = funSolver.solve(fun, min, max);
+		} catch (ConvergenceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FunctionEvaluationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

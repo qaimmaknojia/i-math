@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module id="add-gadget">
-	<ModulePrefs title="加法器" />
+<Module id="univariateFunction">
+	<ModulePrefs title="一元方程解" />
 	<Content type="html">
   <![CDATA[ 
-<script type="text/javascript" src="/dwr/interface/addService.js"></script>
+
+<script type='text/javascript'
+	src='/dwr/interface/univariateFunctionService.js'></script>
 <script type="text/javascript">
-var addGadgetReply = function(data) {
-	$('addGadgetC').set('text', data);
+var univariateFunctionReply = function(data) {
+	$('univariateFunction-result').set('text', data);
 }
 </script>
 
+<input type="text" id="univariateFunction-expression" title="expression" value="1+x">
 
+<input type="text" id="univariateFunction-min" title="min" value="-100">
 
-<input type="text" title="Will be converted to: double" id="addGadgetA"
-	value="0.0" size="10" class="itext">
-+
-<input type="text" title="Will be converted to: double" id="addGadgetB"
-	value="0.0" size="10" class="itext">
-=
-<span class="reply" id="addGadgetC"></span>
+<input type="text" id="univariateFunction-max" title="max" value="100">
+
+<select id="univariateFunction-solver">
+	<option value="bisectionSolver">BisectionSolver</option>
+	<option value="secantSolver">SecantSolver</option>
+	<option value="newtonSolver">NewtonSolver</option>
+	<option value="mullerSolver">MullerSolver</option>
+	<option value="laguerreSolver">LaguerreSolver</option>
+	<option value="ridderSolver">RidderSolver</option>
+</select>
 
 <input type="button" value="计算"
-	onclick="addService.add($('addGadgetA').value, $('addGadgetB').value, addGadgetReply);"
-	class="ibutton">
+	onclick="
+		univariateFunctionService.getRootOfFunction(
+				$('univariateFunction-expression').value,
+				$('univariateFunction-min').value,
+				$('univariateFunction-max').value,
+				$('univariateFunction-solver').value, 
+				univariateFunctionReply);">
 
+<div id="univariateFunction-result"></div>
  ]]>
 	</Content>
 </Module>
