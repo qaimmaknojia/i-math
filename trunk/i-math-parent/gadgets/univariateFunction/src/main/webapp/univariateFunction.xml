@@ -4,6 +4,8 @@
 	<Content type="html">
   <![CDATA[ 
 
+
+
 <script type='text/javascript'
 	src='/dwr/interface/univariateFunctionService.js'></script>
 <script type="text/javascript">
@@ -11,23 +13,24 @@ var univariateFunctionReply = function(data) {
 	$('univariateFunction-result').set('text', data);
 }
 </script>
+<p><a style="padding-left:10px">表达式：</a>
+<input type="text" id="univariateFunction-expression" title="expression" value="1+x" style="width:200px;">
+</p>
+<p><a style="padding-left:10px">定义域：</a><input type="text" id="univariateFunction-min" title="min" value="-100" style="width:100px">
 
-<input type="text" id="univariateFunction-expression" title="expression" value="1+x">
-
-<input type="text" id="univariateFunction-min" title="min" value="-100">
-
-<input type="text" id="univariateFunction-max" title="max" value="100">
-
-<select id="univariateFunction-solver">
-	<option value="bisectionSolver">BisectionSolver</option>
-	<option value="secantSolver">SecantSolver</option>
-	<option value="newtonSolver">NewtonSolver</option>
-	<option value="mullerSolver">MullerSolver</option>
-	<option value="laguerreSolver">LaguerreSolver</option>
-	<option value="ridderSolver">RidderSolver</option>
+<input type="text" id="univariateFunction-max" title="max" value="100" style="width:100px;">
+</p>
+<p style="padding-left:30px">
+<select id="univariateFunction-solver" >
+	<option value="bisectionSolver">分割法</option>
+	<option value="secantSolver">正割法</option>
+	<option value="newtonSolver">牛顿法</option>
+	<option value="mullerSolver">穆勒法</option>
+	<option value="laguerreSolver">拉盖尔法</option>
+	<option value="ridderSolver">里德法</option>
 </select>
 
-<input type="button" value="计算"
+<input type="button" value="计算" style="margin-left:90px;width:50px"
 	onclick="
 		univariateFunctionService.getRootOfFunction(
 				$('univariateFunction-expression').value,
@@ -35,7 +38,7 @@ var univariateFunctionReply = function(data) {
 				$('univariateFunction-max').value,
 				$('univariateFunction-solver').value, 
 				univariateFunctionReply);">
-
+</p>
 <div id="univariateFunction-result"></div>
  ]]>
 	</Content>
