@@ -110,6 +110,8 @@ public class User {
 				"/gadgets/latex2image/latex2image.xml");
 		Gadget univariateFunction = new Gadget("univariateFunction", "一元方程解",
 				"/gadgets/univariateFunction/univariateFunction.xml");
+		Gadget googleChart = new Gadget("google-chart", "图标绘制器",
+				"/gadgets/google-chart/google-chart.xml");
 		GadgetDao gadgetDao = user.getGadgetDao();
 
 		gadgetDao.save(latex2image);
@@ -121,6 +123,7 @@ public class User {
 		gadgetDao.save(scale);
 		gadgetDao.save(calculator);
 		gadgetDao.save(univariateFunction);
+		gadgetDao.save(googleChart);
 
 		GadgetContainer container1 = new GadgetContainer("计算器");
 		GadgetContainer container2 = new GadgetContainer("绘图");
@@ -133,6 +136,7 @@ public class User {
 
 		container2.addLeft(jep);
 		container2.addMiddle(latex2image);
+		container2.addRight(googleChart);
 
 		container3.addLeft(univariateFunction);
 
