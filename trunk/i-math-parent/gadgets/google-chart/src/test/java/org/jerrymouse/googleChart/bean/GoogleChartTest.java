@@ -18,9 +18,9 @@ public class GoogleChartTest extends TestCase {
 	}
 
 	public void testData() throws Exception {
-		List<Double> data = Arrays.asList(0.0, 1.0, 4.0, 4.0, 6.0, 11.0, 14.0, 17.0, 23.0, 28.0,
-				33.0, 36.0, 43.0, 59.0, 65.0);
-		googleChart.setData(data, 70);
+		List<Double> data = Arrays.asList(0.0, 1.0, 4.0, 4.0, 6.0, 11.0, 14.0,
+				17.0, 23.0, 28.0, 33.0, 36.0, 43.0, 59.0, 65.0);
+		googleChart.setData(data, 0,70, 10);
 		System.out.println(googleChart.buildUrl());
 	}
 }
