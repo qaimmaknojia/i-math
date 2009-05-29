@@ -65,13 +65,13 @@ function changeOpac(opacity, id) {
 	object.filter = "alpha(opacity=" + opacity + ")";
 }
 function fadeout(id) {
-	opacity(id, 100, 20, 800);
-	setTimeout("$$('" + id + "').style.display='none'", 800);
+	//opacity(id, 100, 20, 800);
+	//setTimeout("$$('" + id + "').style.display='none'", 800);
 }
 function fadein(id) {
-	changeOpac(20, id);
-	$$(id).style.display = 'block';
-	opacity(id, 20, 100, 800);
+	//changeOpac(20, id);
+	//$$(id).style.display = 'block';
+	//opacity(id, 20, 100, 800);
 }
 function opanel(id) {
 	if (panellock == null)
