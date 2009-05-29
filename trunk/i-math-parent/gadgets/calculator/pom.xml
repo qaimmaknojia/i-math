@@ -37,6 +37,11 @@
 			<artifactId>jep</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>jcache</groupId>
+			<artifactId>jcache</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>

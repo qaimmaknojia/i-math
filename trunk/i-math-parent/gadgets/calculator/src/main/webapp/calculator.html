@@ -4,27 +4,28 @@
 <title></title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <script type='text/javascript' src='/dwr/engine.js'></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.2/mootools-yui-compressed.js"></script>
 
 </head>
 <body>
 <script type='text/javascript' src='/dwr/interface/calculateService.js'></script>
 <script type="text/javascript">
 var calculatorReply = function(data) {
-	$('calculator-result').set('text', data);
+	$('calculator-result').set('value', data);
 }
 </script>
-<p style="font:14px bold Verdana, Geneva, sans-serif ; margin-left:30px;">输入表达式:</p>
-<form>
-  <textarea name="calculator-request" id="calculator-request" style="width: 300px ;height:50px;margin-left:30px;"></textarea>
-</form>
-<input type="button" value="计算" style="margin-top:20px;margin-left: 260px;width:60px;height:25px;"
+<p
+	style="font: 14px bold Verdana, Geneva, sans-serif; margin-left: 30px;">输入表达式:</p>
+<form><textarea name="calculator-request" id="calculator-request"
+	style="width: 300px; height: 50px; margin-left: 30px;"></textarea></form>
+<input type="button" value="计算"
+	style="margin-top: 20px; margin-left: 260px; width: 60px; height: 25px;"
 	onclick="calculateService.calculate($('calculator-request').value,calculatorReply);" />
-    <p style="font:14px bold Verdana, Geneva, sans-serif ; margin-left:30px;margin-top:0px;">结果:</p>
-<p>
-  <input id="calculator-result" readonly style="width:300px; margin-left:30px;margin-top:0px;">
-  </input> 
-</p>
-<p>&nbsp;</p>
+<p
+	style="font: 14px bold Verdana, Geneva, sans-serif; margin-left: 30px; margin-top: 0px;">结果:</p>
+<p><input id="calculator-result" readonly
+	style="width: 300px; margin-left: 30px; margin-top: 0px;"> </input></p>
 
 </body>
 </html>
