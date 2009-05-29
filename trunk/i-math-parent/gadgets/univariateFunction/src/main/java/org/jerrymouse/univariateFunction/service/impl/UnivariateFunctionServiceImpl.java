@@ -1,5 +1,7 @@
 package org.jerrymouse.univariateFunction.service.impl;
 
+import org.apache.commons.math.ConvergenceException;
+import org.apache.commons.math.FunctionEvaluationException;
 import org.apache.commons.math.MathException;
 import org.apache.commons.math.analysis.UnivariateRealFunction;
 import org.apache.commons.math.analysis.solvers.BisectionSolver;
@@ -11,8 +13,8 @@ import org.apache.commons.math.analysis.solvers.SecantSolver;
 import org.apache.commons.math.analysis.solvers.UnivariateRealSolverImpl;
 import org.jerrymouse.gadgets.calculate.service.impl.CalculateServiceImpl;
 import org.jerrymouse.gadgets.calculator.service.CalculateService;
-import org.jerrymouse.univariateFunction.UnivariateFunctionService;
 import org.jerrymouse.univariateFunction.bean.Function;
+import org.jerrymouse.univariateFunction.service.UnivariateFunctionService;
 
 public class UnivariateFunctionServiceImpl implements UnivariateFunctionService {
 
@@ -25,10 +27,22 @@ public class UnivariateFunctionServiceImpl implements UnivariateFunctionService 
 
 	@Override
 	public double getRootOfFunction(String expression, double min, double max,
-			double startValue, String solver) throws MathException {
+			double startValue, String solver) {
 		UnivariateRealFunction fun = new Function(expression);
 		UnivariateRealSolverImpl funSolver = getSolver(solver);
-		double result = funSolver.solve(fun, min, max, startValue);
+		double result = 0;
+		try {
+			result = funSolver.solve(fun, min, max, startValue);
+		} catch (ConvergenceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FunctionEvaluationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return result;
 	}
 

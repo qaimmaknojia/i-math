@@ -417,6 +417,16 @@
 			<version>${pom.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>linearSystem</artifactId>
+			<version>${pom.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>univariateFunction</artifactId>
+			<version>${pom.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-1.0-sdk</artifactId>
 			<version>1.2.0</version>
