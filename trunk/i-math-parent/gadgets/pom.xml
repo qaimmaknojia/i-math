@@ -28,6 +28,7 @@
     <module>linearSystem</module>
     <module>univariateFunction</module>
     <module>svgvml</module>
+    <module>distribution</module>
   </modules>
 
 	<dependencyManagement>
