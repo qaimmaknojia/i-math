@@ -20,5 +20,7 @@ public interface DistributionService {
 	double getHypergeometricDistribution(int p, int n, int s, double x);
 
 	double getTDistribution(double degreesOfFreedom, double x);
+	
+	double getInverseTDistribution(double degreesOfFreedom, double x);
 
 }
