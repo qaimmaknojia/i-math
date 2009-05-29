@@ -4,11 +4,11 @@
 	<Content type="html">
   <![CDATA[ 
 
-<link rel="stylesheet" href="l/gadgets/latex2image/latex2html_files/equation-2.css"
+<link rel="stylesheet" href="../../../../../i-math-web/src/main/webapp/static/css/equation-2.css"
 	type="text/css">
 <script type="text/javascript">AC_FL_RunContent = 0;</script>
 <script type="text/javascript"
-	src="/gadgets/latex2image/latex2html_files/eq_editor-lite-4.js"></script>
+	src="../../../../../i-math-web/src/main/webapp/static/js/eq_editor-lite-4.js"></script>
 
 <div id="hover"></div>
 <div class="center">
