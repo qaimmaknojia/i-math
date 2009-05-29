@@ -31,7 +31,7 @@
 			<param-name>config-google-chart</param-name>
 			<param-value>/gadgets/google-chart/dwr.xml</param-value>
 		</init-param>
-				<init-param>
+		<init-param>
 			<param-name>config-calculator</param-name>
 			<param-value>/gadgets/calculator/dwr.xml</param-value>
 		</init-param>
@@ -67,6 +67,10 @@
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 
 	<filter>
