@@ -23,6 +23,7 @@ p { margin:2px 0; }
 .toolbar {
 	position:absolute;
 	padding-top:2px;
+	padding-left:20px;
 }
 .toolbar_space { height:38px; width:95%; margin:0 auto; background-color:#eeeeee; border-right:1px solid #9a9a9a; }
 .panel { float:left; padding:0px 3px; height:27px; overflow:hidden; }
