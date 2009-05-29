@@ -34,18 +34,10 @@ public class LinearSystemsServiceImpl implements LinearSystemsService {
 				.getSolver();
 		RealVector constants = new RealVectorImpl(d, false);
 		RealVector solution = solver.solve(constants);
-		System.out.print("hi");
 		for (int i = 0; i < c.length; i++) {
 			for (int j = 0; j < c[i].length; j++) {
-				System.out.print(c[i][j]);
-				System.out.print(" ");
 			}
-			System.out.println();
 		}
-		for (int i = 0; i < d.length; i++) {
-			System.out.println(d[i]);
-		}
-		System.out.println(solution.getEntry(0));
 		for (Double double1 : solution.getData()) {
 			result.add(double1);
 		}

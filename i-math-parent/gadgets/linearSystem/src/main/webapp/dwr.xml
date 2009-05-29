@@ -4,9 +4,8 @@
 
 <dwr>
 	<allow>
-		<!--
-			<create creator="spring" javascript="addService"> <param
-			name="beanName" value="addService" /> </create>
-		-->
+		<create creator="spring" javascript="linearSystemsService">
+			<param name="beanName" value="linearSystemsService" />
+		</create>
 	</allow>
 </dwr>

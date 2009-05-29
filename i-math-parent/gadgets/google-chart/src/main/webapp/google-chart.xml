@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module id="google-chart">
-	<ModulePrefs title="图标绘制器" />
+	<ModulePrefs title="图表绘制器" />
 	<Content type="html">
   <![CDATA[ 
 <script type="text/javascript" src="/dwr/interface/chartService.js">
