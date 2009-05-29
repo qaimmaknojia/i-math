@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module id="add-gadget">
-	<ModulePrefs title="加法器" />
+<Module id="google-chart">
+	<ModulePrefs title="图标绘制器" />
 	<Content type="html">
   <![CDATA[ 
-<script type="text/javascript" src="/dwr/interface/addService.js"></script>
+<script type="text/javascript" src="/dwr/interface/chartService.js">
+  </script>
 <script type="text/javascript">
-var addGadgetReply = function(data) {
-	$('addGadgetC').set('text', data);
+var googleChartReplay=function(data){
+	$("google-chart-img").setProperty('src', data);
 }
 </script>
 
+<div><img id="google-chart-img" src=""></div>
 
+<input id="google-chart-input" type="text" value="x+1">
+<br />
+最小值：
+<input id="google-chart-min" value="0">
+最大值：
+<input id="google-chart-max" value="100">
 
-<input type="text" title="Will be converted to: double" id="addGadgetA"
-	value="0.0" size="10" class="itext">
-+
-<input type="text" title="Will be converted to: double" id="addGadgetB"
-	value="0.0" size="10" class="itext">
-=
-<span class="reply" id="addGadgetC"></span>
-
-<input type="button" value="计算"
-	onclick="addService.add($('addGadgetA').value, $('addGadgetB').value, addGadgetReply);"
-	class="ibutton">
+<input type="button" value="绘图"
+	onclick="chartService.draw(
+		$('google-chart-input').value,
+		$('google-chart-min').value,
+		$('google-chart-max').value,
+		googleChartReplay
+		);">
 
  ]]>
 	</Content>
