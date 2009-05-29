@@ -304,6 +304,7 @@ else document.writeln("<div id='Scene1' style='position: relative; width:370; he
 				type="image/svg+xml" height="370" width="370"></td>
 		</tr>
 	</tbody>
+</table>
  ]]>
 	</Content>
 </Module>
