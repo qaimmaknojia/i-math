@@ -23,9 +23,9 @@ input.button {
 	font-size: 14pt;
 }
 </style>
-<script src="svgvml_files/svgvml3d.js" language="JavaScript"
+<script src="/gadgets/svgvml/svgvml_files/svgvml3d.js" language="JavaScript"
 	type="text/javascript"></script>
-<script src="svgvml_files/boundingbox.js" language="JavaScript"
+<script src="/gadgets/svgvml/svgvml_files/boundingbox.js" language="JavaScript"
 	type="text/javascript"></script>
 <script>
 function random(vv)
@@ -153,6 +153,7 @@ function SelectFunction(nn)
   { document.forms[0].xmin.value=-5;
     document.forms[0].xmax.value=5;
     document.forms[0].ymin.value=-5;
+
     document.forms[0].ymax.value=5;
   }
   if (nn==0) document.forms[0].z.value="x*x-y*y";
@@ -212,10 +213,10 @@ onload=Init;
 </script>
 
 <form>
-  <table width="391" border="0" cellpadding="2" cellspacing="2" bgcolor="#dddddd">
+  <table width="300" border="0" cellpadding="2" bgcolor="#dddddd" height="100px;">
   <tbody>
     <tr>
-      <th width="383" align="right"><table bgcolor="#dddddd" border="0" cellpadding="2" cellspacing="2">
+      <th width="200" align="right"><table bgcolor="#dddddd" border="0" >
         <tbody>
           <tr>
             <th width="185">x-min</th>
@@ -246,33 +247,30 @@ onload=Init;
     </tr>
   </tbody>
   </table>
-  <table border="0">
+  <table border="0" width="235">
 <tbody>
 		<tr>
-			<td><input class="button" onClick="ZoomPicture(1)" value="[+]"
+			<td width="40"><input class="button" onClick="ZoomPicture(1)" value="[+]"
 				title="zoom picture in" \="" type="button"></td>
-			<td><input class="button" onClick="ZoomPicture(-1)" value="[-]"
+			<td width="40"><input class="button" onClick="ZoomPicture(-1)" value="[-]"
 				title="zoom picture out" \="" type="button"></td>
-			<td><input class="button" onClick="Shift(-20,0)" value="&#9668;"
+			<td width="31"><input class="button" onClick="Shift(-20,0)" value="&#9668;"
 				title="move picture left" \="" type="button"></td>
-			<td><input class="button" onClick="Shift(0,-20)" value="&#9650;"
+			<td width="32"><input class="button" onClick="Shift(0,-20)" value="&#9650;"
 				title="move picture up" \="" type="button"></td>
-			<td><input class="button" onClick="Shift(0,20)" value="&#9660;"
+			<td width="34"><input class="button" onClick="Shift(0,20)" value="&#9660;"
 				title="move picture down" \="" type="button"></td>
-			<td><input class="button" onClick="Shift(20,0)" value="&#9658;"
+			<td width="28"><input class="button" onClick="Shift(20,0)" value="&#9658;"
 				title="move move picture right" \="" type="button"></td>
-			<td><input class="button" onClick="ChangeLight(0,10)"
+			<td width="34"><input class="button" onClick="ChangeLight(0,10)"
 				value="&#8592;" title="rotate light to the left" \="" type="button"></td>
-			<td><input class="button" onClick="ChangeLight(-10,0)"
+			<td width="34"><input class="button" onClick="ChangeLight(-10,0)"
 				value="&#8593;" title="move light up" \="" type="button"></td>
-			<td><input class="button" onClick="ChangeLight(10,0)"
+			<td width="34"><input class="button" onClick="ChangeLight(10,0)"
 				value="&#8595;" title="move light down" \="" type="button"></td>
-			<td><input class="button" onClick="ChangeLight(0,-10)"
+			<td width="29"><input class="button" onClick="ChangeLight(0,-10)"
 				value="&#8594;" title="rotate light to the right" \="" type="button"></td>
-			<td><input class="button" onClick="ZoomViewer(1)" value="(+)"
-				title="zoom viewer in" \="" type="button"></td>
-			<td><input class="button" onClick="ZoomViewer(-1)" value="(-)"
-				title="zoom viewer out" \="" type="button"></td>
+			
 		</tr>
 		<tr>
 			<td><input class="button" onClick="ChangeViewer(0,5)"
@@ -284,7 +282,7 @@ onload=Init;
 			<td><input class="button" onClick="ChangeViewer(0,-5)"
 				value="=&gt;" title="move viewer position right" \="" type="button"></td>
 			<td colspan="8"><select onChange="SelectFunction(this.value)"
-				style="width: 255px;"\="">
+				style="width: 200px;"\="">
 				<option value="0">z = x*x - y*y</option>
 				<option value="1">z = 4 * (x*x + y*y)</option>
 				<option value="2">z = (cos(x) + cos(y)) / (4 + |x| + |y|)</option>
@@ -300,8 +298,7 @@ onload=Init;
 			<td><script language="JavaScript">
 if (useSVG) document.writeln("<embed width='370' height='370' name='Scene1' src='scene.svg' wmode='transparent' type='image/svg+xml' />");
 else document.writeln("<div id='Scene1' style='position: relative; width:370; height:370; overflow: hidden;'></div>");
-</script><embed name="Scene1" src="svgvml_files/scene.xml" wmode="transparent"
-				type="image/svg+xml" height="370" width="370"></td>
+</script></td>
 		</tr>
 	</tbody>
 </table>
