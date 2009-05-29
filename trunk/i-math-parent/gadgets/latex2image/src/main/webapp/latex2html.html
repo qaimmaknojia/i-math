@@ -1,0 +1,928 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+<meta name="copyright"
+	content="Copyright CodeCogs 2007-2008
+ Written by Will Bateman.
+	
+ GNU General Public License Agreement
+ Copyright (C) 2004-2008 CodeCogs, Zyba Ltd, Broadwood, Holford, TA5 1DU, England.
+ This program is free software; you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by Free Software Foundation, 
+ either version 3 of the License, or (at your option) any later version. 
+ You must retain a copy of this licence in all copies.
+ 
+ This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ 
+ See the GNU General Public License for more details.
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.">
+<title>LaTeX Equation Editor for the Internet</title>
+<meta name="robots" content="index, nofollow">
+<meta name="description"
+	content="Online HTML LaTeX equation editor that generates graphical equations (gif, png, swf, pdf). Produces code for directly embedding equations into HTML websites, forums or blogs. Images may also be dragged into other applications like Word. Open source and XHTML compliant.">
+<meta name="keywords"
+	content="LaTeX, write equations, equation editor, equations, HTML, online, open source, mimetex, pdf, gif, png, swf, instantly rendered, customisable, instant preview">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="editor.php_files/equation-2.css"
+	type="text/css">
+<script type="text/javascript">AC_FL_RunContent = 0;</script>
+<script type="text/javascript"
+	src="editor.php_files/eq_editor-lite-4.js"></script>
+</head>
+<body>
+<div style="top: 88px; left: 613px; display: none;" id="hover"><img
+	src="editor.php_files/gif.gif"></div>
+<div class="center">
+<div id="bar1">
+
+<div class="top"><img id="undobutton"
+	src="editor.php_files/undo-x.gif" alt="undo" title="undo"
+	style="vertical-align: bottom;" onclick="undo('latex_formula');"
+	height="13" width="20"> <img id="redobutton"
+	src="editor.php_files/redo-x.gif" alt="redo" title="redo"
+	style="vertical-align: bottom; margin-right: 20px;"
+	onclick="redo('latex_formula');" height="13" width="20"> <select
+	name="fontsize" id="fontsize" title="Equation Font Size"
+	onchange="textchanged();">
+	<option value="\tiny">(8pt) Tiny</option>
+	<option value="\small">(10pt) Small</option>
+	<option value="" selected="selected">(12pt) Normal</option>
+	<option value="\large">(14pt) Large</option>
+	<option value="\huge">(20pt) Huge</option>
+</select> <select title="Equation Color"
+	onchange="insertText(this.options[this.selectedIndex].value, this.options[this.selectedIndex].value.length-1); this.selectedIndex=0">
+	<option selected="selected" value="" style="color: rgb(128, 128, 255);">Colors...</option>
+	<option value="{\color{red} }" style="color: red;">red</option>
+	<option value="{\color{green} }" style="color: green;">green</option>
+	<option value="{\color{blue} }" style="color: blue;">blue</option>
+</select> <select title="Functions"
+	onchange="insertText(this.options[this.selectedIndex].value); this.selectedIndex=0;">
+	<option selected="selected" value="" style="color: rgb(128, 128, 255);">Functions…</option>
+	<option value="\displaystyle">displaystyle</option>
+	<optgroup label="Operators">
+		<option value="\arg">arg</option>
+		<option value="\det">det</option>
+		<option value="\dim">dim</option>
+		<option value="\gcd">gcd</option>
+		<option value="\hom">hom</option>
+		<option value="\ker">ker</option>
+		<option value="\Pr">Pr</option>
+		<option value="\sup">sup</option>
+	</optgroup>
+	<optgroup label="Logs">
+		<option value="\exp">exp</option>
+		<option value="\lg">lg</option>
+		<option value="\ln">ln</option>
+		<option value="\log">log</option>
+		<option value="\log_{e}">log e</option>
+		<option value="\log_{10}">log 10</option>
+	</optgroup>
+	<optgroup label="Limits">
+		<option value="\lim">limit</option>
+		<option value="\liminf">liminf</option>
+		<option value="\limsup">limsup</option>
+		<option value="\max">maximum</option>
+		<option value="\min">minimum</option>
+		<option value="\infty">infinite</option>
+	</optgroup>
+	<optgroup label="Trig">
+		<option value="\sin">sin</option>
+		<option value="\cos">cos</option>
+		<option value="\tan">tan</option>
+		<option value="\sin^{-1}">sin-1</option>
+		<option value="\cos^{-1}">cos-1</option>
+		<option value="\tan^{-1}">tan-1</option>
+		<option value="\csc">csc</option>
+		<option value="\sec">sec</option>
+		<option value="\cot">cot</option>
+		<option value="\sinh">sinh</option>
+		<option value="\cosh">cosh</option>
+		<option value="\tanh">tanh</option>
+		<option value="\coth">coth</option>
+		<option value="\sinh^{-1}">sinh-1</option>
+		<option value="\cosh^{-1}">cosh-1</option>
+		<option value="\tanh^{-1}">tanh-1</option>
+	</optgroup>
+</select> &nbsp; <input class="lightbluebutton" value="Examples"
+	title="Common equations for different subjects"
+	onclick="show_example(this,'algebra');" type="button"> <input
+	class="lightbluebutton" value="History"
+	title="A history of recently entered equations"
+	onclick="show_example(this,'history');" type="button"> <input
+	class="lightbluebutton" value="Favorites"
+	title="A dynamic list for you to create of your favorite equations"
+	onclick="show_example(this,'fav');" type="button"> &nbsp;<img
+	src="editor.php_files/add.gif" onclick="addfavorite();" alt="+"
+	title="add current equation to favorites" height="12" width="11">
+&nbsp; &nbsp;<a href="http://en.wikipedia.org/wiki/Help:Formula"
+	target="_blank"><img src="editor.php_files/i.gif" alt="help"
+	title="help" border="0" height="13" width="13"></a></div>
+
+<div class="toolbar_wrapper">
+<div class="toolbar" style="z-index: 8;">
+<div class="panel" id="panel1" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 23px;"><img
+	src="editor.php_files/style1405.gif" title="Style1405"
+	alt="Style1405 Panel" usemap="#style1405_map" border="0" height="184"
+	width="106"><map name="style1405_map" id="style1405_map">
+	<area shape="rect" alt="" title="Math Bold Greek" coords="0,0,50,20"
+		onclick="insertText('\\boldsymbol{}')">
+	<area shape="rect" alt="" title="Math Bold" coords="0,23,50,43"
+		onclick="insertText('\\mathbf{}')">
+	<area shape="rect" alt="" title="Math Italic" coords="0,46,50,66"
+		onclick="insertText('\\mathit{}')">
+	<area shape="rect" alt="" title="Math Roman" coords="0,69,50,89"
+		onclick="insertText('\\mathrm{}')">
+	<area shape="rect" alt="" title="Math Fraktur" coords="0,92,50,112"
+		onclick="insertText('\\mathfrak{}')">
+	<area shape="rect" alt="" title="Math Blackboard" coords="0,115,50,135"
+		onclick="insertText('\\mathbb{}')">
+	<area shape="rect" alt="" title="Text Upright" coords="53,0,103,20"
+		onclick="insertText('\\textup{}')">
+	<area shape="rect" alt="" title="Text Bold" coords="53,23,103,43"
+		onclick="insertText('\\textbf{}')">
+	<area shape="rect" alt="" title="Text Italic" coords="53,46,103,66"
+		onclick="insertText('\\textit{}')">
+	<area shape="rect" alt="" title="Text Roman" coords="53,69,103,89"
+		onclick="insertText('\\textrm{}')">
+	<area shape="rect" alt="" title="Text Slanted" coords="53,92,103,112"
+		onclick="insertText('\\textsl{}')">
+	<area shape="rect" alt="" title="Text Typewriter"
+		coords="53,115,103,135" onclick="insertText('\\texttt{}')">
+	<area shape="rect" alt="" title="Text Small Caps"
+		coords="53,138,103,158" onclick="insertText('\\textsc{}')">
+	<area shape="rect" alt="" title="Text Emphasis" coords="53,161,103,181"
+		onclick="insertText('\\emph{}')">
+</map></div>
+<div class="panel" id="panel2" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 34px;"><img
+	src="editor.php_files/spaces1405.gif" title="Spaces1405"
+	alt="Spaces1405 Panel" usemap="#spaces1405_map" border="0" height="68"
+	width="31"><map name="spaces1405_map" id="spaces1405_map">
+	<area shape="rect" alt="" title="thin space" coords="0,0,28,14"
+		onclick="insertText('\\,')">
+	<area shape="rect" alt="" title="medium space" coords="0,17,28,31"
+		onclick="insertText('\\:')">
+	<area shape="rect" alt="" title="thick space" coords="0,34,28,48"
+		onclick="insertText('\\;')">
+	<area shape="rect" alt="" title="negative space" coords="0,51,28,65"
+		onclick="insertText('\\!')">
+</map></div>
+<div class="panel" id="panel3" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 34px;"><img
+	src="editor.php_files/binary1405.gif" title="Binary1405"
+	alt="Binary1405 Panel" usemap="#binary1405_map" border="0" height="238"
+	width="68"><map name="binary1405_map" id="binary1405_map">
+	<area shape="rect" alt="" title="\pm" coords="0,0,14,14"
+		onclick="insertText('\\pm')">
+	<area shape="rect" alt="" title="\mp" coords="0,17,14,31"
+		onclick="insertText('\\mp')">
+	<area shape="rect" alt="" title="\times" coords="0,34,14,48"
+		onclick="insertText('\\times')">
+	<area shape="rect" alt="" title="\ast" coords="0,51,14,65"
+		onclick="insertText('\\ast')">
+	<area shape="rect" alt="" title="\div" coords="0,68,14,82"
+		onclick="insertText('\\div')">
+	<area shape="rect" alt="" title="\setminus" coords="0,85,14,99"
+		onclick="insertText('\\setminus')">
+	<area shape="rect" alt="" title="\dotplus" coords="0,102,14,116"
+		onclick="insertText('\\dotplus')">
+	<area shape="rect" alt="" title="\amalg" coords="0,119,14,133"
+		onclick="insertText('\\amalg')">
+	<area shape="rect" alt="" title="\dagger" coords="0,136,14,150"
+		onclick="insertText('\\dagger')">
+	<area shape="rect" alt="" title="\ddagger" coords="0,153,14,167"
+		onclick="insertText('\\ddagger')">
+	<area shape="rect" alt="" title="\wr" coords="0,170,14,184"
+		onclick="insertText('\\wr')">
+	<area shape="rect" alt="" title="\diamond" coords="0,187,14,201"
+		onclick="insertText('\\diamond')">
+	<area shape="rect" alt="" title="\circledcirc" coords="0,204,14,218"
+		onclick="insertText('\\circledcirc')">
+	<area shape="rect" alt="" title="\circledast" coords="0,221,14,235"
+		onclick="insertText('\\circledast')">
+	<area shape="rect" alt="" title="\cap" coords="17,0,31,14"
+		onclick="insertText('\\cap')">
+	<area shape="rect" alt="" title="\Cap" coords="17,17,31,31"
+		onclick="insertText('\\Cap')">
+	<area shape="rect" alt="" title="\sqcap" coords="17,34,31,48"
+		onclick="insertText('\\sqcap')">
+	<area shape="rect" alt="" title="\wedge" coords="17,51,31,65"
+		onclick="insertText('\\wedge')">
+	<area shape="rect" alt="" title="\barwedge" coords="17,68,31,82"
+		onclick="insertText('\\barwedge')">
+	<area shape="rect" alt="" title="\triangleleft" coords="17,85,31,99"
+		onclick="insertText('\\triangleleft')">
+	<area shape="rect" alt="" title="\lozenge" coords="17,102,31,116"
+		onclick="insertText('\\lozenge')">
+	<area shape="rect" alt="" title="\circ" coords="17,119,31,133"
+		onclick="insertText('\\circ')">
+	<area shape="rect" alt="" title="\square" coords="17,136,31,150"
+		onclick="insertText('\\square')">
+	<area shape="rect" alt="" title="\triangle" coords="17,153,31,167"
+		onclick="insertText('\\triangle')">
+	<area shape="rect" alt="" title="\triangledown" coords="17,170,31,184"
+		onclick="insertText('\\triangledown')">
+	<area shape="rect" alt="" title="\ominus" coords="17,187,31,201"
+		onclick="insertText('\\ominus')">
+	<area shape="rect" alt="" title="\oslash" coords="17,204,31,218"
+		onclick="insertText('\\oslash')">
+	<area shape="rect" alt="" title="\circleddash" coords="17,221,31,235"
+		onclick="insertText('\\circleddash')">
+	<area shape="rect" alt="" title="\cup" coords="34,0,48,14"
+		onclick="insertText('\\cup')">
+	<area shape="rect" alt="" title="\Cup" coords="34,17,48,31"
+		onclick="insertText('\\Cup')">
+	<area shape="rect" alt="" title="\sqcup" coords="34,34,48,48"
+		onclick="insertText('\\sqcup')">
+	<area shape="rect" alt="" title="\vee" coords="34,51,48,65"
+		onclick="insertText('\\vee')">
+	<area shape="rect" alt="" title="\veebar" coords="34,68,48,82"
+		onclick="insertText('\\veebar')">
+	<area shape="rect" alt="" title="\triangleright" coords="34,85,48,99"
+		onclick="insertText('\\triangleright')">
+	<area shape="rect" alt="" title="\blacklozenge" coords="34,102,48,116"
+		onclick="insertText('\\blacklozenge')">
+	<area shape="rect" alt="" title="\bullet" coords="34,119,48,133"
+		onclick="insertText('\\bullet')">
+	<area shape="rect" alt="" title="\blacksquare" coords="34,136,48,150"
+		onclick="insertText('\\blacksquare')">
+	<area shape="rect" alt="" title="\blacktriangle" coords="34,153,48,167"
+		onclick="insertText('\\blacktriangle')">
+	<area shape="rect" alt="" title="\blacktriangledown"
+		coords="34,170,48,184" onclick="insertText('\\blacktriangledown')">
+	<area shape="rect" alt="" title="\oplus" coords="34,187,48,201"
+		onclick="insertText('\\oplus')">
+	<area shape="rect" alt="" title="\otimes" coords="34,204,48,218"
+		onclick="insertText('\\otimes')">
+	<area shape="rect" alt="" title="\odot" coords="34,221,48,235"
+		onclick="insertText('\\odot')">
+	<area shape="rect" alt="" title="\cdot" coords="51,0,65,14"
+		onclick="insertText('\\cdot')">
+	<area shape="rect" alt="" title="\uplus" coords="51,17,65,31"
+		onclick="insertText('\\uplus')">
+	<area shape="rect" alt="" title="\bigsqcup" coords="51,34,65,48"
+		onclick="insertText('\\bigsqcup')">
+	<area shape="rect" alt="" title="\bigtriangleup" coords="51,51,65,65"
+		onclick="insertText('\\bigtriangleup')">
+	<area shape="rect" alt="" title="\bigtriangledown" coords="51,68,65,82"
+		onclick="insertText('\\bigtriangledown')">
+	<area shape="rect" alt="" title="\star" coords="51,85,65,99"
+		onclick="insertText('\\star')">
+	<area shape="rect" alt="" title="\bigstar" coords="51,102,65,116"
+		onclick="insertText('\\bigstar')">
+	<area shape="rect" alt="" title="\bigcirc" coords="51,119,65,133"
+		onclick="insertText('\\bigcirc')">
+	<area shape="rect" alt="" title="\bigoplus" coords="51,136,65,150"
+		onclick="insertText('\\bigoplus')">
+	<area shape="rect" alt="" title="\bigotimes" coords="51,153,65,167"
+		onclick="insertText('\\bigotimes')">
+	<area shape="rect" alt="" title="\bigodot" coords="51,170,65,184"
+		onclick="insertText('\\bigodot')">
+</map></div>
+<div class="panel" id="panel4" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="overflow: hidden; height: 34px;"><img
+	src="editor.php_files/symbols1405.gif" title="Symbols1405"
+	alt="Symbols1405 Panel" usemap="#symbols1405_map" border="0"
+	height="136" width="51"><map name="symbols1405_map"
+	id="symbols1405_map">
+	<area shape="rect" alt="" title="therefore" coords="0,0,14,14"
+		onclick="insertText('\\therefore')">
+	<area shape="rect" alt="" title="because" coords="0,17,14,31"
+		onclick="insertText('\\because')">
+	<area shape="rect" alt="" title="horizontal dots" coords="0,34,14,48"
+		onclick="insertText('\\cdots')">
+	<area shape="rect" alt="" title="diagonal dots" coords="0,51,14,65"
+		onclick="insertText('\\ddots')">
+	<area shape="rect" alt="" title="vertical dots" coords="0,68,14,82"
+		onclick="insertText('\\vdots')">
+	<area shape="rect" alt="" title="section" coords="0,85,14,99"
+		onclick="insertText('\\S')">
+	<area shape="rect" alt="" title="paragraph" coords="0,102,14,116"
+		onclick="insertText('\\P')">
+	<area shape="rect" alt="" title="copyright" coords="0,119,14,133"
+		onclick="insertText('\\copyright')">
+	<area shape="rect" alt="" title="partial" coords="17,0,31,14"
+		onclick="insertText('\\partial')">
+	<area shape="rect" alt="" title="\imath" coords="17,17,31,31"
+		onclick="insertText('\\imath')">
+	<area shape="rect" alt="" title="\jmath" coords="17,34,31,48"
+		onclick="insertText('\\jmath')">
+	<area shape="rect" alt="" title="real" coords="17,51,31,65"
+		onclick="insertText('\\Re')">
+	<area shape="rect" alt="" title="imaginary" coords="17,68,31,82"
+		onclick="insertText('\\Im')">
+	<area shape="rect" alt="" title="\forall" coords="17,85,31,99"
+		onclick="insertText('\\forall')">
+	<area shape="rect" alt="" title="\exists" coords="17,102,31,116"
+		onclick="insertText('\\exists')">
+	<area shape="rect" alt="" title="\top" coords="17,119,31,133"
+		onclick="insertText('\\top')">
+	<area shape="rect" alt="" title="\angle" coords="34,0,48,14"
+		onclick="insertText('\\angle')">
+	<area shape="rect" alt="" title="\measuredangle" coords="34,17,48,31"
+		onclick="insertText('\\measuredangle')">
+	<area shape="rect" alt="" title="\sphericalangle" coords="34,34,48,48"
+		onclick="insertText('\\sphericalangle')">
+	<area shape="rect" alt="" title="\varnothing" coords="34,51,48,65"
+		onclick="insertText('\\varnothing')">
+	<area shape="rect" alt="" title="\infty" coords="34,68,48,82"
+		onclick="insertText('\\infty')">
+	<area shape="rect" alt="" title="\mho" coords="34,85,48,99"
+		onclick="insertText('\\mho')">
+	<area shape="rect" alt="" title="\wp" coords="34,102,48,116"
+		onclick="insertText('\\wp')">
+</map></div>
+<div class="panel" id="panel5" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 34px;"><img
+	src="editor.php_files/foreign1405.gif" title="Foreign1405"
+	alt="Foreign1405 Panel" usemap="#foreign1405_map" border="0"
+	height="119" width="34"><map name="foreign1405_map"
+	id="foreign1405_map">
+	<area shape="rect" alt="" title="\aa" coords="0,0,14,14"
+		onclick="insertText('\\aa')">
+	<area shape="rect" alt="" title="\ae" coords="0,17,14,31"
+		onclick="insertText('\\ae')">
+	<area shape="rect" alt="" title="\l" coords="0,34,14,48"
+		onclick="insertText('\\l')">
+	<area shape="rect" alt="" title="\o" coords="0,51,14,65"
+		onclick="insertText('\\o')">
+	<area shape="rect" alt="" title="\oe" coords="0,68,14,82"
+		onclick="insertText('\\oe')">
+	<area shape="rect" alt="" title="\ss" coords="0,85,14,99"
+		onclick="insertText('\\ss')">
+	<area shape="rect" alt="" title="Dollar" coords="0,102,14,116"
+		onclick="insertText('\\mathdollar')">
+	<area shape="rect" alt="" title="\AA" coords="17,0,31,14"
+		onclick="insertText('\\AA')">
+	<area shape="rect" alt="" title="\AE" coords="17,17,31,31"
+		onclick="insertText('\\AE')">
+	<area shape="rect" alt="" title="\L" coords="17,34,31,48"
+		onclick="insertText('\\L')">
+	<area shape="rect" alt="" title="\O" coords="17,51,31,65"
+		onclick="insertText('\\O')">
+	<area shape="rect" alt="" title="\OE" coords="17,68,31,82"
+		onclick="insertText('\\OE')">
+	<area shape="rect" alt="" title="\SS" coords="17,85,31,99"
+		onclick="insertText('\\SS')">
+	<area shape="rect" alt="" title="Pound" coords="17,102,31,116"
+		onclick="insertText('\\mathsterling')">
+</map></div>
+<div class="panel" id="panel6" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 34px;"><img
+	src="editor.php_files/subsupset1405.gif" title="Subsupset1405"
+	alt="Subsupset1405 Panel" usemap="#subsupset1405_map" border="0"
+	height="136" width="34"><map name="subsupset1405_map"
+	id="subsupset1405_map">
+	<area shape="rect" alt="" title="\sqsubset" coords="0,0,14,14"
+		onclick="insertText('\\sqsubset')">
+	<area shape="rect" alt="" title="\sqsubseteq" coords="0,17,14,31"
+		onclick="insertText('\\sqsubseteq')">
+	<area shape="rect" alt="" title="\subset" coords="0,34,14,48"
+		onclick="insertText('\\subset')">
+	<area shape="rect" alt="" title="\subseteq" coords="0,51,14,65"
+		onclick="insertText('\\subseteq')">
+	<area shape="rect" alt="" title="\nsubseteq" coords="0,68,14,82"
+		onclick="insertText('\\nsubseteq')">
+	<area shape="rect" alt="" title="\subseteqq" coords="0,85,14,99"
+		onclick="insertText('\\subseteqq')">
+	<area shape="rect" alt="" title="\nsubseteq" coords="0,102,14,116"
+		onclick="insertText('\\nsubseteq')">
+	<area shape="rect" alt="" title="\in" coords="0,119,14,133"
+		onclick="insertText('\\in')">
+	<area shape="rect" alt="" title="\sqsupset" coords="17,0,31,14"
+		onclick="insertText('\\sqsupset')">
+	<area shape="rect" alt="" title="\sqsupseteq" coords="17,17,31,31"
+		onclick="insertText('\\sqsupseteq')">
+	<area shape="rect" alt="" title="\supset" coords="17,34,31,48"
+		onclick="insertText('\\supset')">
+	<area shape="rect" alt="" title="\supseteq" coords="17,51,31,65"
+		onclick="insertText('\\supseteq')">
+	<area shape="rect" alt="" title="\nsupseteq" coords="17,68,31,82"
+		onclick="insertText('\\nsupseteq')">
+	<area shape="rect" alt="" title="\supseteqq" coords="17,85,31,99"
+		onclick="insertText('\\supseteqq')">
+	<area shape="rect" alt="" title="\nsupseteqq" coords="17,102,31,116"
+		onclick="insertText('\\nsupseteqq')">
+	<area shape="rect" alt="" title="\ni" coords="17,119,31,133"
+		onclick="insertText('\\ni')">
+</map></div>
+<div class="panel" id="panel7" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 34px;"><img
+	src="editor.php_files/accents1405.gif" title="Accents1405"
+	alt="Accents1405 Panel" usemap="#accents1405_map" border="0"
+	height="119" width="34"><map name="accents1405_map"
+	id="accents1405_map">
+	<area shape="rect" alt="" title="a'" coords="0,0,14,14"
+		onclick="insertText('{}\'')">
+	<area shape="rect" alt="" title="\dot{a}" coords="0,17,14,31"
+		onclick="insertText('\\dot{}')">
+	<area shape="rect" alt="" title="\hat{a}" coords="0,34,14,48"
+		onclick="insertText('\\hat{}')">
+	<area shape="rect" alt="" title="\grave{a}" coords="0,51,14,65"
+		onclick="insertText('\\grave{}')">
+	<area shape="rect" alt="" title="\tilde{a}" coords="0,68,14,82"
+		onclick="insertText('\\tilde{}')">
+	<area shape="rect" alt="" title="\bar{a}" coords="0,85,14,99"
+		onclick="insertText('\\bar{}')">
+	<area shape="rect" alt="" title="\not{a}" coords="0,102,14,116"
+		onclick="insertText('\\not')">
+	<area shape="rect" alt="" title="a''" coords="17,0,31,14"
+		onclick="insertText('{}\'\'')">
+	<area shape="rect" alt="" title="\ddot{a}" coords="17,17,31,31"
+		onclick="insertText('\\ddot{}')">
+	<area shape="rect" alt="" title="\check{a}" coords="17,34,31,48"
+		onclick="insertText('\\check{}')">
+	<area shape="rect" alt="" title="\acute{a}" coords="17,51,31,65"
+		onclick="insertText('\\acute{}')">
+	<area shape="rect" alt="" title="\breve{a}" coords="17,68,31,82"
+		onclick="insertText('\\breve{}')">
+	<area shape="rect" alt="" title="\vec{a}" coords="17,85,31,99"
+		onclick="insertText('\\vec{}')">
+	<area shape="rect" alt="" title="degrees" coords="17,102,31,116"
+		onclick="insertText('^{\\circ}',0)">
+</map></div>
+<div class="panel" id="panel8" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 34px;"><img
+	src="editor.php_files/accents_ext1405.gif" title="Accents_ext1405"
+	alt="Accents_ext1405 Panel" usemap="#accents_ext1405_map" border="0"
+	height="170" width="25"><map name="accents_ext1405_map"
+	id="accents_ext1405_map">
+	<area shape="rect" alt="" title="\widetilde{abc}" coords="0,0,22,14"
+		onclick="insertText('\\widetilde{}',11)">
+	<area shape="rect" alt="" title="\widehat{abc}" coords="0,17,22,31"
+		onclick="insertText('\\widehat{}',9)">
+	<area shape="rect" alt="" title="\overleftarrow{abc}"
+		coords="0,34,22,48" onclick="insertText('\\overleftarrow{}',15)">
+	<area shape="rect" alt="" title="\overrightarrow{abc}"
+		coords="0,51,22,65" onclick="insertText('\\overrightarrow{}',16)">
+	<area shape="rect" alt="" title="\overline{abc}" coords="0,68,22,82"
+		onclick="insertText('\\overline{}',10)">
+	<area shape="rect" alt="" title="\underline{abc}" coords="0,85,22,99"
+		onclick="insertText('\\underline{}',11)">
+	<area shape="rect" alt="" title="\overbrace{abc}" coords="0,102,22,116"
+		onclick="insertText('\\overbrace{}',11)">
+	<area shape="rect" alt="" title="\underbrace{abc}"
+		coords="0,119,22,133" onclick="insertText('\\underbrace{}',12)">
+	<area shape="rect" alt="" title="\overset{a}{abc}"
+		coords="0,136,22,150" onclick="insertText('\\overset{}{}',9,11)">
+	<area shape="rect" alt="" title="\underset{a}{abc}"
+		coords="0,153,22,167" onclick="insertText('\\underset{}{}',10,12)">
+</map></div>
+<div class="panel" id="panel9" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 34px;"><img
+	src="editor.php_files/arrows1405.gif" title="Arrows1405"
+	alt="Arrows1405 Panel" usemap="#arrows1405_map" border="0" height="170"
+	width="56"><map name="arrows1405_map" id="arrows1405_map">
+	<area shape="rect" alt="" title="\mapsto" coords="0,0,25,14"
+		onclick="insertText('\\mapsto')">
+	<area shape="rect" alt="" title="\leftarrow" coords="0,17,25,31"
+		onclick="insertText('\\leftarrow')">
+	<area shape="rect" alt="" title="\Leftarrow" coords="0,34,25,48"
+		onclick="insertText('\\Leftarrow')">
+	<area shape="rect" alt="" title="\leftrightarrow" coords="0,51,25,65"
+		onclick="insertText('\\leftrightarrow')">
+	<area shape="rect" alt="" title="\leftharpoonup" coords="0,68,25,82"
+		onclick="insertText('\\leftharpoonup')">
+	<area shape="rect" alt="" title="\leftharpoondown" coords="0,85,25,99"
+		onclick="insertText('\\leftharpoondown')">
+	<area shape="rect" alt="" title="\leftrightharpoons"
+		coords="0,102,25,116" onclick="insertText('\\leftrightharpoons')">
+	<area shape="rect" alt="" title="\xleftarrow[text]{long}"
+		coords="0,119,25,133" onclick="insertText('\xleftarrow[]{}',11)">
+	<area shape="rect" alt="" title="\overset{a}{\leftarrow}"
+		coords="0,136,25,150"
+		onclick="insertText('\\overset{a}{\\leftarrow}')">
+	<area shape="rect" alt="" title="\underset{a}{\leftarrow}"
+		coords="0,153,25,167"
+		onclick="insertText('\\underset{a}{\\leftarrow}')">
+	<area shape="rect" alt="" title="\to" coords="28,0,53,14"
+		onclick="insertText('\\to')">
+	<area shape="rect" alt="" title="\rightarrow" coords="28,17,53,31"
+		onclick="insertText('\\rightarrow')">
+	<area shape="rect" alt="" title="\Rightarrow" coords="28,34,53,48"
+		onclick="insertText('\\Rightarrow')">
+	<area shape="rect" alt="" title="\Leftrightarrow" coords="28,51,53,65"
+		onclick="insertText('\\Leftrightarrow')">
+	<area shape="rect" alt="" title="\rightharpoonup" coords="28,68,53,82"
+		onclick="insertText('\\rightharpoonup')">
+	<area shape="rect" alt="" title="\rightharpoondown"
+		coords="28,85,53,99" onclick="insertText('\\rightharpoondown')">
+	<area shape="rect" alt="" title="\rightleftharpoons"
+		coords="28,102,53,116" onclick="insertText('\\rightleftharpoons')">
+	<area shape="rect" alt="" title="\xrightarrow[text]{long}"
+		coords="28,119,53,133" onclick="insertText('\xrightarrow[]{}',12)">
+	<area shape="rect" alt="" title="\overset{a}{\rightarrow}"
+		coords="28,136,53,150"
+		onclick="insertText('\overset{}{\rightarrow}',-1)">
+	<area shape="rect" alt="" title="\underset{a}{\rightarrow}"
+		coords="28,153,53,167"
+		onclick="insertText('\underset{}{\rightarrow}',-1)">
+</map></div>
+</div>
+</div>
+<div class="toolbar_space"></div>
+
+<div class="toolbar_wrapper">
+<div class="toolbar" style="z-index: 7;">
+<div class="panel" id="panel10" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 28px;"><img
+	src="editor.php_files/operators1405.gif" title="Operators1405"
+	alt="Operators1405 Panel" usemap="#operators1405_map" border="0"
+	height="140" width="168"><map name="operators1405_map"
+	id="operators1405_map">
+	<area shape="rect" alt="" title="superscript" coords="0,0,25,25"
+		onclick="insertText('^{}',2,0)">
+	<area shape="rect" alt="" title="subscript" coords="0,28,25,53"
+		onclick="insertText('_{}',2,0)">
+	<area shape="rect" alt="" title="x_a^b" coords="0,56,25,81"
+		onclick="insertText('_{}^{}',2,0)">
+	<area shape="rect" alt="" title="{x_a}^b" coords="0,84,25,109"
+		onclick="insertText('{_{}}^{}',1)">
+	<area shape="rect" alt="" title="_{a}^{b}\textrm{C}"
+		coords="0,112,25,137" onclick="insertText('_{}^{}\\textrm{}',2,14)">
+	<area shape="rect" alt="" title="fraction" coords="28,0,53,25"
+		onclick="insertText('\\frac{}{}',6)">
+	<area shape="rect" alt="" title="tiny fraction" coords="28,28,53,53"
+		onclick="insertText('\\tfrac{}{}',0)">
+	<area shape="rect" alt="" title="\frac{\partial }{\partial x}"
+		coords="28,56,53,81"
+		onclick="insertText('\\frac{\\partial }{\\partial x}',15)">
+	<area shape="rect" alt="" title="\frac{\partial^2 }{\partial x^2}"
+		coords="28,84,53,109"
+		onclick="insertText('\\frac{\\partial^2 }{\\partial x^2}',15)">
+	<area shape="rect" alt="" title="\frac{\mathrm{d} }{\mathrm{d} x}"
+		coords="28,112,53,137"
+		onclick="insertText('\\frac{\\mathrm{d} }{\\mathrm{d} x}',17)">
+	<area shape="rect" alt="" title="\int" coords="56,0,81,25"
+		onclick="insertText('\\int')">
+	<area shape="rect" alt="" title="\int_{}^{}" coords="56,28,81,53"
+		onclick="insertText('\\int_{}^{}',6,1000)">
+	<area shape="rect" alt="" title="\oint" coords="56,56,81,81"
+		onclick="insertText('\\oint')">
+	<area shape="rect" alt="" title="\oint_{}^{}" coords="56,84,81,109"
+		onclick="insertText('\\oint_{}^{}',7,1000)">
+	<area shape="rect" alt="" title="\iint_{}^{}" coords="56,112,81,137"
+		onclick="insertText('\\iint_{}^{}',7,1000)">
+	<area shape="rect" alt="" title="\bigcap" coords="84,0,109,25"
+		onclick="insertText('\\bigcap')">
+	<area shape="rect" alt="" title="\bigcap_{}^{}" coords="84,28,109,53"
+		onclick="insertText('\\bigcap_{}^{}',9,1000)">
+	<area shape="rect" alt="" title="\bigcup" coords="84,56,109,81"
+		onclick="insertText('\\bigcup')">
+	<area shape="rect" alt="" title="\bigcup_{}^{}" coords="84,84,109,109"
+		onclick="insertText('\\bigcup_{}^{}',9,1000)">
+	<area shape="rect" alt="" title="\lim_{x \to 0}"
+		coords="84,112,109,137" onclick="insertText('\\lim_{}')">
+	<area shape="rect" alt="" title="\sum" coords="112,0,137,25"
+		onclick="insertText('\\sum')">
+	<area shape="rect" alt="" title="\sum_{}^{}" coords="112,28,137,53"
+		onclick="insertText('\\sum_{}^{}',6)">
+	<area shape="rect" alt="" title="\sqrt{}" coords="112,56,137,81"
+		onclick="insertText('\\sqrt{}',6,6)">
+	<area shape="rect" alt="" title="\sqrt[]{}" coords="112,84,137,109"
+		onclick="insertText('\\sqrt[]{}',6,8)">
+	<area shape="rect" alt="" title="\prod" coords="140,0,165,25"
+		onclick="insertText('\\prod')">
+	<area shape="rect" alt="" title="\prod_{}^{}" coords="140,28,165,53"
+		onclick="insertText('\\prod_{}^{}',7,1000)">
+	<area shape="rect" alt="" title="\coprod" coords="140,56,165,81"
+		onclick="insertText('\\coprod')">
+	<area shape="rect" alt="" title="\prod_{}^{}" coords="140,84,165,109"
+		onclick="insertText('\\coprod_{}^{}',9,1000)">
+</map></div>
+<div class="panel" id="panel11" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 28px;"><img
+	src="editor.php_files/brackets1405.gif" title="Brackets1405"
+	alt="Brackets1405 Panel" usemap="#brackets1405_map" border="0"
+	height="140" width="56"><map name="brackets1405_map"
+	id="brackets1405_map">
+	<area shape="rect" alt="" title="\left ( \right )" coords="0,0,25,25"
+		onclick="insertText('\\left (  \\right )',8)">
+	<area shape="rect" alt="" title="\left ( \right )" coords="0,28,25,53"
+		onclick="insertText('\\left [  \\right ]',8)">
+	<area shape="rect" alt="" title="\left\{ \right\}" coords="0,56,25,81"
+		onclick="insertText('\\left \\{  \\right \\}',9)">
+	<area shape="rect" alt="" title="\left | \right |" coords="0,84,25,109"
+		onclick="insertText('\\left |  \\right |',8)">
+	<area shape="rect" alt="" title="\left \{ \right."
+		coords="0,112,25,137" onclick="insertText('\\left \\{  \\right.',9)">
+	<area shape="rect" alt="" title="\left \| \right \|"
+		coords="28,0,53,25" onclick="insertText('\\left \\|  \\right \\|',9)">
+	<area shape="rect" alt="" title="\left \langle \right \rangle"
+		coords="28,28,53,53"
+		onclick="insertText('\\left \\langle  \\right \\rangle',14)">
+	<area shape="rect" alt="" title="\left \lfloor \right \rfloor"
+		coords="28,56,53,81"
+		onclick="insertText('\\left \\lfloor  \\right \\rfloor',14)">
+	<area shape="rect" alt="" title="\left \lceil \right \rceil"
+		coords="28,84,53,109"
+		onclick="insertText('\\left \\lceil  \\right \\rceil',13)">
+	<area shape="rect" alt="" title="\left. \right \}"
+		coords="28,112,53,137" onclick="insertText('\\left.  \\right \\}',7)">
+</map></div>
+<div class="panel" id="panel12" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 34px;"><img
+	src="editor.php_files/greeklower1405.gif" title="Greeklower1405"
+	alt="Greeklower1405 Panel" usemap="#greeklower1405_map" border="0"
+	height="136" width="68"><map name="greeklower1405_map"
+	id="greeklower1405_map">
+	<area shape="rect" alt="" title="\alpha" coords="0,0,14,14"
+		onclick="insertText('\\alpha')">
+	<area shape="rect" alt="" title="\epsilon" coords="0,17,14,31"
+		onclick="insertText('\\epsilon')">
+	<area shape="rect" alt="" title="\theta" coords="0,34,14,48"
+		onclick="insertText('\\theta')">
+	<area shape="rect" alt="" title="\lambda" coords="0,51,14,65"
+		onclick="insertText('\\lambda')">
+	<area shape="rect" alt="" title="\pi" coords="0,68,14,82"
+		onclick="insertText('\\pi')">
+	<area shape="rect" alt="" title="\sigma" coords="0,85,14,99"
+		onclick="insertText('\\sigma')">
+	<area shape="rect" alt="" title="\phi" coords="0,102,14,116"
+		onclick="insertText('\\phi')">
+	<area shape="rect" alt="" title="\omega" coords="0,119,14,133"
+		onclick="insertText('\\omega')">
+	<area shape="rect" alt="" title="\beta" coords="17,0,31,14"
+		onclick="insertText('\\beta')">
+	<area shape="rect" alt="" title="\varepsilon" coords="17,17,31,31"
+		onclick="insertText('\\varepsilon')">
+	<area shape="rect" alt="" title="\vartheta" coords="17,34,31,48"
+		onclick="insertText('\\vartheta')">
+	<area shape="rect" alt="" title="\mu" coords="17,51,31,65"
+		onclick="insertText('\\mu')">
+	<area shape="rect" alt="" title="\varpi" coords="17,68,31,82"
+		onclick="insertText('\\varpi')">
+	<area shape="rect" alt="" title="\varsigma" coords="17,85,31,99"
+		onclick="insertText('\\varsigma')">
+	<area shape="rect" alt="" title="\varphi" coords="17,102,31,116"
+		onclick="insertText('\\varphi')">
+	<area shape="rect" alt="" title="\gamma" coords="34,0,48,14"
+		onclick="insertText('\\gamma')">
+	<area shape="rect" alt="" title="\zeta" coords="34,17,48,31"
+		onclick="insertText('\\zeta')">
+	<area shape="rect" alt="" title="\iota" coords="34,34,48,48"
+		onclick="insertText('\\iota')">
+	<area shape="rect" alt="" title="\nu" coords="34,51,48,65"
+		onclick="insertText('\\nu')">
+	<area shape="rect" alt="" title="\rho" coords="34,68,48,82"
+		onclick="insertText('\\rho')">
+	<area shape="rect" alt="" title="\tau" coords="34,85,48,99"
+		onclick="insertText('\\tau')">
+	<area shape="rect" alt="" title="\chi" coords="34,102,48,116"
+		onclick="insertText('\\chi')">
+	<area shape="rect" alt="" title="\delta" coords="51,0,65,14"
+		onclick="insertText('\\delta')">
+	<area shape="rect" alt="" title="\eta" coords="51,17,65,31"
+		onclick="insertText('\\eta')">
+	<area shape="rect" alt="" title="\kappa" coords="51,34,65,48"
+		onclick="insertText('\\kappa')">
+	<area shape="rect" alt="" title="\xi" coords="51,51,65,65"
+		onclick="insertText('\\xi')">
+	<area shape="rect" alt="" title="\varrho" coords="51,68,65,82"
+		onclick="insertText('\\varrho')">
+	<area shape="rect" alt="" title="\upsilon" coords="51,85,65,99"
+		onclick="insertText('\\upsilon')">
+	<area shape="rect" alt="" title="\psi" coords="51,102,65,116"
+		onclick="insertText('\\psi')">
+</map></div>
+<div class="panel" id="panel13" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 34px;"><img
+	src="editor.php_files/greekupper1405.gif" title="Greekupper1405"
+	alt="Greekupper1405 Panel" usemap="#greekupper1405_map" border="0"
+	height="102" width="34"><map name="greekupper1405_map"
+	id="greekupper1405_map">
+	<area shape="rect" alt="" title="\Gamma" coords="0,0,14,14"
+		onclick="insertText('\\Gamma')">
+	<area shape="rect" alt="" title="\Theta" coords="0,17,14,31"
+		onclick="insertText('\\Theta')">
+	<area shape="rect" alt="" title="\Xi" coords="0,34,14,48"
+		onclick="insertText('\\Xi')">
+	<area shape="rect" alt="" title="\Sigma" coords="0,51,14,65"
+		onclick="insertText('\\Sigma')">
+	<area shape="rect" alt="" title="\Phi" coords="0,68,14,82"
+		onclick="insertText('\\Phi')">
+	<area shape="rect" alt="" title="\Omega" coords="0,85,14,99"
+		onclick="insertText('\\Omega')">
+	<area shape="rect" alt="" title="\Delta" coords="17,0,31,14"
+		onclick="insertText('\\Delta')">
+	<area shape="rect" alt="" title="\Lambda" coords="17,17,31,31"
+		onclick="insertText('\\Lambda')">
+	<area shape="rect" alt="" title="\Pi" coords="17,34,31,48"
+		onclick="insertText('\\Pi')">
+	<area shape="rect" alt="" title="\Upsilon" coords="17,51,31,65"
+		onclick="insertText('\\Upsilon')">
+	<area shape="rect" alt="" title="\Psi" coords="17,68,31,82"
+		onclick="insertText('\\Psi')">
+</map></div>
+<div class="panel" id="panel14" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 34px;"><img
+	src="editor.php_files/relations1405.gif" title="Relations1405"
+	alt="Relations1405 Panel" usemap="#relations1405_map" border="0"
+	height="170" width="51"><map name="relations1405_map"
+	id="relations1405_map">
+	<area shape="rect" alt="" title="&lt;" coords="0,0,14,14"
+		onclick="insertText('
+	<')">
+	
+	<area shape="rect" alt="" title="\leq" coords="0,17,14,31"
+		onclick="insertText('\\leq')">
+	<area shape="rect" alt="" title="\prec" coords="0,34,14,48"
+		onclick="insertText('\\prec')">
+	<area shape="rect" alt="" title="\preceq" coords="0,51,14,65"
+		onclick="insertText('\\preceq')">
+	<area shape="rect" alt="" title="\ll" coords="0,68,14,82"
+		onclick="insertText('\\ll')">
+	<area shape="rect" alt="" title="\vdash" coords="0,85,14,99"
+		onclick="insertText('\\vdash')">
+	<area shape="rect" alt="" title="smile" coords="0,102,14,116"
+		onclick="insertText('\\smile')">
+	<area shape="rect" alt="" title="\models" coords="0,119,14,133"
+		onclick="insertText('\\models')">
+	<area shape="rect" alt="" title="\mid" coords="0,136,14,150"
+		onclick="insertText('\\mid')">
+	<area shape="rect" alt="" title="\bowtie" coords="0,153,14,167"
+		onclick="insertText('\\bowtie')">
+	<area shape="rect" alt="" title="&gt;" coords="17,0,31,14"
+		onclick="insertText('>')">
+	<area shape="rect" alt="" title="\geq" coords="17,17,31,31"
+		onclick="insertText('\\geq')">
+	<area shape="rect" alt="" title="\succ" coords="17,34,31,48"
+		onclick="insertText('\\succ')">
+	<area shape="rect" alt="" title="\succeq" coords="17,51,31,65"
+		onclick="insertText('\\succeq')">
+	<area shape="rect" alt="" title="\gg" coords="17,68,31,82"
+		onclick="insertText('\\gg')">
+	<area shape="rect" alt="" title="\dashv" coords="17,85,31,99"
+		onclick="insertText('\\dashv')">
+	<area shape="rect" alt="" title="frown" coords="17,102,31,116"
+		onclick="insertText('\\frown')">
+	<area shape="rect" alt="" title="\perp" coords="17,119,31,133"
+		onclick="insertText('\\perp')">
+	<area shape="rect" alt="" title="parallel" coords="17,136,31,150"
+		onclick="insertText('\\parallel')">
+	<area shape="rect" alt="" title="\Join" coords="17,153,31,167"
+		onclick="insertText('\\Join')">
+	<area shape="rect" alt="" title="=" coords="34,0,48,14"
+		onclick="insertText('=')">
+	<area shape="rect" alt="" title="\neq" coords="34,17,48,31"
+		onclick="insertText('\\neq')">
+	<area shape="rect" alt="" title="equivalent" coords="34,34,48,48"
+		onclick="insertText('\\equiv')">
+	<area shape="rect" alt="" title="\doteq" coords="34,51,48,65"
+		onclick="insertText('\\doteq')">
+	<area shape="rect" alt="" title="\sim" coords="34,68,48,82"
+		onclick="insertText('\\sim')">
+	<area shape="rect" alt="" title="\approx" coords="34,85,48,99"
+		onclick="insertText('\\approx')">
+	<area shape="rect" alt="" title="\simeq" coords="34,102,48,116"
+		onclick="insertText('\\simeq')">
+	<area shape="rect" alt="" title="\cong" coords="34,119,48,133"
+		onclick="insertText('\\cong')">
+	<area shape="rect" alt="" title="\asymp" coords="34,136,48,150"
+		onclick="insertText('\\asymp')">
+	<area shape="rect" alt="" title="proportional to"
+		coords="34,153,48,167" onclick="insertText('\\propto')">
+</map></div>
+<div class="panel" id="panel15" onmouseover="opanel(this)"
+	onmouseout="cpanel(this)" style="height: 34px;"><img
+	src="editor.php_files/matrix1405.gif" title="Matrix1405"
+	alt="Matrix1405 Panel" usemap="#matrix1405_map" border="0" height="170"
+	width="102"><map name="matrix1405_map" id="matrix1405_map">
+	<area shape="rect" alt="" title="\begin{matrix} ... \end{matrix}"
+		coords="0,0,31,31" onclick="makeArrayMatrix('','','')">
+	<area shape="rect" alt="" title="\begin{pmatrix} ... \end{pmatrix}"
+		coords="0,34,31,65" onclick="makeArrayMatrix('p','','')">
+	<area shape="rect" alt="" title="\begin{vmatrix} ... \end{vmatrix}"
+		coords="0,68,31,99" onclick="makeArrayMatrix('v','','')">
+	<area shape="rect" alt="" title="\begin{Vmatrix} ... \end{Vmatrix}"
+		coords="0,102,31,133" onclick="makeArrayMatrix('V','','')">
+	<area shape="rect" alt=""
+		title="\left.\begin{matrix}... \end{matrix}\right|"
+		coords="0,136,31,167"
+		onclick="makeArrayMatrix('','\\left.','\\right|')">
+	<area shape="rect" alt="" title="\being{bmatrix} ... \end{bmatrix}"
+		coords="34,0,65,31" onclick="makeArrayMatrix('b','','')">
+	<area shape="rect" alt=""
+		title="\bigl(\begin{smallmatrix} ... \end{smallmatrix}\bigr)"
+		coords="34,34,65,65"
+		onclick="makeArrayMatrix('small','\\bigl(','\\bigr)')">
+	<area shape="rect" alt="" title="\begin{Bmatrix} ... \end{Bmatrix}"
+		coords="34,68,65,99" onclick="makeArrayMatrix('B','','')">
+	<area shape="rect" alt="" title="\begin{Bmatrix} ... \end{matrix}"
+		coords="34,102,65,133"
+		onclick="makeArrayMatrix('','\\left\\{','\\right.')">
+	<area shape="rect" alt="" title="\begin{matrix} ... \end{Bmatrix}"
+		coords="34,136,65,167"
+		onclick="makeArrayMatrix('','\\left.','\\right\\}')">
+	<area shape="rect" alt="" title=" \binom{n}{r}" coords="68,0,99,31"
+		onclick="insertText('\\binom{}{}')">
+	<area shape="rect" alt="" title="\begin{cases} ... \end{cases}"
+		coords="68,34,99,65"
+		onclick="makeEquationsMatrix('cases', true, true)">
+	<area shape="rect" alt="" title="\begin{align} ... \end{align}"
+		coords="68,68,99,99" onclick="makeEquationsMatrix('align', false)">
+</map></div>
+</div>
+</div>
+<div class="toolbar_space"></div>
+
+</div>
+<div id="bar2" class="top" style="display: none;">
+<div style="position: absolute; right: 25px;"><img
+	style="float: right;" src="editor.php_files/cancel.gif"
+	onclick="hide_example();" alt="close" title="close panel"></div>
+<div id="photos"
+	style="margin: 0pt auto; overflow: hidden; position: relative; height: 68px; width: 600px;"></div>
+<div style="margin: 0pt auto; height: 14px; width: 300px;">
+<div style="float: left; margin-right: 5px;"><img id="leftarrow"
+	src="editor.php_files/leftarrow_grey.gif" alt="&lt;&lt;"
+	title="previous page" onclick="gallery.right()" height="14" width="14"></div>
+<div id="overview" style="float: left; width: 260px;"></div>
+<div style="float: left; margin-left: 5px;"><img id="rightarrow"
+	src="editor.php_files/rightarrow_grey.gif" alt="&gt;&gt;"
+	title="next page" onclick="gallery.left()" height="14" width="14"></div>
+</div>
+<div id="toolbar_example" style="clear: left;"><input
+	class="lightbluebutton" value="Algebra"
+	onclick="show_example(this,'algebra');" type="button"> <input
+	class="lightbluebutton" value="Calculus"
+	onclick="show_example(this,'calculus');" type="button"> <input
+	class="lightbluebutton" value="Stats"
+	onclick="show_example(this,'stats');" type="button"> <input
+	class="lightbluebutton" value="Matrices"
+	onclick="show_example(this,'matrices');" type="button"> <input
+	class="lightbluebutton" value="Sets"
+	onclick="show_example(this,'sets');" type="button"> <input
+	class="lightbluebutton" value="Trig"
+	onclick="show_example(this,'trig');" type="button"> <input
+	class="lightbluebutton" value="Geometry"
+	onclick="show_example(this,'geometry');" type="button"> <input
+	class="lightbluebutton" value="Chemistry"
+	onclick="show_example(this,'chemistry');" type="button"> <input
+	class="lightbluebutton" value="Physics"
+	onclick="show_example(this,'physics');" type="button"></div>
+</div>
+<div style="opacity: 1; display: block;" id="intro"
+	onclick="$$('latex_formula').focus(); fadeout('intro');"><br>
+<strong>Type your equation in this box</strong></div>
+<textarea name="latex_formula" id="latex_formula" rows="8"
+	onkeydown="cpaneldo(); countclik(this);"
+	onkeyup="textchanged(); autorenderEqn(10);"></textarea>
+<div style="padding: 3px;"><select id="format" name="format"
+	onchange="formatchanged(); renderEqn(null);"
+	title="Select the output format for the rendered equation">
+	<option value="gif">gif</option>
+	<option value="png">png</option>
+	<option value="pdf">pdf</option>
+</select> <select id="dpi" name="dpi" onchange="textchanged(); renderEqn(null);"
+	title="Select the output resolution">
+	<option value="50">50 dpi</option>
+	<option value="80">80 dpi</option>
+	<option value="100">100 dpi</option>
+	<option value="110" selected="selected">110 dpi</option>
+	<option value="120">120 dpi</option>
+	<option value="150">150 dpi</option>
+	<option value="200">200 dpi</option>
+	<option value="300">300 dpi</option>
+</select> <select id="bg" name="bg" onchange="textchanged(); renderEqn(null);"
+	title="Background color">
+	<option value="transparent">transparent</option>
+	<option value="white">white</option>
+	<option value="black">black</option>
+	<option value="red">red</option>
+	<option value="green">green</option>
+	<option value="blue">blue</option>
+</select> <input id="inline" name="inline"
+	title="Place equations inline with other text"
+	onchange="textchanged(); document.getElementById('compressed').checked=this.checked; renderEqn(null);"
+	type="checkbox"> <label for="eqstyle">Inline</label> <input
+	id="compressed" name="compressed"
+	title="Create equations that are vertically compressed, suitable for being inline with other text"
+	onchange="textchanged(); renderEqn(null);" type="checkbox"> <label
+	for="eqstyle2">Compressed</label> &nbsp;&nbsp; <input
+	class="lightbluebutton" onclick="cleartext()" value="Clear"
+	title="Clear the editor window" type="button"> <input
+	id="renderbutton" class="greybutton" onclick="renderEqn(null)"
+	value="Render" title="Click to rendered equation below" type="button">
+<input id="copybutton" class="greybutton"
+	onclick="updateOpener(cctarget,cctype);" value="Copy to Document"
+	type="button"></div>
+<br>
+<img id="equationview" name="equationview"
+	onload="processEquationChange()" src="editor.php_files/spacer.gif"
+	title="This is the rendered form of the equation. You can not edit this directly. Right click will give you the option to save the image, and in most browsers you can drag the image onto your desktop or another program.">
+<div id="equationcomment"></div>
+<div id="download"></div>
+</div>
+<script type="text/javascript">
+editor_init('124356045022917','','','');
+</script>
+
+</body>
+</html>
