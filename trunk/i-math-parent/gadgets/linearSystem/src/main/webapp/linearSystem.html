@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type='text/javascript' src='/dwr/engine.js'></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.2/mootools-yui-compressed.js"></script>
+</head>
+<body>
+<script type='text/javascript'
+	src='/dwr/interface/linearSystemsService.js'></script>
+
+<select id="linearSystems-yuan">
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+</select>
+<div id="linearSystemsQes"></div>
+<input type="button" value="计算" style="margin-left: 90px; width: 50px"
+	onclick="linearSystemsSolute();">
+<div id="linearSystemsRes"></div>
+
+<script type="text/javascript">
+var linearSystemsResource;
+var linearSystemsDeng;
+var constVar=['x','y','z','a','b','c'];
+
+var linearSystemsSolute=function(){
+	linearSystemsService.getSolution(linearSystemsRes, linearSystemsDeng, linearSystemsReply);
+};
+
+var linearSystemsReply=function(){
+	
+};
+
+var updateLinearSystemsQes=function(){
+	var yuan=	linearSystems-yuan.value;
+	$("linearSystemsQes").empty();
+	linearSystemsResource=new Array(yuan);
+	for(var i=0;i<yuan;i++){
+		linearSystemsResource.push(new Array(yuan));
+	}
+	linearSystemsDeng=new Array(yuan);
+	
+	for(var i=0;i<yuan;i++){
+		var fc=	new Element('div', {
+		});
+		for(var j=0;j<yuan;i++){
+			var inp=new Element('input', {
+				type:"text",
+				onChange:"linearSystemsChange("+i+","+j+",arguments[0]);",
+				value:"1"
+			});
+			fc.grab(inp);
+			var s=new Element('span', {
+				text:constVar[j]
+			});
+			fc.grab(s);
+			if(j!=yuan-1){
+				var addS=new Element('span', {
+					text:"+"
+				});
+				fc.grab(addS);
+			}
+		}
+		$("linearSystemsQes").grab(fc);
+	}
+};
+
+var linearSystemsChange=function(i,j,v){
+	linearSystemsResource[i][j]=v;
+};
+
+updateLinearSystemsQes;
+
+</script>
+</body>
+</html>
