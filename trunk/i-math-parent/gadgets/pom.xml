@@ -27,6 +27,7 @@
     <module>latex2image</module>
     <module>linearSystem</module>
     <module>univariateFunction</module>
+    <module>svgvml</module>
   </modules>
 
 	<dependencyManagement>
