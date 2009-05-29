@@ -35,6 +35,14 @@
 			<param-name>config-calculator</param-name>
 			<param-value>/gadgets/calculator/dwr.xml</param-value>
 		</init-param>
+		<init-param>
+			<param-name>config-linearSystem</param-name>
+			<param-value>/gadgets/linearSystem/dwr.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config-univariateFunction</param-name>
+			<param-value>/gadgets/univariateFunction/dwr.xml</param-value>
+		</init-param>
 	</servlet>
 
 	<servlet-mapping>
