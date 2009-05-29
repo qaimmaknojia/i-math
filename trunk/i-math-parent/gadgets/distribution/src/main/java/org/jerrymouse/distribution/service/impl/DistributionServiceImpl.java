@@ -51,10 +51,10 @@ public class DistributionServiceImpl implements DistributionService {
 		return getInverseCumulativeProbability(exponentialDistribution, x);
 	}
 
-	private double getCumulativeProbability(Distribution distributionm, double x) {
+	private double getCumulativeProbability(Distribution distribution, double x) {
 		double res = 0;
 		try {
-			res = distributionm.cumulativeProbability(x);
+			res = distribution.cumulativeProbability(x);
 		} catch (MathException e) {
 			e.printStackTrace();
 		}
@@ -62,10 +62,10 @@ public class DistributionServiceImpl implements DistributionService {
 	}
 
 	private double getInverseCumulativeProbability(
-			ContinuousDistribution distributionm, double x) {
+			ContinuousDistribution distribution, double x) {
 		double res = 0;
 		try {
-			res = distributionm.inverseCumulativeProbability(x);
+			res = distribution.inverseCumulativeProbability(x);
 		} catch (MathException e) {
 			e.printStackTrace();
 		}
@@ -101,6 +101,13 @@ public class DistributionServiceImpl implements DistributionService {
 	public double getTDistribution(double degreesOfFreedom, double x) {
 		Distribution distribution = new TDistributionImpl(degreesOfFreedom);
 		return getCumulativeProbability(distribution, x);
+	}
+
+	@Override
+	public double getInverseTDistribution(double degreesOfFreedom, double x) {
+		ContinuousDistribution distribution = new TDistributionImpl(
+				degreesOfFreedom);
+		return getInverseCumulativeProbability(distribution, x);
 	}
 
 }
