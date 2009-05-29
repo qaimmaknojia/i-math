@@ -25,24 +25,15 @@ public class MethodCacheInterceptor implements MethodInterceptor,
 		cache = new Cache("testCache", 5000, false, false, 5, 2);
 	}
 
-	/**
-	 * 设置缓存名
-	 */
 	public void setCache(Cache cache) {
 		this.cache = cache;
 	}
 
-	/**
-	 * 检查是否提供必要参数。
-	 */
 	public void afterPropertiesSet() throws Exception {
 		Assert.notNull(cache,
 				"A cache is required. Use setCache(Cache) to provide one.");
 	}
 
-	/**
-	 * 主方法 如果某方法可被缓存就缓存其结果 方法结果必须是可序列化的(serializable)
-	 */
 	public Object invoke(MethodInvocation invocation) throws Throwable {
 		String targetName = invocation.getThis().getClass().getName();
 		String methodName = invocation.getMethod().getName();
