@@ -212,64 +212,78 @@ onload=Init;
 </script>
 
 <form>
-<table bgcolor="#dddddd" border="0" cellpadding="2" cellspacing="2">
-	<tbody>
-		<tr>
-			<th>x-min</th>
-			<th>x-max</th>
-			<th>y-min</th>
-			<th>y-max</th>
-			<th>z=<input name="z" style="width: 166px;" value="x*x-y*y"></th>
-		</tr>
-		<tr>
-			<th><input name="xmin" value="-1"></th>
-			<th><input name="xmax" value="1"></th>
-			<th><input name="ymin" value="-1"></th>
-			<th><input name="ymax" value="1"></th>
-			<th align="right"><input onclick="UpdateFunction()"
+  <table width="391" border="0" cellpadding="2" cellspacing="2" bgcolor="#dddddd">
+  <tbody>
+    <tr>
+      <th width="383" align="right"><table bgcolor="#dddddd" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <th width="185">x-min</th>
+            <th width="165">x-max</th>
+          </tr>
+          <tr>
+            <th><input name="xmin" value="-1"></th>
+            <th><input name="xmax" value="1"></th>
+          </tr>
+          <tr>
+            <th>y-min</th>
+            <th>y-max</th>
+          </tr>
+          <tr>
+            <th><input name="ymin" value="-1"></th>
+            <th><input name="ymax" value="1"></th>
+          </tr>
+          <tr>
+            <th>z=
+              <input name="z" style="width: 166px;" value="x*x-y*y"></th>
+          
+            <th align="right"><input onClick="UpdateFunction()"
 				style="background-color: rgb(204, 204, 204); width: 94px;"
 				value="Update" type="button"></th>
-		</tr>
-	</tbody>
-</table>
-<table border="0">
-	<tbody>
+          </tr>
+        </tbody>
+      </table></th>
+    </tr>
+  </tbody>
+  </table>
+  <table border="0">
+<tbody>
 		<tr>
-			<td><input class="button" onclick="ZoomPicture(1)" value="[+]"
+			<td><input class="button" onClick="ZoomPicture(1)" value="[+]"
 				title="zoom picture in" \="" type="button"></td>
-			<td><input class="button" onclick="ZoomPicture(-1)" value="[-]"
+			<td><input class="button" onClick="ZoomPicture(-1)" value="[-]"
 				title="zoom picture out" \="" type="button"></td>
-			<td><input class="button" onclick="Shift(-20,0)" value="&#9668;"
+			<td><input class="button" onClick="Shift(-20,0)" value="&#9668;"
 				title="move picture left" \="" type="button"></td>
-			<td><input class="button" onclick="Shift(0,-20)" value="&#9650;"
+			<td><input class="button" onClick="Shift(0,-20)" value="&#9650;"
 				title="move picture up" \="" type="button"></td>
-			<td><input class="button" onclick="Shift(0,20)" value="&#9660;"
+			<td><input class="button" onClick="Shift(0,20)" value="&#9660;"
 				title="move picture down" \="" type="button"></td>
-			<td><input class="button" onclick="Shift(20,0)" value="&#9658;"
+			<td><input class="button" onClick="Shift(20,0)" value="&#9658;"
 				title="move move picture right" \="" type="button"></td>
-			<td><input class="button" onclick="ChangeLight(0,10)"
+			<td><input class="button" onClick="ChangeLight(0,10)"
 				value="&#8592;" title="rotate light to the left" \="" type="button"></td>
-			<td><input class="button" onclick="ChangeLight(-10,0)"
+			<td><input class="button" onClick="ChangeLight(-10,0)"
 				value="&#8593;" title="move light up" \="" type="button"></td>
-			<td><input class="button" onclick="ChangeLight(10,0)"
+			<td><input class="button" onClick="ChangeLight(10,0)"
 				value="&#8595;" title="move light down" \="" type="button"></td>
-			<td><input class="button" onclick="ChangeLight(0,-10)"
+			<td><input class="button" onClick="ChangeLight(0,-10)"
 				value="&#8594;" title="rotate light to the right" \="" type="button"></td>
-			<td><input class="button" onclick="ZoomViewer(1)" value="(+)"
+			<td><input class="button" onClick="ZoomViewer(1)" value="(+)"
 				title="zoom viewer in" \="" type="button"></td>
-			<td><input class="button" onclick="ZoomViewer(-1)" value="(-)"
+			<td><input class="button" onClick="ZoomViewer(-1)" value="(-)"
 				title="zoom viewer out" \="" type="button"></td>
 		</tr>
 		<tr>
-			<td><input class="button" onclick="ChangeViewer(0,5)"
+			<td><input class="button" onClick="ChangeViewer(0,5)"
 				value="&lt;=" title="move viewer position left" \="" type="button"></td>
-			<td><input class="button" onclick="ChangeViewer(-10,0)"
+			<td><input class="button" onClick="ChangeViewer(-10,0)"
 				value="&#9794;" title="move viewer position up" \="" type="button"></td>
-			<td><input class="button" onclick="ChangeViewer(10,0)"
+			<td><input class="button" onClick="ChangeViewer(10,0)"
 				value="&#9792;" title="move viewer position down" \="" type="button"></td>
-			<td><input class="button" onclick="ChangeViewer(0,-5)"
+			<td><input class="button" onClick="ChangeViewer(0,-5)"
 				value="=&gt;" title="move viewer position right" \="" type="button"></td>
-			<td colspan="8"><select onchange="SelectFunction(this.value)"
+			<td colspan="8"><select onChange="SelectFunction(this.value)"
 				style="width: 255px;"\="">
 				<option value="0">z = x*x - y*y</option>
 				<option value="1">z = 4 * (x*x + y*y)</option>
@@ -287,14 +301,9 @@ onload=Init;
 if (useSVG) document.writeln("<embed width='370' height='370' name='Scene1' src='scene.svg' wmode='transparent' type='image/svg+xml' />");
 else document.writeln("<div id='Scene1' style='position: relative; width:370; height:370; overflow: hidden;'></div>");
 </script><embed name="Scene1" src="svgvml_files/scene.xml" wmode="transparent"
-				type="image/svg+xml" height="370" width="370"><a
-				style="left: 370px ! important; top: -370px ! important;"
-				title="&#28857;&#20987;&#36825;&#37324;&#20351; Adblock Plus &#36807;&#28388;&#35813;&#23545;&#35937;"
-				class="sdeagyjuenogsmbbqcvm visible ontop"
-				href="http://www.lutanho.net/svgvml3d/scene.svg"></a></td>
+				type="image/svg+xml" height="370" width="370"></td>
 		</tr>
 	</tbody>
-</table>
  ]]>
 	</Content>
 </Module>
