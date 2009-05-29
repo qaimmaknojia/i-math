@@ -116,6 +116,10 @@
 							<directory>${basedir}/../gadgets/calculator/src/main/webapp/</directory>
 							<targetPath>gadgets/calculator</targetPath>
 						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/latex2image/src/main/webapp/</directory>
+							<targetPath>gadgets/latex2image</targetPath>
+						</resource>
 					</webResources>
 				</configuration>
 				<executions>
@@ -229,12 +233,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-			<version>1.5.0</version>
-		</dependency>
-
 		<!-- dwr -->
 		<dependency>
 			<groupId>org.directwebremoting</groupId>
@@ -405,7 +403,11 @@
 			<artifactId>google-chart</artifactId>
 			<version>${pom.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>cache</artifactId>
+			<version>${pom.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-1.0-sdk</artifactId>
