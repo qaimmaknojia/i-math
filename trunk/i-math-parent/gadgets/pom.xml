@@ -29,6 +29,7 @@
     <module>univariateFunction</module>
     <module>svgvml</module>
     <module>distribution</module>
+    <module>gadgetAdder</module>
   </modules>
 
 	<dependencyManagement>

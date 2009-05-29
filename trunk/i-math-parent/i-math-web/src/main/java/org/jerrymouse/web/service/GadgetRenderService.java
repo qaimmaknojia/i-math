@@ -12,4 +12,6 @@ public interface GadgetRenderService {
 	MainContainer getContainer();
 
 	List<Gadget> getAllGadgets();
+
+	boolean addGadget(String name, String description, String url);
 }

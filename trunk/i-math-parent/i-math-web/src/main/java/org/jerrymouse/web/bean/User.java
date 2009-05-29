@@ -114,24 +114,31 @@ public class User {
 				"/gadgets/google-chart/google-chart.xml");
 		Gadget svgvml = new Gadget("svgvml", "3d绘图器",
 				"/gadgets/svgvml/svgvml.xml");
+		Gadget distribution = new Gadget("distribution", "3d绘图器",
+				"/gadgets/distribution/distribution.xml");
+		Gadget gadgetAdder = new Gadget("gadgetAdder", "Gadget添加器",
+		"/gadgets/gadgetAdder/gadgetAdder.xml");
+		
 		GadgetDao gadgetDao = user.getGadgetDao();
 
 		gadgetDao.save(latex2image);
 		gadgetDao.save(smartcalculator);
 		gadgetDao.save(jep);
-		gadgetDao.save(eyes);
 		gadgetDao.save(sudoku);
 		gadgetDao.save(calcll);
 		gadgetDao.save(scale);
 		gadgetDao.save(calculator);
 		gadgetDao.save(univariateFunction);
 		gadgetDao.save(googleChart);
-		gadgetDao.save(svgvml);
+		gadgetDao.save(distribution);
+		gadgetDao.save(gadgetAdder);
 
 		GadgetContainer container1 = new GadgetContainer("计算器");
 		GadgetContainer container2 = new GadgetContainer("绘图");
 		GadgetContainer container3 = new GadgetContainer("解方程");
-		GadgetContainer container4 = new GadgetContainer("游戏");
+		GadgetContainer container4 = new GadgetContainer("概率分布");
+		GadgetContainer container5 = new GadgetContainer("游戏");
+		GadgetContainer container6 = new GadgetContainer("系统工具");
 
 		container1.addLeft(smartcalculator);
 		container1.addMiddle(calcll);
@@ -140,18 +147,22 @@ public class User {
 		container2.addLeft(jep);
 		container2.addMiddle(latex2image);
 		container2.addRight(googleChart);
-		container2.addLeft(svgvml);
 
 		container3.addLeft(univariateFunction);
+		
+		container4.addLeft(distribution);
 
-		container4.addLeft(sudoku);
-		container4.addRight(scale);
-		container4.addMiddle(eyes);
+		container5.addLeft(sudoku);
+		container5.addMiddle(scale);
+
+		container6.addLeft(gadgetAdder);
 
 		user.addGadgetContainer(container1);
 		user.addGadgetContainer(container2);
 		user.addGadgetContainer(container3);
 		user.addGadgetContainer(container4);
+		user.addGadgetContainer(container5);
+		user.addGadgetContainer(container6);
 		return user;
 	}
 
