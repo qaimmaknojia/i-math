@@ -1,14 +1,35 @@
-<html xmlns:v="urn:schemas-microsoft-com:vml"><head>
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
 
 <title>SVG-VML-3D-Example - Function Plot</title>
+
+</head>
+<body bgcolor="#ffffff">
+
 <style>
-v\:* { behavior: url(#default#VML); }
-input { width:44; font-family:'Times New Roman'; font-size:10pt; }
-input.button { background-color:#cccccc; width:28; height:28; font-family:'Times New Roman'; font-size:14pt; }
+v\: * {
+	behavior: url(#default#VML);
+}
+
+input {
+	width: 44;
+	font-family: 'Times New Roman';
+	font-size: 10pt;
+}
+
+input.button {
+	background-color: #cccccc;
+	width: 28;
+	height: 28;
+	font-family: 'Times New Roman';
+	font-size: 14pt;
+}
 </style>
-<script src="svgvml_files/svgvml3d.js" language="JavaScript" type="text/javascript"></script>
-<script src="svgvml_files/boundingbox.js" language="JavaScript" type="text/javascript"></script>
+<script src="svgvml_files/svgvml3d.js" language="JavaScript"
+	type="text/javascript"></script>
+<script src="svgvml_files/boundingbox.js" language="JavaScript"
+	type="text/javascript"></script>
 <script>
 function random(vv)
 { return(Math.floor(Math.random()*vv));
@@ -192,172 +213,90 @@ function ZoomPicture(vv)
 }
 onload=Init;
 </script>
-<style type="text/css" charset="utf-8">/* See license.txt for terms of usage */
 
-.firebugHighlight {
-    z-index: 2147483647;
-    position: absolute;
-    background-color: #3875d7;
-}
-
-.firebugLayoutBoxParent {
-    z-index: 2147483647;
-    position: absolute;
-    background-color: transparent;
-    border-right: 1px dashed #BBBBBB;
-    border-bottom: 1px dashed #BBBBBB;
-}
-
-.firebugRulerH {
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: 100%;
-    height: 14px;
-    background: url(chrome://firebug/skin/rulerH.png) repeat-x;
-    border-top: 1px solid #BBBBBB;
-    border-right: 1px dashed #BBBBBB;
-    border-bottom: 1px solid #000000;
-}
-
-.firebugRulerV {
-    position: absolute;
-    top: 0;
-    left: -15px;
-    width: 14px;
-    height: 100%;
-    background: url(chrome://firebug/skin/rulerV.png) repeat-y;
-    border-left: 1px solid #BBBBBB;
-    border-right: 1px solid #000000;
-    border-bottom: 1px dashed #BBBBBB;
-}
-
-.overflowRulerX > .firebugRulerV {
-    left: 0;
-}
-
-.overflowRulerY > .firebugRulerH {
-    top: 0;
-}
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-.firebugLayoutBoxOffset {
-    z-index: 2147483647;
-    position: absolute;
-    opacity: 0.8;
-}
-
-.firebugLayoutBoxMargin {
-    background-color: #EDFF64;
-}
-
-.firebugLayoutBoxBorder {
-    background-color: #666666;
-}
-
-.firebugLayoutBoxPadding {
-    background-color: SlateBlue;
-}
-
-.firebugLayoutBoxContent {
-    background-color: SkyBlue;
-}
-
-/*.firebugHighlightGroup .firebugLayoutBox {
-    background-color: transparent;
-}
-
-.firebugHighlightBox {
-    background-color: Blue !important;
-}*/
-
-.firebugLayoutLine {
-    z-index: 2147483647;
-    background-color: #000000;
-    opacity: 0.4;
-}
-
-.firebugLayoutLineLeft,
-.firebugLayoutLineRight {
-    position: fixed;
-    width: 1px;
-    height: 100%;
-}
-
-.firebugLayoutLineTop,
-.firebugLayoutLineBottom {
-    position: absolute;
-    width: 100%;
-    height: 1px;
-}
-
-.firebugLayoutLineTop {
-    margin-top: -1px;
-    border-top: 1px solid #999999;
-}
-
-.firebugLayoutLineRight {
-    border-right: 1px solid #999999;
-}
-
-.firebugLayoutLineBottom {
-    border-bottom: 1px solid #999999;
-}
-
-.firebugLayoutLineLeft {
-    margin-left: -1px;
-    border-left: 1px solid #999999;
-}
-</style></head><body bgcolor="#ffffff">
 <form>
 <table bgcolor="#dddddd" border="0" cellpadding="2" cellspacing="2">
-<tbody><tr><th>x-min</th>
-    <th>x-max</th>
-    <th>y-min</th>
-    <th>y-max</th>
-    <th>z=<input name="z" style="width: 166px;" value="x*x-y*y"></th>
-</tr>
-<tr><th><input name="xmin" value="-1"></th>
-    <th><input name="xmax" value="1"></th>
-    <th><input name="ymin" value="-1"></th>
-    <th><input name="ymax" value="1"></th>
-    <th align="right"><input onclick="UpdateFunction()" style="background-color: rgb(204, 204, 204); width: 94px;" value="Update" type="button"></th>
-</tr>
-</tbody></table>  
-<table border="0"><tbody><tr>
-<td><input class="button" onclick="ZoomPicture(1)" value="[+]" title="zoom picture in" \="" type="button"></td>
-<td><input class="button" onclick="ZoomPicture(-1)" value="[-]" title="zoom picture out" \="" type="button"></td>
-<td><input class="button" onclick="Shift(-20,0)" value="&#9668;" title="move picture left" \="" type="button"></td>
-<td><input class="button" onclick="Shift(0,-20)" value="&#9650;" title="move picture up" \="" type="button"></td>
-<td><input class="button" onclick="Shift(0,20)" value="&#9660;" title="move picture down" \="" type="button"></td>
-<td><input class="button" onclick="Shift(20,0)" value="&#9658;" title="move move picture right" \="" type="button"></td>
-<td><input class="button" onclick="ChangeLight(0,10)" value="&#8592;" title="rotate light to the left" \="" type="button"></td>
-<td><input class="button" onclick="ChangeLight(-10,0)" value="&#8593;" title="move light up" \="" type="button"></td>
-<td><input class="button" onclick="ChangeLight(10,0)" value="&#8595;" title="move light down" \="" type="button"></td>
-<td><input class="button" onclick="ChangeLight(0,-10)" value="&#8594;" title="rotate light to the right" \="" type="button"></td>
-<td><input class="button" onclick="ZoomViewer(1)" value="(+)" title="zoom viewer in" \="" type="button"></td>
-<td><input class="button" onclick="ZoomViewer(-1)" value="(-)" title="zoom viewer out" \="" type="button"></td>
-</tr>
-<tr>
-<td><input class="button" onclick="ChangeViewer(0,5)" value="&lt;=" title="move viewer position left" \="" type="button"></td>
-<td><input class="button" onclick="ChangeViewer(-10,0)" value="&#9794;" title="move viewer position up" \="" type="button"></td>
-<td><input class="button" onclick="ChangeViewer(10,0)" value="&#9792;" title="move viewer position down" \="" type="button"></td>
-<td><input class="button" onclick="ChangeViewer(0,-5)" value="=&gt;" title="move viewer position right" \="" type="button"></td>
-<td colspan="8"><select onchange="SelectFunction(this.value)" style="width: 255px;" \="">
-<option value="0">z = x*x - y*y
-</option><option value="1">z = 4 * (x*x + y*y)
-</option><option value="2">z = (cos(x) + cos(y)) / (4 + |x| + |y|)
-</option><option value="3">z = 10 - |x| - |y|
-</option></select></td>
-</tr>
-</tbody></table>  
+	<tbody>
+		<tr>
+			<th>x-min</th>
+			<th>x-max</th>
+			<th>y-min</th>
+			<th>y-max</th>
+			<th>z=<input name="z" style="width: 166px;" value="x*x-y*y"></th>
+		</tr>
+		<tr>
+			<th><input name="xmin" value="-1"></th>
+			<th><input name="xmax" value="1"></th>
+			<th><input name="ymin" value="-1"></th>
+			<th><input name="ymax" value="1"></th>
+			<th align="right"><input onclick="UpdateFunction()"
+				style="background-color: rgb(204, 204, 204); width: 94px;"
+				value="Update" type="button"></th>
+		</tr>
+	</tbody>
+</table>
+<table border="0">
+	<tbody>
+		<tr>
+			<td><input class="button" onclick="ZoomPicture(1)" value="[+]"
+				title="zoom picture in" \="" type="button"></td>
+			<td><input class="button" onclick="ZoomPicture(-1)" value="[-]"
+				title="zoom picture out" \="" type="button"></td>
+			<td><input class="button" onclick="Shift(-20,0)" value="&#9668;"
+				title="move picture left" \="" type="button"></td>
+			<td><input class="button" onclick="Shift(0,-20)" value="&#9650;"
+				title="move picture up" \="" type="button"></td>
+			<td><input class="button" onclick="Shift(0,20)" value="&#9660;"
+				title="move picture down" \="" type="button"></td>
+			<td><input class="button" onclick="Shift(20,0)" value="&#9658;"
+				title="move move picture right" \="" type="button"></td>
+			<td><input class="button" onclick="ChangeLight(0,10)"
+				value="&#8592;" title="rotate light to the left" \="" type="button"></td>
+			<td><input class="button" onclick="ChangeLight(-10,0)"
+				value="&#8593;" title="move light up" \="" type="button"></td>
+			<td><input class="button" onclick="ChangeLight(10,0)"
+				value="&#8595;" title="move light down" \="" type="button"></td>
+			<td><input class="button" onclick="ChangeLight(0,-10)"
+				value="&#8594;" title="rotate light to the right" \="" type="button"></td>
+			<td><input class="button" onclick="ZoomViewer(1)" value="(+)"
+				title="zoom viewer in" \="" type="button"></td>
+			<td><input class="button" onclick="ZoomViewer(-1)" value="(-)"
+				title="zoom viewer out" \="" type="button"></td>
+		</tr>
+		<tr>
+			<td><input class="button" onclick="ChangeViewer(0,5)"
+				value="&lt;=" title="move viewer position left" \="" type="button"></td>
+			<td><input class="button" onclick="ChangeViewer(-10,0)"
+				value="&#9794;" title="move viewer position up" \="" type="button"></td>
+			<td><input class="button" onclick="ChangeViewer(10,0)"
+				value="&#9792;" title="move viewer position down" \="" type="button"></td>
+			<td><input class="button" onclick="ChangeViewer(0,-5)"
+				value="=&gt;" title="move viewer position right" \="" type="button"></td>
+			<td colspan="8"><select onchange="SelectFunction(this.value)"
+				style="width: 255px;"\="">
+				<option value="0">z = x*x - y*y</option>
+				<option value="1">z = 4 * (x*x + y*y)</option>
+				<option value="2">z = (cos(x) + cos(y)) / (4 + |x| + |y|)</option>
+				<option value="3">z = 10 - |x| - |y|</option>
+			</select></td>
+		</tr>
+	</tbody>
+</table>
 </form>
-<table noborder=""><tbody><tr><td>
-<script language="JavaScript">
+<table noborder="">
+	<tbody>
+		<tr>
+			<td><script language="JavaScript">
 if (useSVG) document.writeln("<embed width='370' height='370' name='Scene1' src='scene.svg' wmode='transparent' type='image/svg+xml' />");
 else document.writeln("<div id='Scene1' style='position: relative; width:370; height:370; overflow: hidden;'></div>");
-</script><embed name="Scene1" src="svgvml_files/scene.xml" wmode="transparent" type="image/svg+xml" height="370" width="370"><a style="left: 370px ! important; top: -370px ! important;" title="&#28857;&#20987;&#36825;&#37324;&#20351; Adblock Plus &#36807;&#28388;&#35813;&#23545;&#35937;" class="sdeagyjuenogsmbbqcvm visible ontop" href="http://www.lutanho.net/svgvml3d/scene.svg"></a>
-
-</td></tr></tbody></table>
-</body></html>
+</script><embed name="Scene1" src="svgvml_files/scene.xml" wmode="transparent"
+				type="image/svg+xml" height="370" width="370"><a
+				style="left: 370px ! important; top: -370px ! important;"
+				title="&#28857;&#20987;&#36825;&#37324;&#20351; Adblock Plus &#36807;&#28388;&#35813;&#23545;&#35937;"
+				class="sdeagyjuenogsmbbqcvm visible ontop"
+				href="http://www.lutanho.net/svgvml3d/scene.svg"></a></td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>
