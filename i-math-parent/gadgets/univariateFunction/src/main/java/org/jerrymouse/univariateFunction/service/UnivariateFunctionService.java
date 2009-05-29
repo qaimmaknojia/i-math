@@ -1,6 +1,5 @@
-package org.jerrymouse.univariateFunction;
+package org.jerrymouse.univariateFunction.service;
 
-import org.apache.commons.math.MathException;
 
 public interface UnivariateFunctionService {
 
@@ -12,6 +11,6 @@ public interface UnivariateFunctionService {
 	double getFunctionValue(String expression, double variableValue);
 
 	double getRootOfFunction(String expression, double min, double max,
-			double startValue, String solver) throws MathException;
+			double startValue, String solver);
 
 }

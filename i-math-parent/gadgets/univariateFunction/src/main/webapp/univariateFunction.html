@@ -1,32 +1,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title></title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
 </head>
 
 <body>
-<script type="text/javascript" src="/dwr/interface/addService.js"></script>
-<script type="text/javascript">
-var addGadgetReply = function(data) {
-	$('addGadgetC').set('text', data);
-}
-</script>
 
+<script type='text/javascript'
+	src='/dwr/interface/univariateFunctionService.js'></script>
+<script type='text/javascript' src='/dwr/engine.js'></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.2/mootools-yui-compressed.js"></script>
 
+<input type="text" id="univariateFunction-expression" title="expression">
 
-<input type="text" title="Will be converted to: double" id="addGadgetA"
-	value="0.0" size="10" class="itext">
-+
-<input type="text" title="Will be converted to: double" id="addGadgetB"
-	value="0.0" size="10" class="itext">
-=
-<span class="reply" id="addGadgetC"></span>
+<input type="text" id="univariateFunction-min" title="min">
+
+<input type="text" id="univariateFunction-max" title="max">
+
+<input type="text" id="univariateFunction-startValue" title="startValue">
+
+<select id="univariateFunction-solver">
+	<option value="bisectionSolver">BisectionSolver</option>
+	<option value="secantSolver">SecantSolver</option>
+	<option value="newtonSolver">NewtonSolver</option>
+	<option value="mullerSolver">MullerSolver</option>
+	<option value="laguerreSolver">LaguerreSolver</option>
+	<option value="ridderSolver">RidderSolver</option>
+</select>
 
 <input type="button" value="计算"
-	onclick="addService.add($('addGadgetA').value, $('addGadgetB').value, addGadgetReply);"
-	class="ibutton">
+	onclick="univariateFunctionService.getRootOfFunction(objectEval($("p10").value), objectEval($("p11").value), objectEval($("p12").value), objectEval($("p13").value), objectEval($("p14").value), reply1););">
 
+<div id="univariateFunction-result"></div>
 </body>
 </html>
