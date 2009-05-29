@@ -11,23 +11,28 @@ var googleChartReplay=function(data){
 }
 </script>
 
-<div><img id="google-chart-img" src=""></div>
+<div><img id="google-chart-img" src="http://chart.apis.google.com/chart?chxl=0:|.0|10.0|20.0|30.0|40.0|50.0|60.0|70.0|80.0|90.0|1:|1.0|20.0|39.0|58.0|77.0|&chs=400x300&cht=lc&chd=s:ADGJMQTWZcgjmpswz259&chxt=x,y"  style="padding-left:0px;width:350px;"></div>
 
-<input id="google-chart-input" type="text" value="x+1">
-<br />
+<p style="padding-left:10px">
+<a>Y =</a><input id="google-chart-input" type="text" value="x+1" style="margin-left:35px;width:260px;">
+</p>
+<p style="padding-left:10px">
 最小值：
-<input id="google-chart-min" value="0">
+<input id="google-chart-min" value="0" style="width:260px;">
+</p>
+<p style="padding-left:10px">
 最大值：
-<input id="google-chart-max" value="100">
-
-<input type="button" value="绘图"
+<input id="google-chart-max" value="100" style="width:260px;">
+</p>
+<p style="padding-left:10px">
+<input type="button" value="绘图" style="width:50px;"
 	onclick="chartService.draw(
 		$('google-chart-input').value,
 		$('google-chart-min').value,
 		$('google-chart-max').value,
 		googleChartReplay
 		);">
-
+	</p>
  ]]>
 	</Content>
 </Module>
