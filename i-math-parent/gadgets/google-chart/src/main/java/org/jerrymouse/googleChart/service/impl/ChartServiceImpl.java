@@ -9,21 +9,16 @@ import org.jerrymouse.googleChart.service.ChartService;
 
 public class ChartServiceImpl implements ChartService {
 
-	public String draw(Map<Double, Double> datas) {
+	private String draw(Map<Double, Double> datas) {
 		GoogleChart googleChart = new GoogleChart();
 		return googleChart.buildUrl();
 	}
 
-	public String draw(List<Double> datas, double min, double max, double step) {
-		GoogleChart googleChart = new GoogleChart();
-		googleChart.setData(datas, max);
-		return googleChart.buildUrl();
-	}
-
-	public String draw(String expressionStr, double min, double max, double step) {
+	public String draw(String expressionStr, double min, double max) {
+		double step = (max - min) / 20;
 		Expression expression = new Expression(expressionStr, min, max, step);
 		GoogleChart googleChart = new GoogleChart();
-		googleChart.setData(expression.getData(), max);
+		googleChart.setData(expression.getData(), min, max, step);
 		return googleChart.buildUrl();
 	}
 }

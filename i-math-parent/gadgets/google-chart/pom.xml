@@ -1,5 +1,6 @@
-<?xml version="1.0"?><project>
-<parent>
+<?xml version="1.0"?>
+<project>
+	<parent>
 		<artifactId>gadgets</artifactId>
 		<groupId>org.jerrymouse</groupId>
 		<version>1.0-SNAPSHOT</version>
@@ -45,6 +46,11 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jerrymouse</groupId>
+			<artifactId>calculator</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
