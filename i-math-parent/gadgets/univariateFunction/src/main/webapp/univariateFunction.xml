@@ -4,8 +4,6 @@
 	<Content type="html">
   <![CDATA[ 
 
-
-
 <script type='text/javascript'
 	src='/dwr/interface/univariateFunctionService.js'></script>
 <script type="text/javascript">
@@ -13,14 +11,15 @@ var univariateFunctionReply = function(data) {
 	$('univariateFunction-result').set('text', data);
 }
 </script>
-<p><a style="padding-left:10px">表达式：</a>
-<input type="text" id="univariateFunction-expression" title="expression" value="1+x" style="width:200px;">
-</p>
-<p><a style="padding-left:10px">定义域：</a><input type="text" id="univariateFunction-min" title="min" value="-100" style="width:100px">
 
-<input type="text" id="univariateFunction-max" title="max" value="100" style="width:100px;">
+<p><a style="padding-left:10px">表达式：</a>
+<input type="text" id="univariateFunction-expression" title="expression" value="1+x" style="width:200px;margin-left:5px;">
 </p>
-<p style="padding-left:30px">
+<p><a style="padding-left:10px">定义域：</a><input type="text" id="univariateFunction-min" title="min" value="-100" style="width:90px;margin-left:10px;">
+
+<input type="text" id="univariateFunction-max" title="max" value="100" style="width:90px;margin-left:10px;">
+</p>
+<p style="padding-left:10px">
 <select id="univariateFunction-solver" >
 	<option value="bisectionSolver">分割法</option>
 	<option value="secantSolver">正割法</option>
@@ -30,7 +29,7 @@ var univariateFunctionReply = function(data) {
 	<option value="ridderSolver">里德法</option>
 </select>
 
-<input type="button" value="计算" style="margin-left:90px;width:50px"
+<input type="button" value="计算" style="margin-left:150px;width:50px"
 	onclick="
 		univariateFunctionService.getRootOfFunction(
 				$('univariateFunction-expression').value,
@@ -39,7 +38,10 @@ var univariateFunctionReply = function(data) {
 				$('univariateFunction-solver').value, 
 				univariateFunctionReply);">
 </p>
-<div id="univariateFunction-result"></div>
+<p style="padding-left:10px">
+<a>结果：</a>
+<input id="univariateFunction-result" disabled style="width:200px;margin-left:20px;"></input>
+</p>
  ]]>
 	</Content>
 </Module>
