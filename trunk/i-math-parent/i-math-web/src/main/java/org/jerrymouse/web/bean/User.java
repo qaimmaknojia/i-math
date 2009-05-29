@@ -106,8 +106,10 @@ public class User {
 		Gadget scale = new Gadget("scale", "平衡游戏", "/gadgets/scale/scale.xml");
 		Gadget calculator = new Gadget("calculator", "轻型计算器",
 				"/gadgets/calculator/calculator.xml");
-
+		Gadget latex2image = new Gadget("latex2image", "latex图片转换器",
+				"/gadgets/latex2image/latex2image.xml");
 		GadgetDao gadgetDao = user.getGadgetDao();
+		gadgetDao.save(latex2image);
 		gadgetDao.save(smartcalculator);
 		gadgetDao.save(jep);
 		gadgetDao.save(eyes);
@@ -126,7 +128,8 @@ public class User {
 		container1.addRight(calculator);
 
 		container2.addLeft(jep);
-
+		container2.addMiddle(latex2image);
+		
 		container3.addLeft(eyes);
 
 		container4.addLeft(sudoku);
