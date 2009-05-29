@@ -132,6 +132,14 @@
 							<directory>${basedir}/../gadgets/svgvml/src/main/webapp/</directory>
 							<targetPath>gadgets/svgvml</targetPath>
 						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/distribution/src/main/webapp/</directory>
+							<targetPath>gadgets/distribution</targetPath>
+						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/gadgetAdder/src/main/webapp/</directory>
+							<targetPath>gadgets/gadgetAdder</targetPath>
+						</resource>
 					</webResources>
 				</configuration>
 				<executions>
@@ -418,6 +426,11 @@
 		<dependency>
 			<groupId>${pom.groupId}</groupId>
 			<artifactId>cache</artifactId>
+			<version>${pom.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>distribution</artifactId>
 			<version>${pom.version}</version>
 		</dependency>
 		<dependency>

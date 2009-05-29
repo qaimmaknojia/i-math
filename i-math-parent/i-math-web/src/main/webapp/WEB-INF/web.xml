@@ -43,6 +43,10 @@
 			<param-name>config-univariateFunction</param-name>
 			<param-value>/gadgets/univariateFunction/dwr.xml</param-value>
 		</init-param>
+		<init-param>
+			<param-name>config-distribution</param-name>
+			<param-value>/gadgets/distribution/dwr.xml</param-value>
+		</init-param>
 	</servlet>
 
 	<servlet-mapping>

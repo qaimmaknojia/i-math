@@ -133,8 +133,7 @@ var createGadgets = function(gadgetList) {
 	// getRemoveGadgetData;
 	gadgetList.each( function(item, index) {
 		if (item.html == null) {
-			gadgets.createGadget(item.htmlId, (urlbase + item.relativeUrl)
-					.toString());
+			gadgets.createGadget(item.htmlId, getUrl(item.relativeUrl));
 		} else {
 			loadGadget(item);
 		}
@@ -315,7 +314,7 @@ var addGadget = function(str) {
 	});
 	$("leftColumn").grab(gadgetDiv);
 	var parentUrl = 'http://' + document.location.host;
-	gadgetRenderService.renderGadget(id, parentUrl + url, loadGadget);
+	gadgetRenderService.renderGadget(id, getUrl(url) , loadGadget);
 	appendMode(id, url, name, nickName);
 };
 
@@ -533,4 +532,26 @@ var getFromMainContainer = function(id) {
 			return item;
 		}
 	}
+};
+
+var getUrl = function(url) {
+	if (!beginWithHttp(url)) {
+		var urlbase = 'http://' + document.location.host;
+		url = urlbase + url;
+	}
+	return url;
+};
+var beginWithHttp = function(url) {
+	if (url.length < 4)
+		return false;
+	var nurl = url.toLowerCase();
+	if (nurl.charAt(0) != 'h')
+		return false;
+	if (nurl.charAt(1) != 't')
+		return false;
+	if (nurl.charAt(2) != 't')
+		return false;
+	if (nurl.charAt(3) != 'p')
+		return false;
+	return true;
 };

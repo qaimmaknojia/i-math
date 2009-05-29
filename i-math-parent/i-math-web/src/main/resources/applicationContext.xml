@@ -11,5 +11,6 @@
 	<import resource="classpath:/spring/applicationContext-calculator.xml" />
 	<import resource="classpath:/spring/applicationContext-linearSystem.xml" />
 	<import resource="classpath:/spring/applicationContext-univariateFunction.xml" />
+	<import resource="classpath:/spring/applicationContext-distribution.xml" />
 
 </beans>

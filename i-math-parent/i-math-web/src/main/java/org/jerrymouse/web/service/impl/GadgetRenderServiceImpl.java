@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.jerrymouse.web.bean.Gadget;
 import org.jerrymouse.web.bean.MainContainer;
+import org.jerrymouse.web.bean.User;
 import org.jerrymouse.web.dao.GadgetDao;
 import org.jerrymouse.web.dao.MainContainerDao;
 import org.jerrymouse.web.service.ContainerService;
@@ -29,7 +30,7 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 		// Debugger.log("build:" + url);
 		Gadget gadget = null;
 		try {
-			gadget = new Gadget(htmlId,url,urlStr);
+			gadget = new Gadget(htmlId, url, urlStr);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -42,7 +43,7 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 		// Debugger.log("build:" + url);
 		Gadget gadget = null;
 		try {
-			gadget = renderGadget(htmlId, new URL(url),url);
+			gadget = renderGadget(htmlId, new URL(url), url);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -73,6 +74,13 @@ public class GadgetRenderServiceImpl implements GadgetRenderService {
 	@Override
 	public List<Gadget> getAllGadgets() {
 		return gadgetDao.getAll();
+	}
+
+	@Override
+	public boolean addGadget(String name, String description, String url) {
+		Gadget newOne = new Gadget(name, description, url);
+		gadgetDao.save(newOne);
+		return true;
 	}
 
 }
