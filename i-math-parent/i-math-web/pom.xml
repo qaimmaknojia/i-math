@@ -120,6 +120,14 @@
 							<directory>${basedir}/../gadgets/latex2image/src/main/webapp/</directory>
 							<targetPath>gadgets/latex2image</targetPath>
 						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/linearSystem/src/main/webapp/</directory>
+							<targetPath>gadgets/linearSystem</targetPath>
+						</resource>
+						<resource>
+							<directory>${basedir}/../gadgets/univariateFunction/src/main/webapp/</directory>
+							<targetPath>gadgets/univariateFunction</targetPath>
+						</resource>
 					</webResources>
 				</configuration>
 				<executions>

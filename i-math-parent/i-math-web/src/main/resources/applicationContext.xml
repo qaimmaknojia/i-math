@@ -9,5 +9,7 @@
 	<import resource="classpath:/spring/applicationContext-web.xml" />
 	<import resource="classpath:/spring/applicationContext-google-chart.xml" />
 	<import resource="classpath:/spring/applicationContext-calculator.xml" />
+	<import resource="classpath:/spring/applicationContext-linearSystem.xml" />
+	<import resource="classpath:/spring/applicationContext-univariateFunction.xml" />
 
 </beans>
