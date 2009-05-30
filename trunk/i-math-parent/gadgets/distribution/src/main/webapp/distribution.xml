@@ -4,6 +4,7 @@
 	<Content type="html">
   <![CDATA[ 
 <style type="text/css">
+<style type="text/css">
 #distributionAccordion h4 {
 	height: 30px;
 	padding-left: 30px;
@@ -70,73 +71,107 @@ $j(function() {
 });
 
 </script>
-<div id="distributionAccordion">
+<div id="distributionAccordion" style="width:95%">
 <h4>正态分布</h4>
 <div><img alt="center"
-	src="/gadgets/distribution/image/normalDistribution.png"> μ<input
-	id="distribution-normal-m" type="text" value="0" title="μ"> σ<input
-	id="distribution-normal-d" type="text" value="1" title="σ"> <input
-	id="distribution-normal-x" type="text" value="2" title="x"> <input
-	id="distribution-normal-p" type="text" value="0.9772" title="p"> <input
+	src="/gadgets/distribution/image/normalDistribution.png"><p>μ:
+  <input
+	id="distribution-normal-m" type="text" value="0" title="μ"> 
+    </p>
+    <p>
+  σ:
+  <input
+	id="distribution-normal-d" type="text" value="1" title="σ"> 
+    </p>
+    <p>
+  x:
+  <input
+	id="distribution-normal-x" type="text" value="2" title="x"> 
+    </p>
+    <p>
+  p:
+  <input
+	id="distribution-normal-p" type="text" value="0.9772" title="p"> 
+    </p>
+    <p><input
 	type="button" value="x->p"
 	onclick="distributionService.getNormalDistribution($('distribution-normal-d').value,$('distribution-normal-m').value,$('distribution-normal-x').value,distributionNXPReply);">
 <input type="button" value="p->x"
-	onclick="distributionService.getInverseNormalDistribution($('distribution-normal-d').value,$('distribution-normal-m').value,$('distribution-normal-p').value,distributionNPXReply);"></div>
+	onclick="distributionService.getInverseNormalDistribution($('distribution-normal-d').value,$('distribution-normal-m').value,$('distribution-normal-p').value,distributionNPXReply);"></p></div>
 <h4>标准正态分布</h4>
 <div><img alt="center"
-	src="/gadgets/distribution/image/normalDistribution.png"> <input
-	id="distribution-snormal-x" type="text" value="0" title="x"> <input
-	id="distribution-snormal-p" type="text" value="0" title="p"> <input
+	src="/gadgets/distribution/image/normalDistribution.png"> <p>x:
+  <input
+	id="distribution-snormal-x" type="text" value="0" title="x">
+     </p>
+    <p> 
+  p:
+  <input
+	id="distribution-snormal-p" type="text" value="0" title="p"> 
+    </p><input
 	type="button" value="x->p"
 	onclick="distributionService.getStandardNormalDistribution($('distribution-snormal-x').value,distributionSNXPReply);">
 <input type="button" value="p->x"
 	onclick="distributionService.getInverseStandardNormalDistribution($('distribution-snormal-p').value,distributionSNPXReply);"></div>
 <h4>二项分布</h4>
 <div><img alt="center"
-	src="/gadgets/distribution/image/binomailDistribution.png">p <input
-	id="distribution-b-pp" type="text" value="0" title="p"> trials<input
-	id="distribution-b-n" type="text" value="1" title="n"> <input
-	id="distribution-b-x" type="text" value="0" title="x"> <input
-	id="distribution-b-p" type="text" value="0" title="p"> <input
+	src="/gadgets/distribution/image/binomialDistribution.png">
+    <p>σ:: 
+      <input
+	id="distribution-b-pp" type="text" value="0" title="p">  </p>
+    <p>trials:<input
+	id="distribution-b-n" type="text" value="1" title="n"> </p>
+    <p>
+    
+    x: 
+      <input
+	id="distribution-b-x" type="text" value="0" title="x"> 
+    </p>
+    <p>p:
+      <input
+	id="distribution-b-p" type="text" value="0" title="p">  </p>
+    <p><input
 	type="button" value="x->p"
 	onclick="distributionService.getBinomialDistribution($('distribution-b-pp').value,$('distribution-b-n').value,$('distribution-b-x').value,distributionBXPReply);">
 <input type="button" value="p->x"
 	onclick="distributionService.getInverseBinomialDistribution($('distribution-b-pp').value,$('distribution-b-n').value,$('distribution-b-p').value,distributionBPXReply);">
+    </p>
 </div>
 <h4>指数分布</h4>
 <div><img alt="center"
-	src="/gadgets/distribution/image/exponentialDistribution.png">λ <input
-	id="distribution-e-sita" type="text" value="0" title="λ"> <input
-	id="distribution-e-x" type="text" value="0" title="x"> <input
-	id="distribution-e-p" type="text" value="0" title="p"> <input
+	src="/gadgets/distribution/image/exponentialDistribution.png"><p>λ:
+  <input
+	id="distribution-e-sita" type="text" value="0" title="λ"></p><p>x:<input
+	id="distribution-e-x" type="text" value="0" title="x"> </p><p>p:<input
+	id="distribution-e-p" type="text" value="0" title="p"></p><p> <input
 	type="button" value="x->p"
 	onclick="distributionService.getExponentialDistribution($('distribution-e-sita').value,$('distribution-e-x').value,distributionEXPReply);">
 <input type="button" value="x->p"
-	onclick="distributionService.getInverseExponentialDistribution($('distribution-e-sita').value,$('distribution-e-p').value,distributionEXPReply);">
+	onclick="distributionService.getInverseExponentialDistribution($('distribution-e-sita').value,$('distribution-e-p').value,distributionEXPReply);"></p>
 </div>
 <h4>t分布</h4>
-<div><img alt="center" src="/gadgets/distribution/image/t.png">
-<input id="distribution-t-ν" type="text" value="0" title="v"> <input
-	id="distribution-t-x" type="text" value="0" title="x"> <input
-	id="distribution-t-p" type="text" value="0" title="p"> <input
+<div><img alt="center" src="/gadgets/distribution/image/t.png"><p>ν:
+<input id="distribution-t-ν" type="text" value="0" title="v"></p><p>x: <input
+	id="distribution-t-x" type="text" value="0" title="x"> </p><p>p: <input
+	id="distribution-t-p" type="text" value="0" title="p"> </p><p> <input
 	type="button" value="x->p"
 	onclick="distributionService.getTDistribution($('distribution-t-v').value,$('distribution-t-x').value,distributionTXPReply);"><input
 	type="button" value="p->x"
-	onclick="distributionService.getInverseTDistribution($('distribution-t-v').value,$('distribution-t-p').value,distributionTPXReply);">
+	onclick="distributionService.getInverseTDistribution($('distribution-t-v').value,$('distribution-t-p').value,distributionTPXReply);"></p>
 </div>
 <h4>超几何分布</h4>
-<div><img alt="center" src="/gadgets/distribution/image/h.png">
-populationSize<input id="distribution-h-pp" type="text" value="0"
-	title="p"> numberOfSuccesses<input id="distribution-h-n"
-	type="text" value="0" title="p">sampleSize<input
-	id="distribution-h-s" type="text" value="0" title="p"><input
-	id="distribution-h-x" type="text" value="0" title="x"> <input
-	id="distribution-h-p" type="text" value="0" title="p"> <input
+<div ><img alt="center" src="/gadgets/distribution/image/h.png"><p>
+populationSize:
+<input id="distribution-h-pp" type="text" value="0"
+	title="p"></p><p> numberOfSuccesses:<input id="distribution-h-n"
+	type="text" value="0" title="p"></p><p>sampleSize:<input
+	id="distribution-h-s" type="text" value="0" title="p"></p><p>x:<input
+	id="distribution-h-x" type="text" value="0" title="x"> </p><p>p:<input
+	id="distribution-h-p" type="text" value="0" title="p"></p><p> <input
 	type="button" value="x->p"
-	onclick="distributionService.getHypergeometricDistribution($('distribution-h-pp').value,$('distribution-h-n').value,$('distribution-h-s').value,distributionHXPReply);">
+	onclick="distributionService.getHypergeometricDistribution($('distribution-h-pp').value,$('distribution-h-n').value,$('distribution-h-s').value,distributionHXPReply);"></p>
 </div>
 </div>
-
  ]]>
 	</Content>
 </Module>
