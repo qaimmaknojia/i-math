@@ -5,12 +5,16 @@
   <![CDATA[ 
 <style type="text/css">
 #distributionAccordion h4 {
-	height: 30px;
+	height: 20px;
 	padding-left: 30px;
 }
 
-#distributionAccordion{
+#distributionAccordion {
 	font-size: 16px;
+}
+
+#distributionAccordion input[type='text'] {
+	width: 90%;
 }
 </style>
 
