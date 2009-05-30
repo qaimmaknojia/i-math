@@ -288,7 +288,7 @@
 	<area shape="rect" alt="" title="Pound" coords="17,102,31,116"
 		onclick="insertText('\\mathsterling')">
 </map></div>
-
+</div></div>
 <div class="toolbar_space"></div>
 
 <div class="toolbar_wrapper">
