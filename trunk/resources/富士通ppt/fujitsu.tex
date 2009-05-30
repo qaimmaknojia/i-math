@@ -11,6 +11,7 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{multicol}
+\usepackage{colortbl}
 
 \setCJKmainfont[BoldFont=Adobe Heiti Std]{Adobe Song Std} % 设置默认的中文字体
 \setCJKfamilyfont{kai}{Adobe Kaiti Std}
@@ -28,10 +29,11 @@
 \definecolor{darkgreen}{rgb}{0,.39,0}
 \definecolor{hgray}{gray}{.5}
 \definecolor{lgray}{gray}{.8}
+\definecolor{mypink}{rgb}{.99,.91,.95}
 
 \graphicspath{{data/}} %%图片路径
 %  \DeclareGraphicsExtensions{.}
-% \hypersetup{pdfpagemode={FullScreen}} % 全屏幕
+ \hypersetup{pdfpagemode={FullScreen}} % 全屏幕
 
 \begin{document}
 
@@ -69,14 +71,16 @@
   \frametitle{横向软件对比}
 \begin{center}
 
-\begin{tabular}{m{0.3\textwidth}m{0.3\textwidth}}
-\hline
+\begin{tabular}{m{0.4\textwidth}m{0.4\textwidth}}
+\toprule
 iMath & 传统数学软件 \\
-\hline
+\midrule
+\rowcolor{lgray}
 免费   & 昂贵 \\
 轻型快速   & 趋于笨重   \\
+\rowcolor{lgray}
 灵活，个性化    & 单一普适   \\
-\hline
+\bottomrule
 \end{tabular}
 
 \end{center}
@@ -114,17 +118,20 @@ iMath & 传统数学软件 \\
 \begin{frame}
   \frametitle{优势}
 \begin{center}
-\begin{tabular}{m{0.3\textwidth}m{0.3\textwidth}}
-\hline
+\begin{tabular}{m{0.4\textwidth}m{0.4\textwidth}}
+\toprule
 云计算 & 传统应用 \\
-\hline
+\midrule
+\rowcolor{lgray}
 免费   & 昂贵($ \textdollar 9 / month$)    \\
 集群服务器   & 单服务器   \\
+\rowcolor{lgray}
 性能监视  & 比较难实现   \\
 强大的运算能力   & 有限的运算能力   \\
+\rowcolor{lgray}
 畅通的网络   & 单一网络环境   \\
 更有前景  & 前景有限   \\
-\hline
+\bottomrule
 \end{tabular}
 \end{center}
 \end{frame}
@@ -156,10 +163,9 @@ iMath & 传统数学软件 \\
 \item 测试系统：\href{ http://i-math.appspot.com/ifr.action?url=http://i-math.appspot.com/gadgets/add-gadget/add-gadget.xml}{\color{blue}测试地址}
 % http://i-math.appspot.com/ifr.action?url=http://i-math.appspot.com/gadgets/add-gadget/add-gadget.xml
 \item Gadget互操作实现
-\item Rest Rpc式的webService实现
+\item \href{http://i-math.appspot.com/dwr/index.html}{\color{blue}Rest Rpc式的webService实现}
 \end{itemize}
 \end{frame}
-
 \section{Gadgets}
 
 \begin{frame}
@@ -171,5 +177,10 @@ iMath & 传统数学软件 \\
 \end{itemize}
 
 \end{frame}
-
+\section{Q \& A}
+\begin{frame}
+\begin{Huge}\begin{center}
+            \textbf{  Q \& A}
+             \end{center}\end{Huge}
+\end{frame}
 \end{document}
