@@ -114,7 +114,7 @@ $j(function() {
 	onclick="distributionService.getInverseStandardNormalDistribution($('distribution-snormal-p').value,distributionSNPXReply);"></div>
 <h4>二项分布</h4>
 <div><img alt="center"
-	src="/gadgets/distribution/image/binomialDistribution.png">
+	src="/gadgets/distribution/image/CodeCogsEqn.png">
     <p>σ:: 
       <input
 	id="distribution-b-pp" type="text" value="0" title="p" style="wdith:80%">  </p>
