@@ -12,15 +12,14 @@ var calculatorReply = function(data) {
 <p
 	style="font: 14px bold Verdana, Geneva, sans-serif; margin-left: 30px;">输入表达式:</p>
 <form><textarea name="calculator-request" id="calculator-request"
-	style="width: 300px; height: 50px; margin-left: 30px;"></textarea></form>
+	style="width: 80%; height: 50px; margin-left: 30px;"></textarea></form>
 <input type="button" value="计算"
-	style="margin-top: 20px; margin-left: 260px; width: 60px; height: 25px;"
+	style="margin-top: 20px; margin-left: 200px; width: 60px; height: 25px;"
 	onclick="calculateService.calculate($('calculator-request').value,calculatorReply);" />
 <p
 	style="font: 14px bold Verdana, Geneva, sans-serif; margin-left: 30px; margin-top: 0px;">结果:</p>
 <p><input id="calculator-result" readonly
-	style="width: 300px; margin-left: 30px; margin-top: 0px;"> </input></p>
-
+	style="width: 80%; margin-left: 30px; margin-top: 0px;; margin-bottom:5%"> </input></p>
  ]]>
 	</Content>
 </Module>

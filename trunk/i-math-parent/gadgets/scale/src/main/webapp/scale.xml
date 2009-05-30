@@ -4,7 +4,7 @@
 	<Content type="html">
   <![CDATA[ 
 <div style="text-align: center; width: 100%;" id="smartcalculatordiv"><embed
-	style="width: 350px;height=350px;"
+	style="width: 95%;height=350px;"
 	src="gadgets/scale/scale.swf"
 	type="application/x-shockwave-flash" allowscriptaccess="always"
 	menu="false" /></div>
