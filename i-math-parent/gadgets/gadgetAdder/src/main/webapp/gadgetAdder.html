@@ -6,9 +6,13 @@
 <script type='text/javascript' src='/dwr/engine.js'></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.2/mootools-yui-compressed.js"></script>
-
 </head>
 <body>
+<style>
+#gadgetAdderForm input {
+	width: 90%;
+}
+</style>
 <script type='text/javascript'
 	src='/dwr/interface/gadgetRenderService.js'></script>
 <script type="text/javascript">
@@ -16,14 +20,34 @@ var gadgetAdderReply = function(data) {
 	$('gadgetAdderRes').set('text', '添加成功');
 }
 </script>
-name
-<input id="gadgetAdderName" type="text">
-description
-<input id="gadgetAdderDescription" type="text">
-url
-<input id="gadgetAdderUrl" type="text">
-<input type="button" value="添加"
-	onclick="gadgetRenderService.addGadget($('gadgetAdderName').value,$('gadgetAdderDescription').value,$('gadgetAdderUrl').value,gadgetAdderReply);" />
-<div id="gadgetAdderRes"></div>
+<form id="gadgetAdderForm">
+<table width="90%" cellspacing="0" cellpadding="1" border="0">
+	<tbody>
+		<tr>
+			<td nowrap="nowrap">名字：</td>
+			<td><input id="gadgetAdderName" type="text"></td>
+		</tr>
+		<tr>
+			<td nowrap="nowrap">描述：</td>
+			<td><input id="gadgetAdderDescription" type="text"></td>
+		</tr>
+
+		<tr>
+			<td nowrap="nowrap">url：</td>
+			<td><input id="gadgetAdderUrl" type="text"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right"><input type="button" value="添加"
+				style="width: auto; margin-right: 20px;"
+				onclick="gadgetRenderService.addGadget($('gadgetAdderName').value,$('gadgetAdderDescription').value,$('gadgetAdderUrl').value,gadgetAdderReply);"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<div id="gadgetAdderRes"></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</form>
 </body>
 </html>
