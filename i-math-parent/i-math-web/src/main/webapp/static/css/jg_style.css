@@ -6,7 +6,7 @@ html,body {
 #footer {
 	line-height: 37px;
 	height: 37px;
-	float:right;
+	padding-left:70%;
 	background: url("../images/h1-bg.gif") repeat-x;
 	color: #006aad;
 	border: 1px solid #c5e2f2;
