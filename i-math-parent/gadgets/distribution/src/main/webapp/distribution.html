@@ -89,22 +89,22 @@ $j(function() {
 <div><img alt="center"
 	src="/gadgets/distribution/image/normalDistribution.png"><p>μ:
   <input
-	id="distribution-normal-m" type="text" value="0" title="μ"> 
+	id="distribution-normal-m" type="text" value="0" title="μ" style="wdith:80%"> 
     </p>
     <p>
   σ:
   <input
-	id="distribution-normal-d" type="text" value="1" title="σ"> 
+	id="distribution-normal-d" type="text" value="1" title="σ" style="wdith:80%"> 
     </p>
     <p>
   x:
   <input
-	id="distribution-normal-x" type="text" value="2" title="x"> 
+	id="distribution-normal-x" type="text" value="2" title="x" style="wdith:80%"> 
     </p>
     <p>
   p:
   <input
-	id="distribution-normal-p" type="text" value="0.9772" title="p"> 
+	id="distribution-normal-p" type="text" value="0.9772" title="p" style="wdith:80%"> 
     </p>
     <p><input
 	type="button" value="x->p"
@@ -115,12 +115,12 @@ $j(function() {
 <div><img alt="center"
 	src="/gadgets/distribution/image/normalDistribution.png"> <p>x:
   <input
-	id="distribution-snormal-x" type="text" value="0" title="x">
+	id="distribution-snormal-x" type="text" value="0" title="x" style="wdith:80%">
      </p>
     <p> 
   p:
   <input
-	id="distribution-snormal-p" type="text" value="0" title="p"> 
+	id="distribution-snormal-p" type="text" value="0" title="p" style="wdith:80%"> 
     </p><input
 	type="button" value="x->p"
 	onclick="distributionService.getStandardNormalDistribution($('distribution-snormal-x').value,distributionSNXPReply);">
@@ -131,18 +131,18 @@ $j(function() {
 	src="/gadgets/distribution/image/binomialDistribution.png">
     <p>σ:: 
       <input
-	id="distribution-b-pp" type="text" value="0" title="p">  </p>
+	id="distribution-b-pp" type="text" value="0" title="p" style="wdith:80%">  </p>
     <p>trials:<input
-	id="distribution-b-n" type="text" value="1" title="n"> </p>
+	id="distribution-b-n" type="text" value="1" title="n" style="wdith:80%"> </p>
     <p>
     
     x: 
       <input
-	id="distribution-b-x" type="text" value="0" title="x"> 
+	id="distribution-b-x" type="text" value="0" title="x" style="wdith:80%"> 
     </p>
     <p>p:
       <input
-	id="distribution-b-p" type="text" value="0" title="p">  </p>
+	id="distribution-b-p" type="text" value="0" title="p" style="wdith:80%">  </p>
     <p><input
 	type="button" value="x->p"
 	onclick="distributionService.getBinomialDistribution($('distribution-b-pp').value,$('distribution-b-n').value,$('distribution-b-x').value,distributionBXPReply);">
@@ -154,9 +154,9 @@ $j(function() {
 <div><img alt="center"
 	src="/gadgets/distribution/image/exponentialDistribution.png"><p>λ:
   <input
-	id="distribution-e-sita" type="text" value="0" title="λ"></p><p>x:<input
-	id="distribution-e-x" type="text" value="0" title="x"> </p><p>p:<input
-	id="distribution-e-p" type="text" value="0" title="p"></p><p> <input
+	id="distribution-e-sita" type="text" value="0" title="λ" style="wdith:80%"></p><p>x:<input
+	id="distribution-e-x" type="text" value="0" title="x" style="wdith:80%"> </p><p>p:<input
+	id="distribution-e-p" type="text" value="0" title="p" style="wdith:80%"></p><p> <input
 	type="button" value="x->p"
 	onclick="distributionService.getExponentialDistribution($('distribution-e-sita').value,$('distribution-e-x').value,distributionEXPReply);">
 <input type="button" value="x->p"
@@ -164,9 +164,9 @@ $j(function() {
 </div>
 <h4>t分布</h4>
 <div><img alt="center" src="/gadgets/distribution/image/t.png"><p>ν:
-<input id="distribution-t-ν" type="text" value="0" title="v"></p><p>x: <input
-	id="distribution-t-x" type="text" value="0" title="x"> </p><p>p: <input
-	id="distribution-t-p" type="text" value="0" title="p"> </p><p> <input
+<input id="distribution-t-ν" type="text" value="0" title="v" style="wdith:80%"></p><p>x: <input
+	id="distribution-t-x" type="text" value="0" title="x" style="wdith:80%"> </p><p>p: <input
+	id="distribution-t-p" type="text" value="0" title="p" style="wdith:80%"> </p><p> <input
 	type="button" value="x->p"
 	onclick="distributionService.getTDistribution($('distribution-t-v').value,$('distribution-t-x').value,distributionTXPReply);"><input
 	type="button" value="p->x"
@@ -178,9 +178,9 @@ populationSize:
 <input id="distribution-h-pp" type="text" value="0"
 	title="p"></p><p> numberOfSuccesses:<input id="distribution-h-n"
 	type="text" value="0" title="p"></p><p>sampleSize:<input
-	id="distribution-h-s" type="text" value="0" title="p"></p><p>x:<input
-	id="distribution-h-x" type="text" value="0" title="x"> </p><p>p:<input
-	id="distribution-h-p" type="text" value="0" title="p"></p><p> <input
+	id="distribution-h-s" type="text" value="0" title="p" style="wdith:80%"></p><p>x:<input
+	id="distribution-h-x" type="text" value="0" title="x" style="wdith:80%"> </p><p>p:<input
+	id="distribution-h-p" type="text" value="0" title="p" style="wdith:80%"></p><p> <input
 	type="button" value="x->p"
 	onclick="distributionService.getHypergeometricDistribution($('distribution-h-pp').value,$('distribution-h-n').value,$('distribution-h-s').value,distributionHXPReply);"></p>
 </div>

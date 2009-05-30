@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Module id="univariateFunction">
 	<ModulePrefs title="一元方程解" />
 	<Content type="html">
@@ -40,7 +40,7 @@ var univariateFunctionReply = function(data) {
 </p>
 <p style="padding-left:10px">
 <a>结果：</a>
-<input id="univariateFunction-result" disabled style="width:180px;margin-left:40px;"></input>
+<input id="univariateFunction-result" readonly style="width:180px;margin-left:40px;"></input>
 </p>
  ]]>
 	</Content>
