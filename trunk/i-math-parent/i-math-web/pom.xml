@@ -173,7 +173,7 @@
 					-->
 					<execution>
 						<id>runserver</id>
-						<phase>compile</phase>
+						<phase>install</phase>
 						<configuration>
 							<tasks>
 								<ant antfile="${basedir}/build.xml">
