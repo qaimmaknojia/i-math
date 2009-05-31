@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="soria">
+<div><img id="google-chart-img" width="344px"
+	src="http://chart.apis.google.com/chart?chxl=0:|.0|10.0|20.0|30.0|40.0|50.0|60.0|70.0|80.0|90.0|1:|1.0|20.0|39.0|58.0|77.0|&chs=400x300&cht=lc&chd=s:ADGJMQTWZcgjmpswz259&chxt=x,y">
+<form>
+<table cellspacing="0" cellpadding="1" border="0">
+	<tbody>
+		<tr>
+			<td>y=</td>
+			<td><input id="google-chart-input" type="text" value="x+1"></td>
+		</tr>
+		<tr>
+			<td>最小值：</td>
+			<td><input id="google-chart-min" value="0"></td>
+		</tr>
+		<tr>
+			<td>最大值：</td>
+			<td><input id="google-chart-max" value="100"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right"><input type="button" value="绘图"
+				onclick="
+					callDraw();"></td>
+		</tr>
+	</tbody>
+</table>
+</form></div>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.2/mootools-yui-compressed.js"></script>
+
+<script type="text/javascript"
+	src="http://i-math.appspot.com/dwr/engine.js">
+  </script>
+<script type="text/javascript"
+	src="http://i-math.appspot.com/dwr/interface/chartService.js">
+  </script>
+<script type="text/javascript">
+var googleChartReplay=function(data){
+	$("google-chart-img").setProperty('src', data);
+};
+
+var callDraw=function(){
+	chartService._path = 'http://i-math.appspot.com/dwr';
+	chartService.draw(
+			$('google-chart-input').value,
+			$('google-chart-min').value,
+			$('google-chart-max').value,
+			{
+				  callback:googleChartReplay,
+				  rpcType:dwr.engine.ScriptTag
+			}
+			);
+};
+</script>
+</body>
+</html>

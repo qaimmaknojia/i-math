@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+	<msg name="min">min:</msg>
+	<msg name="max">max:</msg>
+	<msg name="draw">draw</msg>
+</messagebundle> 
