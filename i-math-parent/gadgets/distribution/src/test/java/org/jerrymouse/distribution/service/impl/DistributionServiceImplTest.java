@@ -1,11 +1,9 @@
 package org.jerrymouse.distribution.service.impl;
 
-import org.jerrymouse.distribution.service.DistributionService;
-
 import junit.framework.TestCase;
 
 public class DistributionServiceImplTest extends TestCase {
-	DistributionService distributionService;
+	DistributionServiceImpl distributionService;
 
 	@Override
 	protected void setUp() throws Exception {
@@ -27,9 +25,10 @@ public class DistributionServiceImplTest extends TestCase {
 		System.out.println(distributionService
 				.getInverseStandardNormalDistribution(0.9772));
 	}
+
 	public void testBinomialDistribution() throws Exception {
-		System.out.println(distributionService
-				.getBinomialDistribution(0.2, 20, 16));
+		System.out.println(distributionService.getBinomialDistribution(0.2, 20,
+				16));
 	}
-	
+
 }
