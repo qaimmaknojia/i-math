@@ -5,11 +5,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.jerrymouse</groupId>
   <artifactId>gadgetAdder</artifactId>
-  <name>gadgetAdder</name>
-  <version>1.0-SNAPSHOT</version>
-  <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
