@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+
+<link media="screen" type="text/css" rel="stylesheet"
+	href="http://i-math.appspot.com/static/css/redmond/jquery-ui-1.7.1.custom.css">
+<style type="text/css">
+#distributionAccordion h4 {
+	height: 20px;
+	padding-left: 30px;
+}
+
+#distributionAccordion {
+	font-size: 16px;
+}
+
+#distributionAccordion input[type='text'] {
+	width: 90%;
+}
+</style>
+<div id="distributionAccordion" style="width: 95%">
+<h4>正态分布</h4>
+<div><img alt="center"
+	src="http://i-math.appspot.com/gadgets/distribution/image/normalDistribution.png">
+<p>μ: <input id="distribution-normal-m" type="text" value="0"
+	title="μ" style="wdith: 80%"></p>
+<p>σ: <input id="distribution-normal-d" type="text" value="1"
+	title="σ" style="wdith: 80%"></p>
+<p>x: <input id="distribution-normal-x" type="text" value="2"
+	title="x" style="wdith: 80%"></p>
+<p>p: <input id="distribution-normal-p" type="text" value="0.9772"
+	title="p" style="wdith: 80%"></p>
+<p><input type="button" value="x->p"
+	onclick="distributionService.getNormalDistribution($('distribution-normal-d').value,$('distribution-normal-m').value,$('distribution-normal-x').value,{callback:distributionNXPReply,rpcType:dwr.engine.ScriptTag});">
+<input type="button" value="p->x"
+	onclick="distributionService.getInverseNormalDistribution($('distribution-normal-d').value,$('distribution-normal-m').value,$('distribution-normal-p').value,{callback:distributionNPXReply,rpcType:dwr.engine.ScriptTag});"></p>
+</div>
+<h4>标准正态分布</h4>
+<div><img alt="center"
+	src="http://i-math.appspot.com/gadgets/distribution/image/normalDistribution.png">
+<p>x: <input id="distribution-snormal-x" type="text" value="0"
+	title="x" style="wdith: 80%"></p>
+<p>p: <input id="distribution-snormal-p" type="text" value="0"
+	title="p" style="wdith: 80%"></p>
+<input type="button" value="x->p"
+	onclick="distributionService.getStandardNormalDistribution($('distribution-snormal-x').value,{callback:distributionSNXPReply,rpcType:dwr.engine.ScriptTag});">
+<input type="button" value="p->x"
+	onclick="distributionService.getInverseStandardNormalDistribution($('distribution-snormal-p').value,{callback:distributionSNPXReply,rpcType:dwr.engine.ScriptTag});"></div>
+<h4>二项分布</h4>
+<div><img alt="center"
+	src="http://i-math.appspot.com/gadgets/distribution/image/binomialDistribution.png">
+<p>σ:: <input id="distribution-b-pp" type="text" value="0" title="p"
+	style="wdith: 80%"></p>
+<p>trials:<input id="distribution-b-n" type="text" value="1"
+	title="n" style="wdith: 80%"></p>
+<p>x: <input id="distribution-b-x" type="text" value="0" title="x"
+	style="wdith: 80%"></p>
+<p>p: <input id="distribution-b-p" type="text" value="0" title="p"
+	style="wdith: 80%"></p>
+<p><input type="button" value="x->p"
+	onclick="distributionService.getBinomialDistribution($('distribution-b-pp').value,$('distribution-b-n').value,$('distribution-b-x').value,{callback:distributionBXPReply,rpcType:dwr.engine.ScriptTag});">
+<input type="button" value="p->x"
+	onclick="distributionService.getInverseBinomialDistribution($('distribution-b-pp').value,$('distribution-b-n').value,$('distribution-b-p').value,{callback:distributionBPXReply,rpcType:dwr.engine.ScriptTag});">
+</p>
+</div>
+<h4>指数分布</h4>
+<div><img alt="center"
+	src="/gadgets/distribution/image/exponentialDistribution.png">
+<p>λ: <input id="distribution-e-sita" type="text" value="0"
+	title="λ" style="wdith: 80%"></p>
+<p>x:<input id="distribution-e-x" type="text" value="0" title="x"
+	style="wdith: 80%"></p>
+<p>p:<input id="distribution-e-p" type="text" value="0" title="p"
+	style="wdith: 80%"></p>
+<p><input type="button" value="x->p"
+	onclick="distributionService.getExponentialDistribution($('distribution-e-sita').value,$('distribution-e-x').value,{callback:distributionEXPReply,rpcType:dwr.engine.ScriptTag});">
+<input type="button" value="x->p"
+	onclick="distributionService.getInverseExponentialDistribution($('distribution-e-sita').value,$('distribution-e-p').value,{callback:distributionEXPReply,rpcType:dwr.engine.ScriptTag});"></p>
+</div>
+<h4>t分布</h4>
+<div><img alt="center" src="/gadgets/distribution/image/t.png">
+<p>ν: <input id="distribution-t-ν" type="text" value="0" title="v"
+	style="wdith: 80%"></p>
+<p>x: <input id="distribution-t-x" type="text" value="0" title="x"
+	style="wdith: 80%"></p>
+<p>p: <input id="distribution-t-p" type="text" value="0" title="p"
+	style="wdith: 80%"></p>
+<p><input type="button" value="x->p"
+	onclick="distributionService.getTDistribution($('distribution-t-v').value,$('distribution-t-x').value,{callback:distributionTXPReply,rpcType:dwr.engine.ScriptTag});"><input
+	type="button" value="p->x"
+	onclick="distributionService.getInverseTDistribution($('distribution-t-v').value,$('distribution-t-p').value,{callback:distributionTPXReply,rpcType:dwr.engine.ScriptTag});"></p>
+</div>
+<h4>超几何分布</h4>
+<div><img alt="center" src="/gadgets/distribution/image/h.png">
+<p>populationSize: <input id="distribution-h-pp" type="text"
+	value="0" title="p"></p>
+<p>numberOfSuccesses:<input id="distribution-h-n" type="text"
+	value="0" title="p"></p>
+<p>sampleSize:<input id="distribution-h-s" type="text" value="0"
+	title="p" style="wdith: 80%"></p>
+<p>x:<input id="distribution-h-x" type="text" value="0" title="x"
+	style="wdith: 80%"></p>
+<p>p:<input id="distribution-h-p" type="text" value="0" title="p"
+	style="wdith: 80%"></p>
+<p><input type="button" value="x->p"
+	onclick="distributionService.getHypergeometricDistribution($('distribution-h-pp').value,$('distribution-h-n').value,$('distribution-h-s').value,{callback:distributionNXPReply,rpcType:dwr.engine.ScriptTag}distributionHXPReply);"></p>
+</div>
+</div>
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.2/mootools-yui-compressed.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
+
+<script type="text/javascript"
+	src="http://i-math.appspot.com/dwr/engine.js">
+  </script>
+<script type='text/javascript'
+	src='http://i-math.appspot.com/dwr/interface/distributionService.js'></script>
+
+<script type="text/javascript">
+var $j = jQuery.noConflict();
+
+var distributionNPXReply = function(data) {
+	$('distribution-normal-x').set('value', data);
+}
+
+var distributionNXPReply = function(data) {
+	$('distribution-normal-p').set('value', data);
+}
+
+var distributionSNPXReply = function(data) {
+	$('distribution-snormal-x').set('value', data);
+}
+
+var distributionSNXPReply = function(data) {
+	$('distribution-snormal-p').set('value', data);
+}
+
+var distributionBXPReply = function(data) {
+	$('distribution-b-p').set('value', data);
+}
+
+var distributionEXPReply = function(data) {
+	$('distribution-e-p').set('value', data);
+}
+
+var distributionBPXReply = function(data) {
+	$('distribution-b-x').set('value', data);
+}
+
+var distributionEPXReply = function(data) {
+	$('distribution-e-x').set('value', data);
+}
+
+
+var distributionTXPReply = function(data) {
+	$('distribution-t-p').set('value', data);
+}
+
+var distributionTPXReply = function(data) {
+	$('distribution-t-x').set('value', data);
+}
+
+var distributionHXPReply = function(data) {
+	$('distribution-h-p').set('value', data);
+}
+
+$j(function() {
+	distributionService._path = 'http://i-math.appspot.com/dwr';
+	$j("#distributionAccordion").accordion({
+			autoHeight: false
+});
+});
+
+</script>
+
+</body>
+</html>

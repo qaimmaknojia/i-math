@@ -1,113 +1,123 @@
 package org.jerrymouse.distribution.service.impl;
 
-import org.apache.commons.math.MathException;
-import org.apache.commons.math.distribution.BinomialDistributionImpl;
-import org.apache.commons.math.distribution.ContinuousDistribution;
-import org.apache.commons.math.distribution.Distribution;
-import org.apache.commons.math.distribution.ExponentialDistribution;
-import org.apache.commons.math.distribution.ExponentialDistributionImpl;
-import org.apache.commons.math.distribution.HypergeometricDistributionImpl;
-import org.apache.commons.math.distribution.NormalDistributionImpl;
-import org.apache.commons.math.distribution.TDistributionImpl;
-import org.jerrymouse.distribution.service.DistributionService;
+import org.jerrymouse.distribution.service.InverseDistributionService;
+import org.jerrymouse.distribution.service.PostiveDistributionService;
 
-public class DistributionServiceImpl implements DistributionService {
+public class DistributionServiceImpl implements PostiveDistributionService,
+		InverseDistributionService {
+	PostiveDistributionService postiveDistributionService;
+	InverseDistributionService inverseDistributionService;
 
-	@Override
-	public double getNormalDistribution(double d, double m, double x) {
-		ContinuousDistribution normalDistribution = new NormalDistributionImpl(
-				m, d);
-		return getCumulativeProbability(normalDistribution, x);
+	public DistributionServiceImpl() {
+		postiveDistributionService = new PostiveDistributionServiceImpl();
+		inverseDistributionService = new InverseDistributionServiceImpl();
 	}
 
 	@Override
-	public double getStandardNormalDistribution(double x) {
-		return getNormalDistribution(1, 0, x);
-	}
-
-	@Override
-	public double getExponentialDistribution(double sita, double x) {
-		ExponentialDistribution exponentialDistribution = new ExponentialDistributionImpl(
-				sita);
-		return getCumulativeProbability(exponentialDistribution, x);
-	}
-
-	@Override
-	public double getInverseNormalDistribution(double d, double m, double x) {
-		ContinuousDistribution normalDistribution = new NormalDistributionImpl(
-				m, d);
-		return getInverseCumulativeProbability(normalDistribution, x);
-	}
-
-	@Override
-	public double getInverseStandardNormalDistribution(double x) {
-		return getInverseNormalDistribution(1, 0, x);
-	}
-
-	@Override
-	public double getInverseExponentialDistribution(double sita, double x) {
-		ExponentialDistribution exponentialDistribution = new ExponentialDistributionImpl(
-				sita);
-		return getInverseCumulativeProbability(exponentialDistribution, x);
-	}
-
-	private double getCumulativeProbability(Distribution distribution, double x) {
-		double res = 0;
-		try {
-			res = distribution.cumulativeProbability(x);
-		} catch (MathException e) {
-			e.printStackTrace();
-		}
-		return res;
-	}
-
-	private double getInverseCumulativeProbability(
-			ContinuousDistribution distribution, double x) {
-		double res = 0;
-		try {
-			res = distribution.inverseCumulativeProbability(x);
-		} catch (MathException e) {
-			e.printStackTrace();
-		}
-		return res;
+	public double getBetaDistribution(double alpha, double beta, double x) {
+		return postiveDistributionService.getBetaDistribution(alpha, beta, x);
 	}
 
 	@Override
 	public double getBinomialDistribution(double p, int n, double x) {
-		Distribution distribution = new BinomialDistributionImpl(n, p);
-		return getCumulativeProbability(distribution, x);
+		return postiveDistributionService.getBinomialDistribution(p, n, x);
 	}
 
 	@Override
-	public double getInverseBinomialDistribution(double p, int n, double x) {
-		BinomialDistributionImpl distribution = new BinomialDistributionImpl(n,
-				p);
-		double res = 0;
-		try {
-			res = distribution.inverseCumulativeProbability(x);
-		} catch (MathException e) {
-			e.printStackTrace();
-		}
-		return res;
+	public double getCauchyDistribution(double median, double s, double x) {
+		return postiveDistributionService.getCauchyDistribution(median, s, x);
+	}
+
+	@Override
+	public double getChiSquaredDistribution(double df, double x) {
+		return postiveDistributionService.getChiSquaredDistribution(df, x);
+	}
+
+	@Override
+	public double getExponentialDistribution(double sita, double x) {
+		return postiveDistributionService.getExponentialDistribution(sita, x);
+	}
+
+	@Override
+	public double getFDistribution(double numeratorDegreesOfFreedom,
+			double denominatorDegreesOfFreedom, double x) {
+		return postiveDistributionService.getFDistribution(numeratorDegreesOfFreedom, denominatorDegreesOfFreedom, x);
+	}
+
+	@Override
+	public double getGammaDistribution(double alpha, double beta, double x) {
+		return postiveDistributionService.getGammaDistribution(alpha, beta, x);
 	}
 
 	@Override
 	public double getHypergeometricDistribution(int p, int n, int s, double x) {
-		Distribution distribution = new HypergeometricDistributionImpl(p, n, s);
-		return getCumulativeProbability(distribution, x);
+		return postiveDistributionService.getHypergeometricDistribution(p, n,
+				s, x);
 	}
 
 	@Override
-	public double getTDistribution(double degreesOfFreedom, double x) {
-		Distribution distribution = new TDistributionImpl(degreesOfFreedom);
-		return getCumulativeProbability(distribution, x);
+	public double getInverseBinomialDistribution(double p, int n, double x) {
+		return inverseDistributionService.getInverseBinomialDistribution(p, n,
+				x);
+	}
+
+	@Override
+	public double getInverseExponentialDistribution(double sita, double x) {
+		return inverseDistributionService.getInverseExponentialDistribution(
+				sita, x);
+	}
+
+	@Override
+	public double getInverseNormalDistribution(double d, double m, double x) {
+		return inverseDistributionService.getInverseNormalDistribution(d, m, x);
+	}
+
+	@Override
+	public double getInverseStandardNormalDistribution(double x) {
+		return inverseDistributionService
+				.getInverseStandardNormalDistribution(x);
 	}
 
 	@Override
 	public double getInverseTDistribution(double degreesOfFreedom, double x) {
-		ContinuousDistribution distribution = new TDistributionImpl(
-				degreesOfFreedom);
-		return getInverseCumulativeProbability(distribution, x);
+		return inverseDistributionService.getInverseTDistribution(
+				degreesOfFreedom, x);
+	}
+
+	@Override
+	public double getNormalDistribution(double d, double m, double x) {
+		return postiveDistributionService.getNormalDistribution(d, m, x);
+	}
+
+	@Override
+	public double getPascalDistribution(int r, double p, double x) {
+		return postiveDistributionService.getPascalDistribution(r, p, x);
+	}
+
+	@Override
+	public double getPoissonDistribution(double p, double x) {
+		return postiveDistributionService.getPoissonDistribution(p, x);
+	}
+
+	@Override
+	public double getStandardNormalDistribution(double x) {
+		return postiveDistributionService.getStandardNormalDistribution(x);
+	}
+
+	@Override
+	public double getTDistribution(double degreesOfFreedom, double x) {
+		return postiveDistributionService.getTDistribution(degreesOfFreedom, x);
+	}
+
+	@Override
+	public double getWeibullDistribution(double alpha, double beta, double x) {
+		return postiveDistributionService.getWeibullDistribution(alpha, beta, x);
+	}
+
+	@Override
+	public double getZipfDistribution(int numberOfElements, double exponent,
+			double x) {
+		return postiveDistributionService.getZipfDistribution(numberOfElements, exponent, x);
 	}
 
 }
