@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+
+<p><a style="padding-left:10px">表达式：</a>
+<input type="text" id="univariateFunction-expression" title="expression" value="1+x" style="width:150px;margin-left:25px;">
+<a>=0</a></p>
+<p><a style="padding-left:10px">定义域：</a><input type="text" id="univariateFunction-min" title="min" value="-100" style="width:80px;margin-left:30px;">
+
+<input type="text" id="univariateFunction-max" title="max" value="100" style="width:80px;margin-left:10px;">
+</p>
+<p style="padding-left:10px">
+<select id="univariateFunction-solver" >
+	<option value="bisectionSolver">分割法</option>
+	<option value="secantSolver">正割法</option>
+	<option value="newtonSolver">牛顿法</option>
+	<option value="mullerSolver">穆勒法</option>
+	<option value="laguerreSolver">拉盖尔法</option>
+	<option value="ridderSolver">里德法</option>
+</select>
+
+<input type="button" value="计算" style="margin-left:150px;width:50px"
+	onclick="
+		univariateFunctionService.getRootOfFunction(
+				$('univariateFunction-expression').value,
+				$('univariateFunction-min').value,
+				$('univariateFunction-max').value,
+				$('univariateFunction-solver').value, 
+				{callback:univariateFunctionReply,rpcType:dwr.engine.ScriptTag});">
+</p>
+<p style="padding-left:10px">
+<a>结果：</a>
+<input id="univariateFunction-result" readonly style="width:180px;margin-left:40px;"></input>
+</p>
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.2/mootools-yui-compressed.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+<script type="text/javascript"
+	src="http://i-math.appspot.com/dwr/engine.js">
+  </script>
+<script type='text/javascript'
+	src='http://i-math.appspot.com/dwr/interface/univariateFunctionService.js'></script>
+
+<script type="text/javascript">
+var $j = jQuery.noConflict();
+
+var univariateFunctionReply = function(data) {
+	$('univariateFunction-result').set('value', data);
+};
+
+$j(function() {
+	univariateFunctionService._path = 'http://i-math.appspot.com/dwr';
+});
+</script>
+
+</body>
+</html>
