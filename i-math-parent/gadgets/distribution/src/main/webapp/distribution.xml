@@ -70,7 +70,9 @@ var distributionHXPReply = function(data) {
 
 
 $j(function() {
-	$j("#distributionAccordion").accordion();
+	$j("#distributionAccordion").accordion({
+			autoHeight: false
+});
 });
 
 </script>
@@ -173,7 +175,61 @@ populationSize:
 	id="distribution-h-p" type="text" value="0" title="p" style="wdith:80%"></p><p> <input
 	type="button" value="x->p"
 	onclick="distributionService.getHypergeometricDistribution($('distribution-h-pp').value,$('distribution-h-n').value,$('distribution-h-s').value,distributionHXPReply);"></p>
+</div><h4>Beta分布</h4>
+<div>
+<p>alpha: <input id="distribution-beta-a" type="text" value="0"></p>
+<p>beta:<input id="distribution-beta-b" type="text" value="0"></p>
+<p>x:<input id="distribution-beta-x" type="text" value="0" title="x"
+	style="wdith: 80%"></p>
+<p>p:<input id="distribution-beta-p" type="text" value="0" title="p"
+	style="wdith: 80%"></p>
+<p><input type="button" value="x->p"
+	onclick="distributionService.getBetaDistribution($('distribution-beta-a').value,$('distribution-beta-b').value,$('distribution-beta-x').value,distributionBetaXPReply);"></p>
+<script type="text/javascript">
+var distributionBetaXPReply = function(data) {
+	$('distribution-beta-p').set('value', data);
+}
+</script></div>
+<h4>柯西分布</h4>
+<div>
+<p>median: <input id="distribution-Cauchy-m" type="text" value="0"></p>
+<p>s:<input id="distribution-Cauchy-s" type="text" value="0"></p>
+<p>x:<input id="distribution-Cauchy-x" type="text" value="0"
+	title="x" style="wdith: 80%"></p>
+<p>p:<input id="distribution-Cauchy-p" type="text" value="0"
+	title="p" style="wdith: 80%"></p>
+<p><input type="button" value="x->p"
+	onclick="distributionService.getCauchyDistribution(
+		$('distribution-Cauchy-m').value,
+		$('distribution-Cauchy-s').value,
+		$('distribution-Cauchy-x').value,
+		distributionCauchyXPReply);"></p>
+<script type="text/javascript">
+var distributionCauchyXPReply = function(data) {
+	$('distribution-Cauchy-p').set('value', data);
+}
+</script>
 </div>
+
+<h4>Chi-square分布</h4>
+<div>
+<p>df:<input id="distribution-chi-df" type="text" value="0"></p>
+<p>x:<input id="distribution-chi-x" type="text" value="0"
+	title="x" style="wdith: 80%"></p>
+<p>p:<input id="distribution-chi-p" type="text" value="0"
+	title="p" style="wdith: 80%"></p>
+<p><input type="button" value="x->p"
+	onclick="distributionService.getChiSquaredDistribution(
+		$('distribution-chi-df').value,
+		$('distribution-chi-x').value,
+		distributionChiXPReply);"></p>
+<script type="text/javascript">
+var distributionChiXPReply = function(data) {
+	$('distribution-chi-p').set('value', data);
+}
+</script>
+</div>
+
 </div>
 </body>
  ]]>
