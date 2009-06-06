@@ -83,12 +83,11 @@ var createTabContainer = function(index) {
 			item.addClass('activeTab');
 		}
 	});
-
 	cleancolumns();
-	writeColumn(mainContainer.tabs[index].leftGadget, "leftColumn");
-	writeColumn(mainContainer.tabs[index].middleGadget, "middleColumn");
-	writeColumn(mainContainer.tabs[index].rightGadget, "rightColumn");
-	var gadgets = getGadgets(mainContainer.tabs[index]);
+	writeColumn(mainContainer.tabs[tabIndex].leftGadget, "leftColumn");
+	writeColumn(mainContainer.tabs[tabIndex].middleGadget, "middleColumn");
+	writeColumn(mainContainer.tabs[tabIndex].rightGadget, "rightColumn");
+	var gadgets = getGadgets(mainContainer.tabs[tabIndex]);
 	createGadgets(gadgets);
 };
 
@@ -98,6 +97,7 @@ var cleancolumns = function() {
 	var left = $("leftColumn").empty();
 	var mid = $("middleColumn").empty();
 	$("rightColumn").empty();
+	
 };
 
 var writeColumn = function(gadgets, columnId) {
