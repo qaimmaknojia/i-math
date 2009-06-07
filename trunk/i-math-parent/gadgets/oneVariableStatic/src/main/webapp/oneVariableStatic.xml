@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module id="oneVarialbleStatic">
+	<ModulePrefs title="一维统计" />
+	<Content type="html">
+  <![CDATA[ 
+<link rel="stylesheet" type="text/css" media="screen"
+	href="http://i-math.appspot.com/static/css/grid-themes/sand/grid.css" />
+
+
+
+<script type="text/javascript">
+// We use a document ready jquery function.
+var $j = jQuery.noConflict();
+var oneVarialbleStaticLastSel;
+
+var oneVarialbleStaticData=[
+                            {id:'1'},
+                            {id:'2'},
+                            {id:'3'},
+                            {id:'4'},
+                            {id:'5'},
+                            {id:'6'},
+                            {id:'7'},
+                            {id:'8'},
+                            ];
+
+var oneVarialbleStaticAddEvent=function(){
+	var target=$$('#oneVarialbleStaticlist input');
+	if(target!=null){
+		target.addEvent('change', function(){
+			oneVarialbleStaticUpdate();
+		});
+	}
+};
+
+var oneVarialbleStaticUpdate=function(){
+	var model=new Array();
+	//load
+	var strBase="#oneVarialbleStaticlist ";
+	for(var i=0;i<oneVarialbleStaticData.length;i++){
+		var strX=strBase.concat("#",i+1,"_x");
+		var strN=strBase.concat("#",i+1,"_n");
+		var x=$$(strX);
+		var n=$$(strN);
+		
+			var xNum=parseFloat(x.get('value'));
+			var nNum=parseFloat(n.get('value'));
+			var xn=xNum*nNum;
+			var xn2=xNum*nNum*nNum;
+			var b1= isNaN(xNum);
+			var b2= isNaN(nNum);
+		if(!b1 && !b2){
+			var temp=new Object();
+			temp.x=xNum;
+			temp.n=nNum;
+			temp.xn=xn;
+			temp.xn2=xn2;
+			model.push(temp);
+
+			oneVarialbleStaticData[i].xn=xn;
+			oneVarialbleStaticData[i].xn2=xn2;
+			$j('#oneVarialbleStaticlist').setRowData(i+1,oneVarialbleStaticData[i]);
+		}
+	}
+	//setSUM
+	var xSum = 0;
+	var nSum=0;
+	var xnSum=0;
+	var xn2Sum=0;
+	var mean;
+	var mode;
+	var s2=0;
+	var s=0;
+	var skewness=0;
+	var kurtosis=0;
+	
+	if(model.length!=0){
+		mode=model[0].x;
+		for(var i=0;i<model.length;i++){
+			xSum+=model[i].x;
+			nSum+=model[i].n;
+			xnSum+=model[i].xn;
+			xn2Sum+=model[i].xn2;
+			if(model[i].x>mode){
+				mode=model[i].x;
+				}
+			}
+		mean=xnSum/nSum;
+		s2=xn2Sum-nSum*mean*mean;
+		s=Math.sqrt(s2);
+		skewness=getSkewness(model,mean);
+		kurtosis=getkurtosis(model,mean);
+		$('oneVarialbleStaticMean').set('text',mean);
+		$('oneVarialbleStaticMode').set('text',mode);
+		$('oneVarialbleStaticS').set('text',s);
+		$('oneVarialbleStaticS2').set('text',s2);
+		$('oneVarialbleStaticSkewness').set('text',skewness);
+		$('oneVarialbleStaticKurtosis').set('text',kurtosis);
+		$j('#oneVarialbleStaticlist').setRowData(oneVarialbleStaticData.length+1,{x:xSum,n:nSum,xn:xnSum,xn2:xn2Sum});
+	}
+};
+
+var getSkewness=function(model,mean){
+	var up=0;
+	var down=0;
+	for(var i=0;i<model.length;i++){
+		for(var n=0;n<model[i].n;n++){
+			up+=(model[i].x-mean)*(model[i].x-mean)*(model[i].x-mean);
+			down+=(model[i].x-mean)*(model[i].x-mean);
+		}
+	}
+	var g=up/n/(Math.pow(down/n,1.5));
+	return g;
+};
+
+var getkurtosis=function(model,mean){
+	var up=0;
+	var down=0;
+	for(var i=0;i<model.length;i++){
+		for(var n=0;n<model[i].n;n++){
+			up+=(model[i].x-mean)*(model[i].x-mean)*(model[i].x-mean)*(model[i].x-mean);
+			down+=(model[i].x-mean)*(model[i].x-mean);
+		}
+	}
+	var g=up/n/(Math.pow(down/n,2))-3;
+	return g;
+};
+
+jQuery("#oneVarialbleStaticlist").ready(function() {
+	jQuery("#oneVarialbleStaticlist").jqGrid({
+	datatype: "clientSide",
+    colNames:['#','x', 'n', 'xn','xn^2'],
+    colModel:[
+        {name:'id',index:'id', width:55},
+        {name:'x',index:'x',  editable:true , width:80},
+    	  {name:'n',index:'n', editable:true, width:80},
+        {name:'xn',index:'xn',  width:80},
+        {name:'xn2',index:'xn',  width:80}],
+    imgpath: 'http://i-math.appspot.com/static/css/grid-themes/sand/images',
+    viewrecords: true,
+    caption: "一维统计",
+    shrinkToFit:true,
+    	height:230
+	}
+	);
+
+	
+	for(var i=0;i<oneVarialbleStaticData.length;i++){
+		$j('#oneVarialbleStaticlist').addRowData(i+1,oneVarialbleStaticData[i]);
+		$j('#oneVarialbleStaticlist').editRow(i+1,true);
+	}
+	$j('#oneVarialbleStaticlist').addRowData(oneVarialbleStaticData.length+1,{id:'总和:'});
+	oneVarialbleStaticAddEvent();
+});
+
+
+
+</script>
+
+<table id="oneVarialbleStaticlist" class="scroll" cellpadding="0"
+	cellspacing="0"></table>
+<table cellpadding="0" cellspacing="0" style="width: 400px" border="0">
+	<tbody style="font-size: small">
+		<tr>
+			<td style="width: 50%">平均数：<span id="oneVarialbleStaticMean" ></span></td>
+			<td style="width: 50%">最大数：<span id="oneVarialbleStaticMode"></span></td>
+		</tr>
+				<tr>
+			<td style="width: 50%">标准差：<span id="oneVarialbleStaticS"></span></td>
+			<td style="width: 50%">标准差平方：<span id="oneVarialbleStaticS2"></span></td>
+		</tr>
+		<tr>
+			<td style="width: 50%">Skewness：<span id="oneVarialbleStaticSkewness"></span></td>
+			<td style="width: 50%">Kurtosis：<span id="oneVarialbleStaticKurtosis"></span></td>
+		</tr>
+	</tbody>
+</table>
+ ]]>
+	</Content>
+</Module>
