@@ -4,6 +4,7 @@ dojo.require("dijit.Dialog");
 dojo.require("dijit.form.ValidationTextBox");
 dojo.require("dojox.validate.regexp");
 dojo.require("dojox.widget.FisheyeLite");
+dojo.require("dojox.grid.DataGrid");
 
 var $j = jQuery.noConflict();
 
@@ -97,7 +98,7 @@ var cleancolumns = function() {
 	var left = $("leftColumn").empty();
 	var mid = $("middleColumn").empty();
 	$("rightColumn").empty();
-	
+
 };
 
 var writeColumn = function(gadgets, columnId) {
@@ -172,6 +173,7 @@ var loadGadget = function(gadget) {
 		loadJS(gadget.javascripts[i]);
 	}
 	loadJSSrc(gadget.javascriptSrc);
+	dojo.parser.parse();
 };
 
 var loadJS = function(fileUrl) {
@@ -314,7 +316,7 @@ var addGadget = function(str) {
 	});
 	$("leftColumn").grab(gadgetDiv);
 	var parentUrl = 'http://' + document.location.host;
-	gadgetRenderService.renderGadget(id, getUrl(url) , loadGadget);
+	gadgetRenderService.renderGadget(id, getUrl(url), loadGadget);
 	appendMode(id, url, name, nickName);
 };
 
