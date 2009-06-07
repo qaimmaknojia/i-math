@@ -117,8 +117,11 @@ public class User {
 		Gadget distribution = new Gadget("distribution", "3d绘图器",
 				"/gadgets/distribution/distribution.xml");
 		Gadget gadgetAdder = new Gadget("gadgetAdder", "Gadget添加器",
-		"/gadgets/gadgetAdder/gadgetAdder.xml");
-		
+				"/gadgets/gadgetAdder/gadgetAdder.xml");
+		Gadget oneVariableStatic = new Gadget("oneVariableStatic", "一维统计",
+				"/gadgets/oneVariableStatic/oneVariableStatic.xml");
+		Gadget twoVariableStatic = new Gadget("twoVariableStatic", "二维统计",
+		"/gadgets/twoVariableStatic/twoVariableStatic.xml");
 		GadgetDao gadgetDao = user.getGadgetDao();
 
 		gadgetDao.save(latex2image);
@@ -132,6 +135,8 @@ public class User {
 		gadgetDao.save(googleChart);
 		gadgetDao.save(distribution);
 		gadgetDao.save(gadgetAdder);
+		gadgetDao.save(oneVariableStatic);
+		gadgetDao.save(twoVariableStatic);
 
 		GadgetContainer container1 = new GadgetContainer("计算器");
 		GadgetContainer container2 = new GadgetContainer("绘图");
@@ -149,8 +154,9 @@ public class User {
 		container2.addRight(googleChart);
 
 		container3.addLeft(univariateFunction);
-		
+
 		container4.addLeft(distribution);
+		container4.addMiddle(oneVariableStatic);
 
 		container5.addLeft(sudoku);
 		container5.addMiddle(scale);

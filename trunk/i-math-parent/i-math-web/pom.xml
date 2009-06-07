@@ -140,6 +140,15 @@
 							<directory>${basedir}/../gadgets/gadgetAdder/src/main/webapp/</directory>
 							<targetPath>gadgets/gadgetAdder</targetPath>
 						</resource>
+
+						<resource>
+							<directory>${basedir}/../gadgets/oneVariableStatic/src/main/webapp/</directory>
+							<targetPath>gadgets/oneVariableStatic</targetPath>
+						</resource>
+												<resource>
+							<directory>${basedir}/../gadgets/twoVariableStatic/src/main/webapp/</directory>
+							<targetPath>gadgets/twoVariableStatic</targetPath>
+						</resource>
 					</webResources>
 				</configuration>
 				<executions>
