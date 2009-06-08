@@ -33,12 +33,12 @@
 
 \graphicspath{{data/}} %%图片路径
 %  \DeclareGraphicsExtensions{.}
- \hypersetup{pdfpagemode={FullScreen}} % 全屏幕
+  \hypersetup{pdfpagemode={FullScreen}} % 全屏幕
 
 \begin{document}
 
 % \author{颜开}
-\title{  云计算应用   \textcolor{darkgreen}{\textbf{iMath}}}
+\title{   \textcolor{darkgreen}{\textbf{iMath}}}
 \date{\today}
 \author{Jerry Mouse}
 
@@ -60,13 +60,15 @@
   }
 }
 
-\section{iMath第一面}
+\section{胡吹大气iMath}
+
 \subsection{网站地址}
 \begin{frame}
   \frametitle{网站地址}
 \begin{LARGE}\href{http://i-math.appspot.com/}{\color{blue}http://i-math.appspot.com/}
 \end{LARGE}\end{frame}
 
+\subsection{软件功能}
 \begin{frame}
   \frametitle{横向软件对比}
 \begin{center}
@@ -86,57 +88,35 @@ iMath & 传统数学软件 \\
 \end{center}
 \end{frame}
 
-\section{Architecture}
-\subsection{云计算？}
+\begin{frame}
+  \frametitle{特点}
+\begin{itemize}
+\item 基本操作：拖拽，添加，删除 功能模块
+\item 开放式添加 功能模块
+\item AOP缓存系统
+\item 测试系统：\href{http://i-math.appspot.com/ifr.action?url=http://i-math.appspot.com/gadgets/add-gadget/add-gadget.xml}{\color{blue}测试地址}
+\item Gadget互操作实现
+\item \href{http://i-math.appspot.com/dwr/index.html}{\color{blue}Rest Rpc式的webService实现}
+\end{itemize}
+\end{frame}
+
+
+\subsection{项目规模}
 
 \begin{frame}
-  \frametitle{Google云计算平台}
+  \frametitle{项目规模}
 \begin{itemize}
 \begin{minipage}[c]{0.6\textwidth}
- \item \href{http://code.google.com/appengine/}{\color{blue}Google App Engine}
- \item 充满挑战
- \item 充满乐趣
+\item 23个子项目
+\item 26655 行各种代码
+\item 1641 行构建代码
   \end{minipage}
   \begin{minipage}[c]{0.3\textwidth}
-  \includegraphics[width=\textwidth]{appengine_lowres.ps}
+  \includegraphics[width=\textwidth]{eclipse.ps}
   \end{minipage}
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{很困难？}
-\begin{itemize}
- \item \href{http://code.google.com/p/ssgtemplate/}{\color{blue}伴生项目ssgtemplate}
-\item 服务器沙箱
-\item 没有完全实现的Java类库
-\item JPA vs JDO vs Bugs
-\item 数据库 or 文件系统
-\item 集群服务器
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{优势}
-\begin{center}
-\begin{tabular}{m{0.4\textwidth}m{0.4\textwidth}}
-\toprule
-云计算 & 传统应用 \\
-\midrule
-\rowcolor{lgray}
-免费   & 昂贵($ \textdollar 9 / month$)    \\
-集群服务器   & 单服务器   \\
-\rowcolor{lgray}
-性能监视  & 比较难实现   \\
-强大的运算能力   & 有限的运算能力   \\
-\rowcolor{lgray}
-畅通的网络   & 单一网络环境   \\
-更有前景  & 前景有限   \\
-\bottomrule
-\end{tabular}
-\end{center}
-\end{frame}
-
-\subsection{项目构建}
 \begin{frame}
   \frametitle{项目结构}
 \begin{itemize}
@@ -152,31 +132,79 @@ iMath & 传统数学软件 \\
 \end{itemize}
 \end{frame}
 
-\section{Gadget引擎}
+\section{开发所得}
+\subsection{让应用部署在公网上}
 
 \begin{frame}
-  \frametitle{特点}
+  \frametitle{It's impossible}
 \begin{itemize}
-\item 基本操作：拖拽，添加，删除
-\item 开放式添加Gadget
-\item AOP缓存系统
-\item 测试系统：\href{http://192.168.1.100:8080/ifr.action?url=http://i-math.appspot.com/gadgets/add-gadget/add-gadget.xml}{\color{blue}测试地址}
-% http://i-math.appspot.com/ifr.action?url=http://i-math.appspot.com/gadgets/add-gadget/add-gadget.xml
-\item Gadget互操作实现
-\item \href{http://192.168.1.100:8080/dwr/index.html}{\color{blue}Rest Rpc式的webService实现}
+\begin{minipage}[c]{0.6\textwidth}
+ \item 使用自己的电脑+动态域名
+ \item 使用免费托管服务
+\item 那就用付费的吧
+\item 去机房租台
+\item 挪用软院的服务器
+\pause
+ \item \href{http://code.google.com/appengine/}{\color{blue}Google App Engine}
+  \end{minipage}
+  \begin{minipage}[c]{0.3\textwidth}
+  \includegraphics[width=\textwidth]{appengine_lowres.ps}
+  \end{minipage}
 \end{itemize}
 \end{frame}
-\section{Gadgets}
 
 \begin{frame}
-  \frametitle{功能模块}
+  \frametitle{哪些挑战}
 \begin{itemize}
-\item 计算器
-\item 解方程
-\item 概率分布
+\item 一个有洁癖的服务器沙箱
+\begin{itemize}
+ \item Spring,Struts,CXF.....
 \end{itemize}
-
+\item 没有完全实现的Java类库
+\begin{itemize}
+ \item javax.ws,osgi.....
+\end{itemize}
+\item BigTable
+\item 集群服务器
+\item 速度非快
+\end{itemize}
 \end{frame}
+
+\begin{frame}
+  \frametitle{BigTable with his bugs}
+\framesubtitle{BigTable  是构建在Goolge文件系统 (GFS) 上的高性能 压缩的 列数据库.}
+\begin{itemize}
+\item JDO \& JPA 接口
+\item 列数据库
+\begin{itemize}
+ \item 你得自己构建索引
+\end{itemize}
+ \item \href{http://appengine.google.com/}{\color{blue}管理界面}
+\end{itemize}
+\end{frame}
+
+\subsection{RIA有感}
+
+\begin{frame}
+  \frametitle{RIA有感}
+\begin{itemize}
+\item Flex
+\item SliverLight
+\item Curl
+\item Html5+Javascript
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{JavaScript框架}
+\begin{itemize}
+\item Dojo:妄图包揽一切的集大成者
+\item JQuery:开放的社区,霸道的设计
+\item Ext+Gwt:无敌组合
+\item Mootools:简单就是美
+\end{itemize}
+\end{frame}
+
 \section{Q \& A}
 \begin{frame}
 \begin{Huge}\begin{center}
