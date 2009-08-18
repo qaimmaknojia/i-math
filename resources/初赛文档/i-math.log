@@ -1,4 +1,4 @@
-This is XeTeXk, Version 3.1415926-2.2-0.999.6 (Web2C 7.5.7) (format=xelatex 2009.1.13)  20 MAY 2009 20:28
+This is XeTeXk, Version 3.1415926-2.2-0.999.6 (Web2C 7.5.7) (format=xelatex 2009.1.13)  5 AUG 2009 10:56
 entering extended mode
  %&-line parsing enabled.
 **i-math.tex
@@ -319,11 +319,11 @@ File: hdvipdfm.def 2008/08/14 v6.78f Hyperref driver for dvipdfm
 \HyField@AnnotCount=\count119
 \Fld@listcount=\count120
 )
-\c@zf@famc@Adobe Song Std=\count121
-Package fontspec Info: Defining font family for 'Adobe Song Std' with options [
-BoldFont={Adobe Song Std},ItalicFont={Adobe Song Std},BoldItalicFont={Adobe Son
-g Std},BoldFont=Adobe Heiti Std,ItalicFeatures={RawFeature={slant=0.17}},BoldIt
-alicFeatures={RawFeature={slant=0.17}}] on input line 22.
+\c@zf@famc@hkSong=\count121
+Package fontspec Info: Defining font family for 'hkSong' with options [BoldFont
+={hkSong},ItalicFont={hkSong},BoldItalicFont={hkSong},BoldFont=Adobe Heiti Std,
+ItalicFeatures={RawFeature={slant=0.17}},BoldItalicFeatures={RawFeature={slant=
+0.17}}] on input line 22.
 LaTeX Info: Redefining \xeCJK@font@ on input line 22.
 \c@zf@famc@Adobe Kaiti Std=\count122
 Package fontspec Info: Defining font family for 'Adobe Kaiti Std' with options 
@@ -478,7 +478,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.56204pt.
+ Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -499,7 +499,7 @@ File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 )
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.63403pt.
+ Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -527,7 +527,7 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 101--102
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.63403pt.
+ Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -546,7 +546,7 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 116--117
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.58604pt.
+ Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -559,7 +559,7 @@ Overfull \hbox (17.62482pt too wide) in paragraph at lines 142--143
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.59804pt.
+ Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -574,7 +574,7 @@ File: data/java.png Graphic file (type QTm)
 <use  "data/java.png" >
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.59804pt.
+ Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -588,8 +588,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [8] (./i-math.aux) ) 
 Here is how much of TeX's memory you used:
  8995 strings out of 494708
- 144863 string characters out of 1168351
- 292945 words of memory out of 3500000
+ 144623 string characters out of 1168351
+ 292869 words of memory out of 3500000
  12023 multiletter control sequences out of 10000+50000
  7261 words of font info for 53 fonts, out of 3000000 for 5000
  669 hyphenation exceptions out of 8191
