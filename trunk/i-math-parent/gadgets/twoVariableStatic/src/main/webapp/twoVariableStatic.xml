@@ -98,8 +98,14 @@ var twoVarialbleStaticUpdate=function(){
 			}
 		xmean=nxSum/nSum;
 		ymean=nySum/nSum;
-		xs2=nx2Sum-nSum*xmean*xmean;
-		ys2=ny2Sum-nSum*ymean*ymean;
+		for(var i=0;i<model.length;i++){
+			xs2+=model[i].n*(model[i].x-xmean)*(model[i].x-xmean);
+		}
+		xs2=xs2/nSum;
+		for(var i=0;i<model.length;i++){
+			ys2+=model[i].n*(model[i].y-ymean)*(model[i].y-ymean);
+		}
+		ys2=ys2/nSum;
 		xs=Math.sqrt(xs2);
 		ys=Math.sqrt(ys2);
 		$j('#twoVarialbleStaticlist').setRowData(twoVarialbleStaticData.length+1,{x:xSum,y:ySum,n:nSum,nx:nxSum,ny:nySum});

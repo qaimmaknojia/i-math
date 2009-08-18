@@ -86,7 +86,10 @@ var oneVarialbleStaticUpdate=function(){
 				}
 			}
 		mean=xnSum/nSum;
-		s2=xn2Sum-nSum*mean*mean;
+		for(var i=0;i<model.length;i++){
+			s2+=model[i].n*(model[i].x-mean)*(model[i].x-mean);
+		}
+		s2=s2/nSum;
 		s=Math.sqrt(s2);
 		skewness=getSkewness(model,mean);
 		kurtosis=getkurtosis(model,mean);
